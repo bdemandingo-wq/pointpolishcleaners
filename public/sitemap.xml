@@ -12,6 +12,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- County Pages -->
   <url>
     <loc>https://tidywisecleaning.com/broward-county-cleaning</loc>
     <lastmod>2025-01-01</lastmod>
@@ -30,6 +32,46 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- City Pages -->
+  <url>
+    <loc>https://tidywisecleaning.com/fort-lauderdale-cleaning</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidywisecleaning.com/boca-raton-cleaning</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidywisecleaning.com/miami-beach-cleaning</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidywisecleaning.com/coral-springs-cleaning</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidywisecleaning.com/west-palm-beach-cleaning</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidywisecleaning.com/hollywood-cleaning</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog Posts -->
   <url>
     <loc>https://tidywisecleaning.com/blog/broward-cost-guide</loc>
     <lastmod>2025-01-01</lastmod>
@@ -48,6 +90,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- Other Pages -->
   <url>
     <loc>https://tidywisecleaning.com/apply</loc>
     <lastmod>2025-01-01</lastmod>

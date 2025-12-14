@@ -22,6 +22,14 @@ const BrowardCountyCleaning = lazy(() => import("./pages/BrowardCountyCleaning")
 const MiamiDadeCleaning = lazy(() => import("./pages/MiamiDadeCleaning"));
 const PalmBeachCountyCleaning = lazy(() => import("./pages/PalmBeachCountyCleaning"));
 
+// City landing pages
+const FortLauderdaleCleaning = lazy(() => import("./pages/cities/FortLauderdaleCleaning"));
+const BocaRatonCleaning = lazy(() => import("./pages/cities/BocaRatonCleaning"));
+const MiamiBeachCleaning = lazy(() => import("./pages/cities/MiamiBeachCleaning"));
+const CoralSpringsCleaning = lazy(() => import("./pages/cities/CoralSpringsCleaning"));
+const WestPalmBeachCleaning = lazy(() => import("./pages/cities/WestPalmBeachCleaning"));
+const HollywoodCleaning = lazy(() => import("./pages/cities/HollywoodCleaning"));
+
 // Blog posts
 const BrowardCostGuide = lazy(() => import("./pages/blog/BrowardCostGuide"));
 const MiamiPermitRules = lazy(() => import("./pages/blog/MiamiPermitRules"));
@@ -51,6 +59,14 @@ const App = () => (
                 <Route path="/broward-county-cleaning" element={<BrowardCountyCleaning />} />
                 <Route path="/miami-dade-cleaning" element={<MiamiDadeCleaning />} />
                 <Route path="/palm-beach-county-cleaning" element={<PalmBeachCountyCleaning />} />
+                
+                {/* City Landing Pages */}
+                <Route path="/fort-lauderdale-cleaning" element={<FortLauderdaleCleaning />} />
+                <Route path="/boca-raton-cleaning" element={<BocaRatonCleaning />} />
+                <Route path="/miami-beach-cleaning" element={<MiamiBeachCleaning />} />
+                <Route path="/coral-springs-cleaning" element={<CoralSpringsCleaning />} />
+                <Route path="/west-palm-beach-cleaning" element={<WestPalmBeachCleaning />} />
+                <Route path="/hollywood-cleaning" element={<HollywoodCleaning />} />
                 
                 {/* Blog Posts */}
                 <Route path="/blog/broward-cost-guide" element={<BrowardCostGuide />} />
