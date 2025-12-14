@@ -43,10 +43,10 @@ const BookingForm = () => {
   });
   const [preferredDate, setPreferredDate] = useState<Date | undefined>();
 
-  // Calculate minimum date (tomorrow)
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow.setHours(0, 0, 0, 0);
+  // Calculate minimum date (2 days from now - no same-day or next-day bookings)
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + 2);
+  minDate.setHours(0, 0, 0, 0);
 
   if (!booking) {
     return (
@@ -205,7 +205,7 @@ const BookingForm = () => {
                         mode="single"
                         selected={preferredDate}
                         onSelect={setPreferredDate}
-                        disabled={(date) => date < tomorrow}
+                        disabled={(date) => date < minDate}
                         initialFocus
                         className={cn("p-3 pointer-events-auto")}
                       />
