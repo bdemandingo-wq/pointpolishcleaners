@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import AIChatbot from "@/components/AIChatbot";
 import ServiceAreaLinks from "@/components/seo/ServiceAreaLinks";
 import SEOSchema from "@/components/seo/SEOSchema";
-import StickyCallButton from "@/components/seo/StickyCallButton";
 
 const Index = () => {
   return (
@@ -29,7 +28,6 @@ const Index = () => {
         <Contact />
         <Footer />
         <AIChatbot />
-        <StickyCallButton />
       </main>
     </>
   );
