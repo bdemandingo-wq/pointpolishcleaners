@@ -48,7 +48,7 @@ const Confirmation = () => {
             <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-12 h-12 text-green-600" />
             </div>
-            <h1 className="font-display text-3xl font-bold text-foreground mb-2">
+            <h1 className="text-3xl font-bold text-foreground mb-2">
               Booking Confirmed!
             </h1>
             <p className="text-muted-foreground">

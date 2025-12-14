@@ -108,9 +108,6 @@ const handler = async (req: Request): Promise<Response> => {
             
             <p>Please allow us a 1-hour window to deal with traffic, parking, and other surprises.</p>
             
-            <p>📘 Please click here to review our full list of FAQs:<br>
-            👉 <a href="https://tidywisecleaning.com/faqs" style="color: #2563eb;">Customer FAQs</a></p>
-            
             <p>We are very excited to help you! 💛<br>
             Below, you will find additional information regarding your booking and our company.<br>
             You may refer to it at any time.</p>
@@ -165,9 +162,7 @@ const handler = async (req: Request): Promise<Response> => {
             <p>The cleaners will not be moving furniture or appliances over 20 lbs for safety and insurance reasons.</p>
             <p>If you have larger furniture or appliances that need to be cleaned under or behind, please have them pulled out in preparation for the appointment.</p>
             
-            <h2 style="color: #2563eb;">📄 Important Links</h2>
-            <p>🔗 <a href="https://tidywisecleaning.com/privacy" style="color: #2563eb;">Privacy Policy</a></p>
-            <p>Please feel free to review them and let us know if you have any questions at all.</p>
+            <p>Please feel free to let us know if you have any questions at all.</p>
             <p>We look forward to servicing you and your home! 🏡✨</p>
             
             <hr style="border: none; border-top: 2px solid #2563eb; margin: 30px 0;">
