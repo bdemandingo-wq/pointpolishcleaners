@@ -80,6 +80,54 @@ export type Database = {
         }
         Relationships: []
       }
+      cleaner_applications: {
+        Row: {
+          can_provide_references: boolean
+          created_at: string
+          email: string
+          has_insurance: boolean
+          has_supplies: boolean
+          has_transportation: boolean
+          id: string
+          name: string
+          status: string
+          supply_pictures: string[] | null
+          updated_at: string
+          work_areas: string[]
+          years_experience: number
+        }
+        Insert: {
+          can_provide_references?: boolean
+          created_at?: string
+          email: string
+          has_insurance?: boolean
+          has_supplies?: boolean
+          has_transportation?: boolean
+          id?: string
+          name: string
+          status?: string
+          supply_pictures?: string[] | null
+          updated_at?: string
+          work_areas?: string[]
+          years_experience?: number
+        }
+        Update: {
+          can_provide_references?: boolean
+          created_at?: string
+          email?: string
+          has_insurance?: boolean
+          has_supplies?: boolean
+          has_transportation?: boolean
+          id?: string
+          name?: string
+          status?: string
+          supply_pictures?: string[] | null
+          updated_at?: string
+          work_areas?: string[]
+          years_experience?: number
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

@@ -10,6 +10,7 @@ import Confirmation from "./pages/Confirmation";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import CustomerPortal from "./pages/CustomerPortal";
+import CleanerApplication from "./pages/CleanerApplication";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/my-bookings" element={<CustomerPortal />} />
+            <Route path="/apply" element={<CleanerApplication />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

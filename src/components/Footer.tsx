@@ -12,6 +12,12 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-6">
             <Link 
+              to="/apply" 
+              className="text-background/70 hover:text-background text-sm transition-colors"
+            >
+              Join Our Team
+            </Link>
+            <Link 
               to="/auth" 
               className="text-background/70 hover:text-background text-sm transition-colors"
             >
