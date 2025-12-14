@@ -21,6 +21,7 @@ interface BookingRequest {
   frequency: string;
   addOns: string[];
   totalPrice: string;
+  preferredDate: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -46,9 +47,11 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "TidyWise Cleaning <support@tidywisecleaning.com>",
         to: ["support@tidywisecleaning.com"],
-        subject: `New Booking Request from ${booking.customerName}`,
+        subject: `New Booking Request from ${booking.customerName} - ${booking.preferredDate}`,
         html: `
           <h1>New Booking Request!</h1>
+          <h2>📅 Requested Date: ${booking.preferredDate}</h2>
+          
           <h2>Customer Information</h2>
           <ul>
             <li><strong>Name:</strong> ${booking.customerName}</li>
@@ -172,6 +175,7 @@ const handler = async (req: Request): Promise<Response> => {
             <div style="background: #f0f9ff; padding: 20px; border-radius: 10px; text-align: center;">
               <h2 style="color: #2563eb; margin-top: 0;">📱 CONFIRMATION MESSAGE</h2>
               <p style="font-size: 18px;"><strong>✅ Booking Confirmed!</strong></p>
+              <p style="font-size: 18px;">📅 <strong>Requested Date:</strong> ${booking.preferredDate}</p>
               <p>🧽 <strong>Service Type:</strong> ${booking.serviceType}</p>
               <p>📍 <strong>Address:</strong> ${booking.address}</p>
               <p>🏠 <strong>Property:</strong> ${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)</p>
