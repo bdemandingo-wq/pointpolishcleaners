@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -9,9 +10,17 @@ const Footer = () => {
             <img src={logo} alt="TIDYWISE Logo" className="h-10 w-auto" />
             <span className="font-display text-xl font-bold">TIDYWISE</span>
           </div>
-          <p className="text-background/70 text-sm">
-            © {new Date().getFullYear()} TIDYWISE Cleaning Services. All rights reserved.
-          </p>
+          <div className="flex items-center gap-6">
+            <Link 
+              to="/auth" 
+              className="text-background/70 hover:text-background text-sm transition-colors"
+            >
+              Admin
+            </Link>
+            <p className="text-background/70 text-sm">
+              © {new Date().getFullYear()} TIDYWISE Cleaning Services. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
