@@ -9,6 +9,16 @@ interface BookingState {
   frequency: string;
   addOns: string[];
   totalPrice: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  beds: string;
+  baths: string;
+  accessInstructions?: string;
+  focusAreas?: string;
+  hasPets?: string;
+  petDetails?: string;
 }
 
 const Confirmation = () => {
@@ -47,8 +57,38 @@ const Confirmation = () => {
           </div>
 
           {/* Booking Summary */}
-          <div className="bg-muted rounded-lg p-6 mb-8 space-y-4">
+          <div className="bg-muted rounded-lg p-6 mb-6 space-y-3">
             <h2 className="font-semibold text-foreground mb-4">Booking Summary</h2>
+            
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Name</span>
+              <span className="font-medium">{booking.name}</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Phone</span>
+              <span className="font-medium">{booking.phone}</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Email</span>
+              <span className="font-medium text-sm">{booking.email}</span>
+            </div>
+            
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Address</span>
+              <span className="font-medium text-right text-sm max-w-[200px]">{booking.address}</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Beds / Baths</span>
+              <span className="font-medium">{booking.beds} bed / {booking.baths} bath</span>
+            </div>
+          </div>
+
+          {/* Service Details */}
+          <div className="bg-muted rounded-lg p-6 mb-8 space-y-3">
+            <h2 className="font-semibold text-foreground mb-4">Service Details</h2>
             
             <div className="flex justify-between">
               <span className="text-muted-foreground">Property Size</span>
@@ -69,6 +109,13 @@ const Confirmation = () => {
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Add-Ons</span>
                 <span className="font-medium text-right">{booking.addOns.join(", ")}</span>
+              </div>
+            )}
+
+            {booking.hasPets && booking.hasPets !== "no" && (
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Pets</span>
+                <span className="font-medium">{booking.petDetails || booking.hasPets}</span>
               </div>
             )}
             

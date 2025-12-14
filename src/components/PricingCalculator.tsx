@@ -66,7 +66,7 @@ const PricingCalculator = () => {
   };
 
   const handleBooking = () => {
-    navigate("/confirmation", {
+    navigate("/booking", {
       state: {
         sqft: sqft[0],
         serviceType: selectedService.label,
