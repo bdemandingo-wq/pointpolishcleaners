@@ -10,10 +10,10 @@ const Navbar = () => {
   const { user } = useAuth();
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home", isRoute: true },
+    { href: "/#services", label: "Services" },
+    { href: "/#about", label: "About" },
+    { href: "/#contact", label: "Contact" },
     { href: "/apply", label: "Join Our Team", isRoute: true },
   ];
 
@@ -22,10 +22,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="TIDYWISE Logo" className="h-10 w-auto" />
             <span className="font-display text-xl font-bold text-foreground">TIDYWISE</span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -57,7 +57,7 @@ const Navbar = () => {
               </Link>
             )}
             <Button asChild>
-              <a href="#booking">Book Now</a>
+              <Link to="/#booking">Book Now</Link>
             </Button>
           </div>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
                 </Link>
               )}
               <Button asChild className="w-full">
-                <a href="#booking" onClick={() => setIsOpen(false)}>Book Now</a>
+                <Link to="/#booking" onClick={() => setIsOpen(false)}>Book Now</Link>
               </Button>
             </div>
           </div>

@@ -43,7 +43,7 @@ const BocaRatonCleaning = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/booking">Get Free Quote</Link>
+                <Link to="/#booking">Get Free Quote</Link>
               </Button>
             </div>
 
