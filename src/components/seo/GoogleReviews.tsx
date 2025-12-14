@@ -85,17 +85,6 @@ const GoogleReviews = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <a 
-            href="https://www.google.com/search?q=tidywise+cleaning+deerfield+beach" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
-            aria-label="View all TIDYWISE reviews on Google"
-          >
-            View All Reviews on Google →
-          </a>
-        </div>
       </div>
     </section>
   );
