@@ -101,7 +101,7 @@ const BrowardCostGuide = () => {
                 <p className="text-muted-foreground mb-4">
                   Ready to get an exact price for your <Link to="/broward-county-cleaning" className="text-primary hover:underline">Broward County cleaning</Link>? 
                   TIDYWISE offers free, no-obligation quotes. Call <a href="tel:+15615718725" className="text-primary font-semibold">(561) 571-8725</a> or 
-                  <Link to="/booking" className="text-primary hover:underline ml-1">book online</Link>.
+                  <Link to="/#booking" className="text-primary hover:underline ml-1">book online</Link>.
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Also serving <Link to="/miami-dade-cleaning" className="text-primary hover:underline">Miami-Dade</Link> and 

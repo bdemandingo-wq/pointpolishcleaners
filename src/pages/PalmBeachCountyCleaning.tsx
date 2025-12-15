@@ -58,7 +58,7 @@ const PalmBeachCountyCleaning = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/booking">Get Free Quote</Link>
+                <Link to="/#booking">Get Free Quote</Link>
               </Button>
             </div>
 
@@ -96,7 +96,7 @@ const PalmBeachCountyCleaning = () => {
                     {service.name}
                   </h3>
                   <p className="text-muted-foreground mb-4">{service.desc}</p>
-                  <Link to="/booking" className="text-primary font-medium hover:underline">
+                  <Link to="/#booking" className="text-primary font-medium hover:underline">
                     Book Now →
                   </Link>
                 </div>

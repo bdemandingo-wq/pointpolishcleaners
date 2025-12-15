@@ -43,7 +43,7 @@ const NotFound = () => {
             <Link to="/broward-county-cleaning" className="text-primary hover:underline">Broward County</Link>
             <Link to="/miami-dade-cleaning" className="text-primary hover:underline">Miami-Dade</Link>
             <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline">Palm Beach</Link>
-            <Link to="/booking" className="text-primary hover:underline">Book Now</Link>
+            <Link to="/#booking" className="text-primary hover:underline">Book Now</Link>
           </div>
         </div>
       </div>

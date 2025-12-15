@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
@@ -48,17 +48,14 @@ const BookingForm = () => {
   minDate.setDate(minDate.getDate() + 2);
   minDate.setHours(0, 0, 0, 0);
 
+  useEffect(() => {
+    if (!booking) {
+      navigate("/#booking", { replace: true });
+    }
+  }, [booking, navigate]);
+
   if (!booking) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-muted">
-        <Card className="max-w-md mx-4">
-          <CardContent className="p-8 text-center">
-            <p className="text-muted-foreground mb-4">No booking information found.</p>
-            <Button onClick={() => navigate("/")}>Return to Home</Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
+    return null;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
