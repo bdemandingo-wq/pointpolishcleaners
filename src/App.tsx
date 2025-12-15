@@ -72,6 +72,11 @@ const MiamiGardensCleaning = lazy(() => import("./pages/cities/MiamiGardensClean
 const BrowardCostGuide = lazy(() => import("./pages/blog/BrowardCostGuide"));
 const MiamiPermitRules = lazy(() => import("./pages/blog/MiamiPermitRules"));
 const PalmBeachSeasonalDiscounts = lazy(() => import("./pages/blog/PalmBeachSeasonalDiscounts"));
+const MoveInOutCleaningChecklist = lazy(() => import("./pages/blog/MoveInOutCleaningChecklist"));
+const DeepCleaningVsStandardCleaning = lazy(() => import("./pages/blog/DeepCleaningVsStandardCleaning"));
+const PetFriendlyCleaningTips = lazy(() => import("./pages/blog/PetFriendlyCleaningTips"));
+const HurricaneSeasonCleaningPrep = lazy(() => import("./pages/blog/HurricaneSeasonCleaningPrep"));
+const HowToPrepareForCleaningService = lazy(() => import("./pages/blog/HowToPrepareForCleaningService"));
 
 const queryClient = new QueryClient();
 
@@ -150,6 +155,11 @@ const App = () => (
                 <Route path="/blog/broward-cost-guide" element={<BrowardCostGuide />} />
                 <Route path="/blog/miami-permit-rules" element={<MiamiPermitRules />} />
                 <Route path="/blog/palm-beach-seasonal-discounts" element={<PalmBeachSeasonalDiscounts />} />
+                <Route path="/blog/move-in-out-cleaning-checklist" element={<MoveInOutCleaningChecklist />} />
+                <Route path="/blog/deep-cleaning-vs-standard-cleaning" element={<DeepCleaningVsStandardCleaning />} />
+                <Route path="/blog/pet-friendly-cleaning-tips" element={<PetFriendlyCleaningTips />} />
+                <Route path="/blog/hurricane-season-cleaning-prep" element={<HurricaneSeasonCleaningPrep />} />
+                <Route path="/blog/how-to-prepare-for-cleaning-service" element={<HowToPrepareForCleaningService />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>
