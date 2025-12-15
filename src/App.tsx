@@ -78,6 +78,15 @@ const PetFriendlyCleaningTips = lazy(() => import("./pages/blog/PetFriendlyClean
 const HurricaneSeasonCleaningPrep = lazy(() => import("./pages/blog/HurricaneSeasonCleaningPrep"));
 const HowToPrepareForCleaningService = lazy(() => import("./pages/blog/HowToPrepareForCleaningService"));
 
+// New pages
+const Blog = lazy(() => import("./pages/Blog"));
+const ServiceAreas = lazy(() => import("./pages/ServiceAreas"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const DeepCleaning = lazy(() => import("./pages/DeepCleaning"));
+const StandardCleaning = lazy(() => import("./pages/StandardCleaning"));
+const MoveInOutCleaning = lazy(() => import("./pages/MoveInOutCleaning"));
+const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -97,6 +106,15 @@ const App = () => (
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/my-bookings" element={<CustomerPortal />} />
                 <Route path="/apply" element={<CleanerApplication />} />
+                
+                {/* New Pages */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/service-areas" element={<ServiceAreas />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/deep-cleaning" element={<DeepCleaning />} />
+                <Route path="/standard-cleaning" element={<StandardCleaning />} />
+                <Route path="/move-in-out-cleaning" element={<MoveInOutCleaning />} />
+                <Route path="/referral-program" element={<ReferralProgram />} />
                 
                 {/* County Landing Pages */}
                 <Route path="/broward-county-cleaning" element={<BrowardCountyCleaning />} />
