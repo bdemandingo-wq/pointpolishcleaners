@@ -2,12 +2,6 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Maria G.",
-    location: "Fort Lauderdale",
-    rating: 5,
-    text: "TIDYWISE has been cleaning my home for 6 months now. Always on time, thorough, and friendly. My house has never looked better!",
-  },
-  {
     name: "Robert T.",
     location: "Boca Raton",
     rating: 5,

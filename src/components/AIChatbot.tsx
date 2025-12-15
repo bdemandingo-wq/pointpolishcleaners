@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MessageCircle, X, Send, Trash2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,19 +16,7 @@ const suggestedQuestions = [
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [showProactiveBubble, setShowProactiveBubble] = useState(false);
   const { messages, isLoading, sendMessage, clearMessages } = useChat();
-
-  // Show proactive bubble after 8 seconds if chat hasn't been opened
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!isOpen && messages.length === 0) {
-        setShowProactiveBubble(true);
-      }
-    }, 8000);
-
-    return () => clearTimeout(timer);
-  }, [isOpen, messages.length]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,48 +30,10 @@ const AIChatbot = () => {
     sendMessage(question);
   };
 
-  const handleOpen = () => {
-    setIsOpen(true);
-    setShowProactiveBubble(false);
-  };
-
   return (
     <>
-      {/* Proactive Bubble */}
-      {showProactiveBubble && !isOpen && (
-        <div 
-          className="fixed bottom-24 right-6 z-50 max-w-[280px] animate-fade-in cursor-pointer"
-          onClick={handleOpen}
-        >
-          <div className="bg-card border border-border rounded-xl p-4 shadow-elevated relative">
-            <button 
-              className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowProactiveBubble(false);
-              }}
-            >
-              <X className="w-3 h-3" />
-            </button>
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-4 h-4 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-foreground">Need help?</p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Ask me about pricing, services, or get a quick quote!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="absolute -bottom-2 right-8 w-4 h-4 bg-card border-r border-b border-border rotate-45" />
-        </div>
-      )}
-
-      {/* Chat Toggle Button */}
       <Button
-        onClick={() => isOpen ? setIsOpen(false) : handleOpen()}
+        onClick={() => setIsOpen(!isOpen)}
         className={cn(
           "fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg",
           "bg-primary hover:bg-primary/90 text-primary-foreground",
