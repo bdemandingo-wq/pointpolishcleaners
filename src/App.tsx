@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { HelmetProvider } from "react-helmet-async";
+import usePageTracking from "@/hooks/usePageTracking";
 import Index from "./pages/Index";
 
 // Lazy load non-critical routes
@@ -89,6 +90,99 @@ const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
 
 const queryClient = new QueryClient();
 
+// Wrapper component to use hooks inside Router
+const AppRoutes = () => {
+  usePageTracking();
+  
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/booking" element={<BookingForm />} />
+        <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/my-bookings" element={<CustomerPortal />} />
+        <Route path="/apply" element={<CleanerApplication />} />
+        
+        {/* New Pages */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/service-areas" element={<ServiceAreas />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/deep-cleaning" element={<DeepCleaning />} />
+        <Route path="/standard-cleaning" element={<StandardCleaning />} />
+        <Route path="/move-in-out-cleaning" element={<MoveInOutCleaning />} />
+        <Route path="/referral-program" element={<ReferralProgram />} />
+        
+        {/* County Landing Pages */}
+        <Route path="/broward-county-cleaning" element={<BrowardCountyCleaning />} />
+        <Route path="/miami-dade-cleaning" element={<MiamiDadeCleaning />} />
+        <Route path="/palm-beach-county-cleaning" element={<PalmBeachCountyCleaning />} />
+        
+        {/* City Landing Pages - Broward */}
+        <Route path="/fort-lauderdale-cleaning" element={<FortLauderdaleCleaning />} />
+        <Route path="/hollywood-cleaning" element={<HollywoodCleaning />} />
+        <Route path="/pompano-beach-cleaning" element={<PompanoBeachCleaning />} />
+        <Route path="/plantation-cleaning" element={<PlantationCleaning />} />
+        <Route path="/sunrise-cleaning" element={<SunriseCleaning />} />
+        <Route path="/davie-cleaning" element={<DavieCleaning />} />
+        <Route path="/pembroke-pines-cleaning" element={<PembrokePinesCleaning />} />
+        <Route path="/weston-cleaning" element={<WestonCleaning />} />
+        <Route path="/deerfield-beach-cleaning" element={<DeerfieldBeachCleaning />} />
+        <Route path="/miramar-cleaning" element={<MiramarCleaning />} />
+        <Route path="/lauderhill-cleaning" element={<LauderhillCleaning />} />
+        <Route path="/tamarac-cleaning" element={<TamaracCleaning />} />
+        <Route path="/coral-springs-cleaning" element={<CoralSpringsCleaning />} />
+        
+        {/* City Landing Pages - Palm Beach */}
+        <Route path="/boca-raton-cleaning" element={<BocaRatonCleaning />} />
+        <Route path="/west-palm-beach-cleaning" element={<WestPalmBeachCleaning />} />
+        <Route path="/delray-beach-cleaning" element={<DelrayBeachCleaning />} />
+        <Route path="/boynton-beach-cleaning" element={<BoyntonBeachCleaning />} />
+        <Route path="/lake-worth-cleaning" element={<LakeWorthCleaning />} />
+        <Route path="/jupiter-cleaning" element={<JupiterCleaning />} />
+        <Route path="/palm-beach-gardens-cleaning" element={<PalmBeachGardensCleaning />} />
+        <Route path="/wellington-cleaning" element={<WellingtonCleaning />} />
+        <Route path="/royal-palm-beach-cleaning" element={<RoyalPalmBeachCleaning />} />
+        
+        {/* City Landing Pages - Miami-Dade */}
+        <Route path="/miami-beach-cleaning" element={<MiamiBeachCleaning />} />
+        <Route path="/miami-cleaning" element={<MiamiCleaning />} />
+        <Route path="/hialeah-cleaning" element={<HialeahCleaning />} />
+        <Route path="/coral-gables-cleaning" element={<CoralGablesCleaning />} />
+        <Route path="/north-miami-cleaning" element={<NorthMiamiCleaning />} />
+        <Route path="/north-miami-beach-cleaning" element={<NorthMiamiBeachCleaning />} />
+        <Route path="/aventura-cleaning" element={<AventuraCleaning />} />
+        <Route path="/sunny-isles-beach-cleaning" element={<SunnyIslesBeachCleaning />} />
+        <Route path="/doral-cleaning" element={<DoralCleaning />} />
+        <Route path="/homestead-cleaning" element={<HomesteadCleaning />} />
+        <Route path="/miami-gardens-cleaning" element={<MiamiGardensCleaning />} />
+        
+        {/* City Landing Pages - Broward (additional) */}
+        <Route path="/coconut-creek-cleaning" element={<CoconutCreekCleaning />} />
+        <Route path="/margate-cleaning" element={<MargateCleaning />} />
+        <Route path="/hallandale-beach-cleaning" element={<HallandaleBeachCleaning />} />
+        <Route path="/parkland-cleaning" element={<ParklandCleaning />} />
+        <Route path="/cooper-city-cleaning" element={<CooperCityCleaning />} />
+        <Route path="/oakland-park-cleaning" element={<OaklandParkCleaning />} />
+        <Route path="/wilton-manors-cleaning" element={<WiltonManorsCleaning />} />
+        
+        {/* Blog Posts */}
+        <Route path="/blog/broward-cost-guide" element={<BrowardCostGuide />} />
+        <Route path="/blog/miami-permit-rules" element={<MiamiPermitRules />} />
+        <Route path="/blog/palm-beach-seasonal-discounts" element={<PalmBeachSeasonalDiscounts />} />
+        <Route path="/blog/move-in-out-cleaning-checklist" element={<MoveInOutCleaningChecklist />} />
+        <Route path="/blog/deep-cleaning-vs-standard-cleaning" element={<DeepCleaningVsStandardCleaning />} />
+        <Route path="/blog/pet-friendly-cleaning-tips" element={<PetFriendlyCleaningTips />} />
+        <Route path="/blog/hurricane-season-cleaning-prep" element={<HurricaneSeasonCleaningPrep />} />
+        <Route path="/blog/how-to-prepare-for-cleaning-service" element={<HowToPrepareForCleaningService />} />
+        
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  );
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -97,91 +191,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/booking" element={<BookingForm />} />
-                <Route path="/confirmation" element={<Confirmation />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="/my-bookings" element={<CustomerPortal />} />
-                <Route path="/apply" element={<CleanerApplication />} />
-                
-                {/* New Pages */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/service-areas" element={<ServiceAreas />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/deep-cleaning" element={<DeepCleaning />} />
-                <Route path="/standard-cleaning" element={<StandardCleaning />} />
-                <Route path="/move-in-out-cleaning" element={<MoveInOutCleaning />} />
-                <Route path="/referral-program" element={<ReferralProgram />} />
-                
-                {/* County Landing Pages */}
-                <Route path="/broward-county-cleaning" element={<BrowardCountyCleaning />} />
-                <Route path="/miami-dade-cleaning" element={<MiamiDadeCleaning />} />
-                <Route path="/palm-beach-county-cleaning" element={<PalmBeachCountyCleaning />} />
-                
-                {/* City Landing Pages - Broward */}
-                <Route path="/fort-lauderdale-cleaning" element={<FortLauderdaleCleaning />} />
-                <Route path="/hollywood-cleaning" element={<HollywoodCleaning />} />
-                <Route path="/pompano-beach-cleaning" element={<PompanoBeachCleaning />} />
-                <Route path="/plantation-cleaning" element={<PlantationCleaning />} />
-                <Route path="/sunrise-cleaning" element={<SunriseCleaning />} />
-                <Route path="/davie-cleaning" element={<DavieCleaning />} />
-                <Route path="/pembroke-pines-cleaning" element={<PembrokePinesCleaning />} />
-                <Route path="/weston-cleaning" element={<WestonCleaning />} />
-                <Route path="/deerfield-beach-cleaning" element={<DeerfieldBeachCleaning />} />
-                <Route path="/miramar-cleaning" element={<MiramarCleaning />} />
-                <Route path="/lauderhill-cleaning" element={<LauderhillCleaning />} />
-                <Route path="/tamarac-cleaning" element={<TamaracCleaning />} />
-                <Route path="/coral-springs-cleaning" element={<CoralSpringsCleaning />} />
-                
-                {/* City Landing Pages - Palm Beach */}
-                <Route path="/boca-raton-cleaning" element={<BocaRatonCleaning />} />
-                <Route path="/west-palm-beach-cleaning" element={<WestPalmBeachCleaning />} />
-                <Route path="/delray-beach-cleaning" element={<DelrayBeachCleaning />} />
-                <Route path="/boynton-beach-cleaning" element={<BoyntonBeachCleaning />} />
-                <Route path="/lake-worth-cleaning" element={<LakeWorthCleaning />} />
-                <Route path="/jupiter-cleaning" element={<JupiterCleaning />} />
-                <Route path="/palm-beach-gardens-cleaning" element={<PalmBeachGardensCleaning />} />
-                <Route path="/wellington-cleaning" element={<WellingtonCleaning />} />
-                <Route path="/royal-palm-beach-cleaning" element={<RoyalPalmBeachCleaning />} />
-                
-                {/* City Landing Pages - Miami-Dade */}
-                <Route path="/miami-beach-cleaning" element={<MiamiBeachCleaning />} />
-                <Route path="/miami-cleaning" element={<MiamiCleaning />} />
-                <Route path="/hialeah-cleaning" element={<HialeahCleaning />} />
-                <Route path="/coral-gables-cleaning" element={<CoralGablesCleaning />} />
-                <Route path="/north-miami-cleaning" element={<NorthMiamiCleaning />} />
-                <Route path="/north-miami-beach-cleaning" element={<NorthMiamiBeachCleaning />} />
-                <Route path="/aventura-cleaning" element={<AventuraCleaning />} />
-                <Route path="/sunny-isles-beach-cleaning" element={<SunnyIslesBeachCleaning />} />
-                <Route path="/doral-cleaning" element={<DoralCleaning />} />
-                <Route path="/homestead-cleaning" element={<HomesteadCleaning />} />
-                <Route path="/miami-gardens-cleaning" element={<MiamiGardensCleaning />} />
-                
-                {/* City Landing Pages - Broward (additional) */}
-                <Route path="/coconut-creek-cleaning" element={<CoconutCreekCleaning />} />
-                <Route path="/margate-cleaning" element={<MargateCleaning />} />
-                <Route path="/hallandale-beach-cleaning" element={<HallandaleBeachCleaning />} />
-                <Route path="/parkland-cleaning" element={<ParklandCleaning />} />
-                <Route path="/cooper-city-cleaning" element={<CooperCityCleaning />} />
-                <Route path="/oakland-park-cleaning" element={<OaklandParkCleaning />} />
-                <Route path="/wilton-manors-cleaning" element={<WiltonManorsCleaning />} />
-                
-                {/* Blog Posts */}
-                <Route path="/blog/broward-cost-guide" element={<BrowardCostGuide />} />
-                <Route path="/blog/miami-permit-rules" element={<MiamiPermitRules />} />
-                <Route path="/blog/palm-beach-seasonal-discounts" element={<PalmBeachSeasonalDiscounts />} />
-                <Route path="/blog/move-in-out-cleaning-checklist" element={<MoveInOutCleaningChecklist />} />
-                <Route path="/blog/deep-cleaning-vs-standard-cleaning" element={<DeepCleaningVsStandardCleaning />} />
-                <Route path="/blog/pet-friendly-cleaning-tips" element={<PetFriendlyCleaningTips />} />
-                <Route path="/blog/hurricane-season-cleaning-prep" element={<HurricaneSeasonCleaningPrep />} />
-                <Route path="/blog/how-to-prepare-for-cleaning-service" element={<HowToPrepareForCleaningService />} />
-                
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
+            <AppRoutes />
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>
