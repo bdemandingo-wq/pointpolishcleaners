@@ -49,37 +49,50 @@ const handler = async (req: Request): Promise<Response> => {
         to: ["support@tidywisecleaning.com"],
         subject: `New Booking Request from ${booking.customerName} - ${booking.preferredDate}`,
         html: `
-          <h1>New Booking Request!</h1>
-          <h2>📅 Requested Date: ${booking.preferredDate}</h2>
-          
-          <h2>Customer Information</h2>
-          <ul>
-            <li><strong>Name:</strong> ${booking.customerName}</li>
-            <li><strong>Email:</strong> ${booking.customerEmail}</li>
-            <li><strong>Phone:</strong> ${booking.customerPhone}</li>
-            <li><strong>Address:</strong> ${booking.address}</li>
-          </ul>
-          
-          <h2>Property Details</h2>
-          <ul>
-            <li><strong>Bedrooms:</strong> ${booking.beds}</li>
-            <li><strong>Bathrooms:</strong> ${booking.baths}</li>
-            <li><strong>Square Footage:</strong> ${booking.sqft.toLocaleString()} sq ft</li>
-          </ul>
-          
-          <h2>Service Details</h2>
-          <ul>
-            <li><strong>Service Type:</strong> ${booking.serviceType}</li>
-            <li><strong>Frequency:</strong> ${booking.frequency}</li>
-            <li><strong>Add-Ons:</strong> ${addOnsList}</li>
-            <li><strong>Total Price:</strong> $${booking.totalPrice}</li>
-          </ul>
-          
-          <h2>Special Instructions</h2>
-          <p>${booking.specialInstructions || "None provided"}</p>
-          
-          <h2>Pet Information</h2>
-          <p>${booking.petInfo || "No pets"}</p>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="text-align: center; padding: 20px; background: #2563eb;">
+              <h1 style="color: white; margin: 0; font-size: 28px;">TIDYWISE</h1>
+              <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0 0; font-size: 14px;">Professional Cleaning Services</p>
+            </div>
+            
+            <div style="padding: 20px; background: #f8fafc;">
+              <h1 style="color: #1e40af;">New Booking Request!</h1>
+              <h2 style="color: #2563eb;">📅 Requested Date: ${booking.preferredDate}</h2>
+              
+              <h2 style="color: #1e40af;">Customer Information</h2>
+              <ul>
+                <li><strong>Name:</strong> ${booking.customerName}</li>
+                <li><strong>Email:</strong> ${booking.customerEmail}</li>
+                <li><strong>Phone:</strong> ${booking.customerPhone}</li>
+                <li><strong>Address:</strong> ${booking.address}</li>
+              </ul>
+              
+              <h2 style="color: #1e40af;">Property Details</h2>
+              <ul>
+                <li><strong>Bedrooms:</strong> ${booking.beds}</li>
+                <li><strong>Bathrooms:</strong> ${booking.baths}</li>
+                <li><strong>Square Footage:</strong> ${booking.sqft.toLocaleString()} sq ft</li>
+              </ul>
+              
+              <h2 style="color: #1e40af;">Service Details</h2>
+              <ul>
+                <li><strong>Service Type:</strong> ${booking.serviceType}</li>
+                <li><strong>Frequency:</strong> ${booking.frequency}</li>
+                <li><strong>Add-Ons:</strong> ${addOnsList}</li>
+                <li><strong>Total Price:</strong> $${booking.totalPrice}</li>
+              </ul>
+              
+              <h2 style="color: #1e40af;">Special Instructions</h2>
+              <p>${booking.specialInstructions || "None provided"}</p>
+              
+              <h2 style="color: #1e40af;">Pet Information</h2>
+              <p>${booking.petInfo || "No pets"}</p>
+            </div>
+            
+            <div style="text-align: center; padding: 15px; background: #1e40af; color: white; font-size: 12px;">
+              © ${new Date().getFullYear()} TIDYWISE Cleaning Services
+            </div>
+          </div>
         `,
       }),
     });
@@ -99,10 +112,16 @@ const handler = async (req: Request): Promise<Response> => {
         to: [booking.customerEmail],
         subject: "Your TIDYWISE Cleaning Booking Confirmation ✅",
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
-            <h1 style="color: #2563eb;">Hi ${booking.customerName},</h1>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+              <h1 style="color: white; margin: 0; font-size: 32px; font-weight: bold;">TIDYWISE</h1>
+              <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 14px;">Professional Cleaning Services</p>
+            </div>
             
-            <p>Thank you very much for booking with us. You're all set! 🎉</p>
+            <div style="padding: 30px 20px;">
+              <h1 style="color: #2563eb; margin-top: 0;">Hi ${booking.customerName},</h1>
+            
+              <p>Thank you very much for booking with us. You're all set! 🎉</p>
             
             <p>Please double check the date, time, and address to make sure it's correct.</p>
             
@@ -184,6 +203,11 @@ const handler = async (req: Request): Promise<Response> => {
             <p><strong>If you are not home for the final walkthrough, you will not be eligible for any re-cleans or refunds — so it is really important to be there!</strong></p>
             
             <p style="font-size: 18px; margin-top: 30px;"><strong>Thank you for choosing TIDYWISE! 💙</strong></p>
+            </div>
+            
+            <div style="text-align: center; padding: 15px; background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); color: white; font-size: 12px;">
+              © ${new Date().getFullYear()} TIDYWISE Cleaning Services | South Florida
+            </div>
           </div>
         `,
       }),
