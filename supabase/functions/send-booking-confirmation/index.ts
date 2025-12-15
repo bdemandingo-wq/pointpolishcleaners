@@ -50,9 +50,9 @@ const handler = async (req: Request): Promise<Response> => {
         subject: `New Booking Request from ${booking.customerName} - ${booking.preferredDate}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <div style="text-align: center; padding: 20px; background: #2563eb;">
-              <h1 style="color: white; margin: 0; font-size: 28px;">TIDYWISE</h1>
-              <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0 0; font-size: 14px;">Professional Cleaning Services</p>
+            <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+              <img src="https://tidywisecleaning.com/logo-email.png" alt="TIDYWISE" style="height: 60px; width: auto;" />
+              <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">Professional Cleaning Services</p>
             </div>
             
             <div style="padding: 20px; background: #f8fafc;">
@@ -114,8 +114,8 @@ const handler = async (req: Request): Promise<Response> => {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
             <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-              <h1 style="color: white; margin: 0; font-size: 32px; font-weight: bold;">TIDYWISE</h1>
-              <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 14px;">Professional Cleaning Services</p>
+              <img src="https://tidywisecleaning.com/logo-email.png" alt="TIDYWISE" style="height: 60px; width: auto;" />
+              <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">Professional Cleaning Services</p>
             </div>
             
             <div style="padding: 30px 20px;">
