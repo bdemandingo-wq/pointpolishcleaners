@@ -22,13 +22,37 @@ const BrowardCountyCleaning = lazy(() => import("./pages/BrowardCountyCleaning")
 const MiamiDadeCleaning = lazy(() => import("./pages/MiamiDadeCleaning"));
 const PalmBeachCountyCleaning = lazy(() => import("./pages/PalmBeachCountyCleaning"));
 
-// City landing pages
+// City landing pages - Broward
 const FortLauderdaleCleaning = lazy(() => import("./pages/cities/FortLauderdaleCleaning"));
-const BocaRatonCleaning = lazy(() => import("./pages/cities/BocaRatonCleaning"));
-const MiamiBeachCleaning = lazy(() => import("./pages/cities/MiamiBeachCleaning"));
-const CoralSpringsCleaning = lazy(() => import("./pages/cities/CoralSpringsCleaning"));
-const WestPalmBeachCleaning = lazy(() => import("./pages/cities/WestPalmBeachCleaning"));
 const HollywoodCleaning = lazy(() => import("./pages/cities/HollywoodCleaning"));
+const PompanoBeachCleaning = lazy(() => import("./pages/cities/PompanoBeachCleaning"));
+const PlantationCleaning = lazy(() => import("./pages/cities/PlantationCleaning"));
+const SunriseCleaning = lazy(() => import("./pages/cities/SunriseCleaning"));
+const DavieCleaning = lazy(() => import("./pages/cities/DavieCleaning"));
+const PembrokePinesCleaning = lazy(() => import("./pages/cities/PembrokePinesCleaning"));
+const WestonCleaning = lazy(() => import("./pages/cities/WestonCleaning"));
+const DeerfieldBeachCleaning = lazy(() => import("./pages/cities/DeerfieldBeachCleaning"));
+const MiramarCleaning = lazy(() => import("./pages/cities/MiramarCleaning"));
+const LauderhillCleaning = lazy(() => import("./pages/cities/LauderhillCleaning"));
+const TamaracCleaning = lazy(() => import("./pages/cities/TamaracCleaning"));
+const CoralSpringsCleaning = lazy(() => import("./pages/cities/CoralSpringsCleaning"));
+
+// City landing pages - Palm Beach
+const BocaRatonCleaning = lazy(() => import("./pages/cities/BocaRatonCleaning"));
+const WestPalmBeachCleaning = lazy(() => import("./pages/cities/WestPalmBeachCleaning"));
+const DelrayBeachCleaning = lazy(() => import("./pages/cities/DelrayBeachCleaning"));
+const BoyntonBeachCleaning = lazy(() => import("./pages/cities/BoyntonBeachCleaning"));
+const LakeWorthCleaning = lazy(() => import("./pages/cities/LakeWorthCleaning"));
+const JupiterCleaning = lazy(() => import("./pages/cities/JupiterCleaning"));
+const PalmBeachGardensCleaning = lazy(() => import("./pages/cities/PalmBeachGardensCleaning"));
+const WellingtonCleaning = lazy(() => import("./pages/cities/WellingtonCleaning"));
+const RoyalPalmBeachCleaning = lazy(() => import("./pages/cities/RoyalPalmBeachCleaning"));
+
+// City landing pages - Miami-Dade
+const MiamiBeachCleaning = lazy(() => import("./pages/cities/MiamiBeachCleaning"));
+const MiamiCleaning = lazy(() => import("./pages/cities/MiamiCleaning"));
+const HialeahCleaning = lazy(() => import("./pages/cities/HialeahCleaning"));
+const CoralGablesCleaning = lazy(() => import("./pages/cities/CoralGablesCleaning"));
 
 // Blog posts
 const BrowardCostGuide = lazy(() => import("./pages/blog/BrowardCostGuide"));
@@ -60,13 +84,37 @@ const App = () => (
                 <Route path="/miami-dade-cleaning" element={<MiamiDadeCleaning />} />
                 <Route path="/palm-beach-county-cleaning" element={<PalmBeachCountyCleaning />} />
                 
-                {/* City Landing Pages */}
+                {/* City Landing Pages - Broward */}
                 <Route path="/fort-lauderdale-cleaning" element={<FortLauderdaleCleaning />} />
-                <Route path="/boca-raton-cleaning" element={<BocaRatonCleaning />} />
-                <Route path="/miami-beach-cleaning" element={<MiamiBeachCleaning />} />
-                <Route path="/coral-springs-cleaning" element={<CoralSpringsCleaning />} />
-                <Route path="/west-palm-beach-cleaning" element={<WestPalmBeachCleaning />} />
                 <Route path="/hollywood-cleaning" element={<HollywoodCleaning />} />
+                <Route path="/pompano-beach-cleaning" element={<PompanoBeachCleaning />} />
+                <Route path="/plantation-cleaning" element={<PlantationCleaning />} />
+                <Route path="/sunrise-cleaning" element={<SunriseCleaning />} />
+                <Route path="/davie-cleaning" element={<DavieCleaning />} />
+                <Route path="/pembroke-pines-cleaning" element={<PembrokePinesCleaning />} />
+                <Route path="/weston-cleaning" element={<WestonCleaning />} />
+                <Route path="/deerfield-beach-cleaning" element={<DeerfieldBeachCleaning />} />
+                <Route path="/miramar-cleaning" element={<MiramarCleaning />} />
+                <Route path="/lauderhill-cleaning" element={<LauderhillCleaning />} />
+                <Route path="/tamarac-cleaning" element={<TamaracCleaning />} />
+                <Route path="/coral-springs-cleaning" element={<CoralSpringsCleaning />} />
+                
+                {/* City Landing Pages - Palm Beach */}
+                <Route path="/boca-raton-cleaning" element={<BocaRatonCleaning />} />
+                <Route path="/west-palm-beach-cleaning" element={<WestPalmBeachCleaning />} />
+                <Route path="/delray-beach-cleaning" element={<DelrayBeachCleaning />} />
+                <Route path="/boynton-beach-cleaning" element={<BoyntonBeachCleaning />} />
+                <Route path="/lake-worth-cleaning" element={<LakeWorthCleaning />} />
+                <Route path="/jupiter-cleaning" element={<JupiterCleaning />} />
+                <Route path="/palm-beach-gardens-cleaning" element={<PalmBeachGardensCleaning />} />
+                <Route path="/wellington-cleaning" element={<WellingtonCleaning />} />
+                <Route path="/royal-palm-beach-cleaning" element={<RoyalPalmBeachCleaning />} />
+                
+                {/* City Landing Pages - Miami-Dade */}
+                <Route path="/miami-beach-cleaning" element={<MiamiBeachCleaning />} />
+                <Route path="/miami-cleaning" element={<MiamiCleaning />} />
+                <Route path="/hialeah-cleaning" element={<HialeahCleaning />} />
+                <Route path="/coral-gables-cleaning" element={<CoralGablesCleaning />} />
                 
                 {/* Blog Posts */}
                 <Route path="/blog/broward-cost-guide" element={<BrowardCostGuide />} />
