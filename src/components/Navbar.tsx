@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User, ChevronDown } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/logo-transparent.png";
+import logo from "@/assets/logo-optimized.webp";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="TIDYWISE Logo" className="h-10 w-auto" />
+            <img src={logo} alt="TIDYWISE Logo" className="h-12 w-auto" />
             <span className="font-display text-xl font-bold text-foreground">TIDYWISE</span>
           </Link>
 
