@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/logo-optimized.webp";
+import logo from "@/assets/logo-transparent.png";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="TIDYWISE Logo" className="h-10 w-auto" />
+              <img src={logo} alt="TIDYWISE Logo" className="h-10 w-auto invert" />
               <span className="font-display text-xl font-bold">TIDYWISE</span>
             </div>
             <p className="text-background/70 text-sm mb-4">
