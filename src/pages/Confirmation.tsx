@@ -70,10 +70,6 @@ const Confirmation = () => {
               <span className="font-medium">{booking.phone}</span>
             </div>
 
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Email</span>
-              <span className="font-medium text-sm">{booking.email}</span>
-            </div>
             
             <div className="flex justify-between">
               <span className="text-muted-foreground">Address</span>
