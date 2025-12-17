@@ -11,6 +11,7 @@ const corsHeaders = {
 interface CleanerApplicationRequest {
   name: string;
   email: string;
+  phone: string;
   hasTransportation: boolean;
   hasSupplies: boolean;
   yearsExperience: number;
@@ -81,6 +82,7 @@ const handler = async (req: Request): Promise<Response> => {
                 <h3 style="color: #333; margin-top: 0;">Contact Information</h3>
                 <p style="margin: 5px 0;"><strong>Name:</strong> ${application.name}</p>
                 <p style="margin: 5px 0;"><strong>Email:</strong> ${application.email}</p>
+                <p style="margin: 5px 0;"><strong>Phone:</strong> ${application.phone}</p>
               </div>
               
               <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
