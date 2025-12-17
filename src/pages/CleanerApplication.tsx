@@ -16,6 +16,7 @@ import logo from "@/assets/logo-optimized.webp";
 const applicationSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number").max(20),
   hasTransportation: z.boolean(),
   hasSupplies: z.boolean(),
   yearsExperience: z.number().min(0).max(50),
@@ -50,6 +51,7 @@ const CleanerApplication = () => {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       hasTransportation: false,
       hasSupplies: false,
       yearsExperience: 0,
@@ -122,6 +124,7 @@ const CleanerApplication = () => {
       const { error } = await supabase.from("cleaner_applications").insert({
         name: data.name,
         email: data.email,
+        phone: data.phone,
         has_transportation: data.hasTransportation,
         has_supplies: data.hasSupplies,
         years_experience: data.yearsExperience,
@@ -139,6 +142,7 @@ const CleanerApplication = () => {
           body: {
             name: data.name,
             email: data.email,
+            phone: data.phone,
             hasTransportation: data.hasTransportation,
             hasSupplies: data.hasSupplies,
             yearsExperience: data.yearsExperience,
@@ -228,6 +232,20 @@ const CleanerApplication = () => {
                   />
                   {errors.email && (
                     <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    {...register("phone")}
+                    placeholder="(555) 555-5555"
+                    className="mt-1"
+                  />
+                  {errors.phone && (
+                    <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>
                   )}
                 </div>
 

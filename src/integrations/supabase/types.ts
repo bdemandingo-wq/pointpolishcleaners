@@ -90,6 +90,7 @@ export type Database = {
           has_transportation: boolean
           id: string
           name: string
+          phone: string | null
           status: string
           supply_pictures: string[] | null
           updated_at: string
@@ -105,6 +106,7 @@ export type Database = {
           has_transportation?: boolean
           id?: string
           name: string
+          phone?: string | null
           status?: string
           supply_pictures?: string[] | null
           updated_at?: string
@@ -120,6 +122,7 @@ export type Database = {
           has_transportation?: boolean
           id?: string
           name?: string
+          phone?: string | null
           status?: string
           supply_pictures?: string[] | null
           updated_at?: string
