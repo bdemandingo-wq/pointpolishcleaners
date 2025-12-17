@@ -1,41 +1,113 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+// Restrict CORS to specific origins
+const ALLOWED_ORIGINS = [
+  'https://tidywisecleaning.com',
+  'https://www.tidywisecleaning.com',
+  'https://ekseakjxarhjujngoklz.supabase.co',
+];
 
-interface BookingRequest {
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
-  address: string;
-  beds: string;
-  baths: string;
-  specialInstructions: string;
-  petInfo: string;
-  serviceType: string;
-  sqft: number;
-  frequency: string;
-  addOns: string[];
-  totalPrice: string;
-  preferredDate: string;
+// Add development origins
+const DEV_ORIGINS = [
+  'http://localhost:5173',
+  'http://localhost:8080',
+  'http://localhost:8081',
+];
+
+function getCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get('Origin') || '';
+  
+  // Check if origin matches allowed origins or Lovable preview domains
+  const isAllowed = ALLOWED_ORIGINS.includes(origin) || 
+    DEV_ORIGINS.includes(origin) ||
+    origin.includes('.lovable.app') ||
+    origin.includes('.lovableproject.com');
+  
+  return {
+    'Access-Control-Allow-Origin': isAllowed ? origin : ALLOWED_ORIGINS[0],
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  };
 }
 
+// HTML escape function to prevent XSS in emails
+function escapeHtml(text: string | null | undefined): string {
+  if (!text) return '';
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Server-side validation schema
+const bookingSchema = z.object({
+  customerName: z.string().min(2).max(100),
+  customerEmail: z.string().email().max(254).refine(
+    (email) => !email.includes('\n') && !email.includes('\r') && !email.includes(',') && !email.includes(';'),
+    'Invalid email format'
+  ),
+  customerPhone: z.string().max(20),
+  address: z.string().min(5).max(500),
+  beds: z.string().max(10),
+  baths: z.string().max(10),
+  sqft: z.number().positive().max(50000),
+  frequency: z.string().max(50),
+  serviceType: z.string().max(100),
+  addOns: z.array(z.string().max(100)).max(20),
+  totalPrice: z.string().max(20),
+  preferredDate: z.string().max(50),
+  specialInstructions: z.string().max(2000).optional().nullable(),
+  petInfo: z.string().max(500).optional().nullable(),
+});
+
+type BookingRequest = z.infer<typeof bookingSchema>;
+
 const handler = async (req: Request): Promise<Response> => {
+  const corsHeaders = getCorsHeaders(req);
+  
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const booking: BookingRequest = await req.json();
-    console.log("Received booking request:", booking);
+    const rawData = await req.json();
+    
+    // Validate input server-side
+    const parseResult = bookingSchema.safeParse(rawData);
+    if (!parseResult.success) {
+      console.error("Validation error:", parseResult.error.errors);
+      return new Response(
+        JSON.stringify({ error: "Invalid input data", details: parseResult.error.errors }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+    
+    const booking = parseResult.data;
+    console.log("Received validated booking request for:", escapeHtml(booking.customerEmail));
 
     const addOnsList = booking.addOns.length > 0 
-      ? booking.addOns.join(", ") 
+      ? booking.addOns.map(a => escapeHtml(a)).join(", ") 
       : "None";
+
+    // Escape all user inputs for email
+    const safeName = escapeHtml(booking.customerName);
+    const safeEmail = escapeHtml(booking.customerEmail);
+    const safePhone = escapeHtml(booking.customerPhone);
+    const safeAddress = escapeHtml(booking.address);
+    const safeBeds = escapeHtml(booking.beds);
+    const safeBaths = escapeHtml(booking.baths);
+    const safeServiceType = escapeHtml(booking.serviceType);
+    const safeFrequency = escapeHtml(booking.frequency);
+    const safeSpecialInstructions = escapeHtml(booking.specialInstructions) || "None provided";
+    const safePetInfo = escapeHtml(booking.petInfo) || "No pets";
+    const safePreferredDate = escapeHtml(booking.preferredDate);
+    const safeTotalPrice = escapeHtml(booking.totalPrice);
+    const safeSqft = booking.sqft.toLocaleString();
 
     // Email to business owner
     const ownerEmailRes = await fetch("https://api.resend.com/emails", {
@@ -47,7 +119,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "TIDYWISE Cleaning <support@tidywisecleaning.com>",
         to: ["support@tidywisecleaning.com"],
-        subject: `New Booking Request from ${booking.customerName} - ${booking.preferredDate}`,
+        subject: `New Booking Request from ${safeName} - ${safePreferredDate}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
@@ -57,36 +129,36 @@ const handler = async (req: Request): Promise<Response> => {
             
             <div style="padding: 20px; background: #f8fafc;">
               <h1 style="color: #1e40af;">New Booking Request!</h1>
-              <h2 style="color: #2563eb;">📅 Requested Date: ${booking.preferredDate}</h2>
+              <h2 style="color: #2563eb;">📅 Requested Date: ${safePreferredDate}</h2>
               
               <h2 style="color: #1e40af;">Customer Information</h2>
               <ul>
-                <li><strong>Name:</strong> ${booking.customerName}</li>
-                <li><strong>Email:</strong> ${booking.customerEmail}</li>
-                <li><strong>Phone:</strong> ${booking.customerPhone}</li>
-                <li><strong>Address:</strong> ${booking.address}</li>
+                <li><strong>Name:</strong> ${safeName}</li>
+                <li><strong>Email:</strong> ${safeEmail}</li>
+                <li><strong>Phone:</strong> ${safePhone}</li>
+                <li><strong>Address:</strong> ${safeAddress}</li>
               </ul>
               
               <h2 style="color: #1e40af;">Property Details</h2>
               <ul>
-                <li><strong>Bedrooms:</strong> ${booking.beds}</li>
-                <li><strong>Bathrooms:</strong> ${booking.baths}</li>
-                <li><strong>Square Footage:</strong> ${booking.sqft.toLocaleString()} sq ft</li>
+                <li><strong>Bedrooms:</strong> ${safeBeds}</li>
+                <li><strong>Bathrooms:</strong> ${safeBaths}</li>
+                <li><strong>Square Footage:</strong> ${safeSqft} sq ft</li>
               </ul>
               
               <h2 style="color: #1e40af;">Service Details</h2>
               <ul>
-                <li><strong>Service Type:</strong> ${booking.serviceType}</li>
-                <li><strong>Frequency:</strong> ${booking.frequency}</li>
+                <li><strong>Service Type:</strong> ${safeServiceType}</li>
+                <li><strong>Frequency:</strong> ${safeFrequency}</li>
                 <li><strong>Add-Ons:</strong> ${addOnsList}</li>
-                <li><strong>Total Price:</strong> $${booking.totalPrice}</li>
+                <li><strong>Total Price:</strong> $${safeTotalPrice}</li>
               </ul>
               
               <h2 style="color: #1e40af;">Special Instructions</h2>
-              <p>${booking.specialInstructions || "None provided"}</p>
+              <p>${safeSpecialInstructions}</p>
               
               <h2 style="color: #1e40af;">Pet Information</h2>
-              <p>${booking.petInfo || "No pets"}</p>
+              <p>${safePetInfo}</p>
             </div>
             
             <div style="text-align: center; padding: 15px; background: #1e40af; color: white; font-size: 12px;">
@@ -119,7 +191,7 @@ const handler = async (req: Request): Promise<Response> => {
             </div>
             
             <div style="padding: 30px 20px;">
-              <h1 style="color: #2563eb; margin-top: 0;">Hi ${booking.customerName},</h1>
+              <h1 style="color: #2563eb; margin-top: 0;">Hi ${safeName},</h1>
             
               <p>Thank you very much for booking with us. You're all set! 🎉</p>
             
@@ -189,13 +261,13 @@ const handler = async (req: Request): Promise<Response> => {
             <div style="background: #f0f9ff; padding: 20px; border-radius: 10px; text-align: center;">
               <h2 style="color: #2563eb; margin-top: 0;">📱 CONFIRMATION MESSAGE</h2>
               <p style="font-size: 18px;"><strong>✅ Booking Confirmed!</strong></p>
-              <p style="font-size: 18px;">📅 <strong>Requested Date:</strong> ${booking.preferredDate}</p>
-              <p>🧽 <strong>Service Type:</strong> ${booking.serviceType}</p>
-              <p>📍 <strong>Address:</strong> ${booking.address}</p>
-              <p>🏠 <strong>Property:</strong> ${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)</p>
-              <p>🔄 <strong>Frequency:</strong> ${booking.frequency}</p>
+              <p style="font-size: 18px;">📅 <strong>Requested Date:</strong> ${safePreferredDate}</p>
+              <p>🧽 <strong>Service Type:</strong> ${safeServiceType}</p>
+              <p>📍 <strong>Address:</strong> ${safeAddress}</p>
+              <p>🏠 <strong>Property:</strong> ${safeBeds} bed, ${safeBaths} bath (${safeSqft} sq ft)</p>
+              <p>🔄 <strong>Frequency:</strong> ${safeFrequency}</p>
               ${addOnsList !== "None" ? `<p>➕ <strong>Add-Ons:</strong> ${addOnsList}</p>` : ""}
-              <p style="font-size: 20px; color: #2563eb;"><strong>💰 Total: $${booking.totalPrice}</strong></p>
+              <p style="font-size: 20px; color: #2563eb;"><strong>💰 Total: $${safeTotalPrice}</strong></p>
             </div>
             
             <p style="margin-top: 20px;">Please be home to answer the door for the cleaner.</p>
@@ -225,8 +297,9 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error("Error sending booking confirmation:", error);
+    const corsHeaders = getCorsHeaders(req);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "An error occurred processing your request" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
