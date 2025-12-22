@@ -51,6 +51,18 @@ const serviceTypes = [
     label: "Airbnb/Short-Term Rental", 
     prices: [140, 160, 180, 200, 220, 240, 265, 295, 330, 365, 400, 435, 470]
   },
+  { 
+    value: "carpets", 
+    label: "Carpets (Custom)", 
+    prices: null,
+    isCustom: true
+  },
+  { 
+    value: "upholstery", 
+    label: "Upholstery (Custom)", 
+    prices: null,
+    isCustom: true
+  },
 ];
 
 const frequencies = [
@@ -90,8 +102,14 @@ const PricingCalculator = () => {
 
   const selectedService = serviceTypes.find((s) => s.value === serviceType)!;
   const selectedFrequency = frequencies.find((f) => f.value === frequency)!;
+  const isCustomService = 'isCustom' in selectedService && selectedService.isCustom;
 
   const totalPrice = useMemo(() => {
+    // Custom services don't have a calculated price
+    if (isCustomService || !selectedService.prices) {
+      return null;
+    }
+    
     // Get base price from tier
     let price = getPriceForSqft(sqft[0], selectedService.prices);
 
@@ -107,7 +125,7 @@ const PricingCalculator = () => {
     price = price * (1 - selectedFrequency.discount);
 
     return price;
-  }, [sqft, selectedService, selectedFrequency, selectedAddOns]);
+  }, [sqft, selectedService, selectedFrequency, selectedAddOns, isCustomService]);
 
   const toggleAddOn = (id: string) => {
     setSelectedAddOns((prev) =>
@@ -122,7 +140,7 @@ const PricingCalculator = () => {
         serviceType: selectedService.label,
         frequency: selectedFrequency.label,
         addOns: selectedAddOns.map(id => addOns.find(a => a.id === id)?.label).filter(Boolean),
-        totalPrice: totalPrice.toFixed(2),
+        totalPrice: isCustomService ? "Custom Quote" : totalPrice?.toFixed(2),
       },
     });
   };
@@ -200,9 +218,17 @@ const PricingCalculator = () => {
 
             {/* Price Display */}
             <div className="bg-primary/5 rounded-lg p-6 text-center">
-              <p className="text-muted-foreground mb-2">Estimated Price</p>
-              <p className="text-4xl font-bold text-primary">${totalPrice.toFixed(2)}</p>
-              <p className="text-sm text-muted-foreground mt-1">+ add-ons</p>
+              <p className="text-muted-foreground mb-2">
+                {isCustomService ? "Pricing" : "Estimated Price"}
+              </p>
+              {isCustomService ? (
+                <p className="text-3xl font-bold text-primary">Get Quote</p>
+              ) : (
+                <>
+                  <p className="text-4xl font-bold text-primary">${totalPrice?.toFixed(2)}</p>
+                  <p className="text-sm text-muted-foreground mt-1">+ add-ons</p>
+                </>
+              )}
             </div>
 
             {/* Add-ons */}
@@ -238,7 +264,7 @@ const PricingCalculator = () => {
               className="w-full text-lg font-semibold bg-success text-success-foreground hover:bg-success/90"
               onClick={handleBooking}
             >
-              Book This Service
+              {isCustomService ? "Request Quote" : "Book This Service"}
             </Button>
           </CardContent>
         </Card>
