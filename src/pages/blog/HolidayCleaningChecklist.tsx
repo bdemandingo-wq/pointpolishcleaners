@@ -12,7 +12,7 @@ const HolidayCleaningChecklist = () => {
         pageTitle="Holiday Cleaning Checklist: Prepare Your Home for Guests | TIDYWISE"
         pageDescription="Get your South Florida home guest-ready for the holidays with our complete cleaning checklist."
         canonicalUrl="https://tidywisecleaning.com/blog/holiday-cleaning-checklist"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

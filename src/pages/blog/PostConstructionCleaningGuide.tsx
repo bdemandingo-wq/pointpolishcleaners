@@ -12,7 +12,7 @@ const PostConstructionCleaningGuide = () => {
         pageTitle="Post-Construction Cleaning: What to Expect | TIDYWISE"
         pageDescription="Just finished a renovation? Here's everything you need to know about post-construction cleaning in South Florida."
         canonicalUrl="https://tidywisecleaning.com/blog/post-construction-cleaning-guide"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

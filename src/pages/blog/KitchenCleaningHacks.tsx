@@ -12,7 +12,7 @@ const KitchenCleaningHacks = () => {
         pageTitle="10 Kitchen Cleaning Hacks That Save Time | TIDYWISE"
         pageDescription="Professional kitchen cleaning tips from South Florida's cleaning experts. Make kitchen cleaning faster and easier."
         canonicalUrl="https://tidywisecleaning.com/blog/kitchen-cleaning-hacks"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

@@ -12,7 +12,7 @@ const MoldPreventionFlorida = () => {
         pageTitle="Mold Prevention Guide for Florida Homes | TIDYWISE"
         pageDescription="Florida's humidity creates perfect conditions for mold. Learn how to prevent and address mold issues in your home."
         canonicalUrl="https://tidywisecleaning.com/blog/mold-prevention-florida-homes"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

@@ -12,7 +12,7 @@ const BathroomDeepCleaningGuide = () => {
         pageTitle="Complete Bathroom Deep Cleaning Guide | TIDYWISE"
         pageDescription="Step-by-step bathroom deep cleaning guide designed for Florida's humid climate. Tackle mold, soap scum, and grime."
         canonicalUrl="https://tidywisecleaning.com/blog/bathroom-deep-cleaning-guide"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

@@ -12,7 +12,7 @@ const CondoCleaningRules = () => {
         pageTitle="Condo Cleaning Rules & Tips for South Florida | TIDYWISE"
         pageDescription="Navigate HOA rules and building regulations while keeping your South Florida condo spotless."
         canonicalUrl="https://tidywisecleaning.com/blog/condo-cleaning-rules-south-florida"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

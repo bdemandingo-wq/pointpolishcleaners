@@ -12,7 +12,7 @@ const AirbnbTurnoverCleaningTips = () => {
         pageTitle="Airbnb & Vacation Rental Turnover Cleaning Tips | TIDYWISE"
         pageDescription="Maximize your rental reviews with quick and thorough turnover cleaning. Essential tips for South Florida property hosts."
         canonicalUrl="https://tidywisecleaning.com/blog/airbnb-turnover-cleaning-tips"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">

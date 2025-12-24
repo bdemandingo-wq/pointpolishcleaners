@@ -12,7 +12,7 @@ const SpringCleaningGuide = () => {
         pageTitle="Spring Cleaning Guide for South Florida Homes | TIDYWISE"
         pageDescription="Complete spring cleaning guide for South Florida homes. Tackle pollen, humidity, and seasonal challenges with our expert tips."
         canonicalUrl="https://tidywisecleaning.com/blog/spring-cleaning-guide-south-florida"
-        pageType="article"
+        pageType="blog"
         county="South Florida"
       />
       <main className="min-h-screen">
