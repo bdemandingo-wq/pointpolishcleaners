@@ -69,10 +69,90 @@ const blogPosts = [
     date: "January 2025",
     readTime: "4 min read",
     category: "Deals"
+  },
+  {
+    slug: "spring-cleaning-guide-south-florida",
+    title: "Spring Cleaning Guide for South Florida Homes",
+    excerpt: "Spring in South Florida means pollen, humidity, and the perfect time for a deep clean. Get your home ready for the season with our comprehensive guide.",
+    date: "December 2024",
+    readTime: "6 min read",
+    category: "Seasonal"
+  },
+  {
+    slug: "eco-friendly-cleaning-products",
+    title: "Best Eco-Friendly Cleaning Products for Florida Homes",
+    excerpt: "Protect your family and the environment with these sustainable cleaning solutions perfect for South Florida's unique climate.",
+    date: "December 2024",
+    readTime: "5 min read",
+    category: "Tips"
+  },
+  {
+    slug: "allergy-free-home-cleaning",
+    title: "Allergy-Free Home Cleaning Tips for Florida Residents",
+    excerpt: "Florida's year-round pollen and humidity can trigger allergies. Learn how to create an allergy-free home with proper cleaning techniques.",
+    date: "December 2024",
+    readTime: "7 min read",
+    category: "Health"
+  },
+  {
+    slug: "holiday-cleaning-checklist",
+    title: "Holiday Cleaning Checklist: Prepare Your Home for Guests",
+    excerpt: "Expecting holiday visitors? Here's your complete checklist to get your South Florida home guest-ready in no time.",
+    date: "December 2024",
+    readTime: "5 min read",
+    category: "Seasonal"
+  },
+  {
+    slug: "bathroom-deep-cleaning-guide",
+    title: "Complete Bathroom Deep Cleaning Guide",
+    excerpt: "Tackle soap scum, mold, and grime with our step-by-step bathroom deep cleaning guide designed for Florida's humid climate.",
+    date: "December 2024",
+    readTime: "8 min read",
+    category: "Guides"
+  },
+  {
+    slug: "kitchen-cleaning-hacks",
+    title: "10 Kitchen Cleaning Hacks That Save Time",
+    excerpt: "Make kitchen cleaning faster and easier with these pro tips from South Florida's cleaning experts.",
+    date: "December 2024",
+    readTime: "4 min read",
+    category: "Tips"
+  },
+  {
+    slug: "airbnb-turnover-cleaning-tips",
+    title: "Airbnb & Vacation Rental Turnover Cleaning Tips",
+    excerpt: "Maximize your rental reviews with quick and thorough turnover cleaning. Essential tips for South Florida property hosts.",
+    date: "December 2024",
+    readTime: "6 min read",
+    category: "Guides"
+  },
+  {
+    slug: "mold-prevention-florida-homes",
+    title: "Mold Prevention Guide for Florida Homes",
+    excerpt: "Florida's humidity creates perfect conditions for mold. Learn how to prevent and address mold issues in your home.",
+    date: "December 2024",
+    readTime: "7 min read",
+    category: "Health"
+  },
+  {
+    slug: "condo-cleaning-rules-south-florida",
+    title: "Condo Cleaning Rules & Tips for South Florida",
+    excerpt: "Navigate HOA rules and building regulations while keeping your South Florida condo spotless.",
+    date: "December 2024",
+    readTime: "5 min read",
+    category: "Local"
+  },
+  {
+    slug: "post-construction-cleaning-guide",
+    title: "Post-Construction Cleaning: What to Expect",
+    excerpt: "Just finished a renovation? Here's everything you need to know about post-construction cleaning in South Florida.",
+    date: "December 2024",
+    readTime: "6 min read",
+    category: "Guides"
   }
 ];
 
-const categories = ["All", "Guides", "Tips", "Seasonal", "Pricing", "Local", "Deals"];
+const categories = ["All", "Guides", "Tips", "Seasonal", "Pricing", "Local", "Deals", "Health"];
 
 const Blog = () => {
   return (
