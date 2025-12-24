@@ -1,11 +1,24 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOSchema from "@/components/seo/SEOSchema";
 import StickyCallButton from "@/components/seo/StickyCallButton";
+import { supabase } from "@/integrations/supabase/client";
 
-const blogPosts = [
+interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  isAiGenerated?: boolean;
+}
+
+// Static blog posts (existing content)
+const staticBlogPosts: BlogPost[] = [
   {
     slug: "move-in-out-cleaning-checklist",
     title: "The Ultimate Move In/Out Cleaning Checklist for South Florida",
@@ -152,9 +165,48 @@ const blogPosts = [
   }
 ];
 
-const categories = ["All", "Guides", "Tips", "Seasonal", "Pricing", "Local", "Deals", "Health"];
+const categories = ["All", "Guides", "Tips", "Seasonal", "Pricing", "Local", "Deals", "Health", "Home Care"];
 
 const Blog = () => {
+  const [allPosts, setAllPosts] = useState<BlogPost[]>(staticBlogPosts);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  useEffect(() => {
+    const fetchAiPosts = async () => {
+      const { data: aiPosts, error } = await supabase
+        .from('blog_posts')
+        .select('slug, title, excerpt, category, read_time, published_at')
+        .eq('is_published', true)
+        .order('published_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching AI blog posts:', error);
+        return;
+      }
+
+      if (aiPosts && aiPosts.length > 0) {
+        const formattedAiPosts: BlogPost[] = aiPosts.map(post => ({
+          slug: `ai/${post.slug}`,
+          title: post.title,
+          excerpt: post.excerpt,
+          date: new Date(post.published_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+          readTime: post.read_time,
+          category: post.category,
+          isAiGenerated: true
+        }));
+
+        // Combine AI posts with static posts, AI posts first
+        setAllPosts([...formattedAiPosts, ...staticBlogPosts]);
+      }
+    };
+
+    fetchAiPosts();
+  }, []);
+
+  const filteredPosts = selectedCategory === "All" 
+    ? allPosts 
+    : allPosts.filter(post => post.category === selectedCategory);
+
   return (
     <>
       <SEOSchema
@@ -184,22 +236,23 @@ const Blog = () => {
             {/* Category Tags */}
             <div className="flex flex-wrap justify-center gap-2 mb-12">
               {categories.map((category) => (
-                <span 
+                <button 
                   key={category}
+                  onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors ${
-                    category === "All" 
+                    category === selectedCategory 
                       ? "bg-primary text-primary-foreground" 
                       : "bg-muted text-muted-foreground hover:bg-primary/10"
                   }`}
                 >
                   {category}
-                </span>
+                </button>
               ))}
             </div>
 
             {/* Blog Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
+              {filteredPosts.map((post) => (
                 <article 
                   key={post.slug}
                   className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow group"
@@ -209,6 +262,12 @@ const Blog = () => {
                       <span className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
                         {post.category}
                       </span>
+                      {post.isAiGenerated && (
+                        <span className="flex items-center gap-1 bg-accent/10 text-accent-foreground text-xs font-medium px-2 py-1 rounded-full">
+                          <Sparkles className="w-3 h-3" />
+                          New
+                        </span>
+                      )}
                       <span className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Clock className="w-3 h-3" />
                         {post.readTime}

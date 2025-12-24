@@ -78,6 +78,17 @@ const DeepCleaningVsStandardCleaning = lazy(() => import("./pages/blog/DeepClean
 const PetFriendlyCleaningTips = lazy(() => import("./pages/blog/PetFriendlyCleaningTips"));
 const HurricaneSeasonCleaningPrep = lazy(() => import("./pages/blog/HurricaneSeasonCleaningPrep"));
 const HowToPrepareForCleaningService = lazy(() => import("./pages/blog/HowToPrepareForCleaningService"));
+const SpringCleaningGuide = lazy(() => import("./pages/blog/SpringCleaningGuide"));
+const EcoFriendlyCleaningProducts = lazy(() => import("./pages/blog/EcoFriendlyCleaningProducts"));
+const AllergyFreeHomeCleaning = lazy(() => import("./pages/blog/AllergyFreeHomeCleaning"));
+const HolidayCleaningChecklist = lazy(() => import("./pages/blog/HolidayCleaningChecklist"));
+const BathroomDeepCleaningGuide = lazy(() => import("./pages/blog/BathroomDeepCleaningGuide"));
+const KitchenCleaningHacks = lazy(() => import("./pages/blog/KitchenCleaningHacks"));
+const AirbnbTurnoverCleaningTips = lazy(() => import("./pages/blog/AirbnbTurnoverCleaningTips"));
+const MoldPreventionFlorida = lazy(() => import("./pages/blog/MoldPreventionFlorida"));
+const CondoCleaningRules = lazy(() => import("./pages/blog/CondoCleaningRules"));
+const PostConstructionCleaningGuide = lazy(() => import("./pages/blog/PostConstructionCleaningGuide"));
+const AiBlogPost = lazy(() => import("./pages/blog/AiBlogPost"));
 
 // New pages
 const Blog = lazy(() => import("./pages/Blog"));
@@ -178,6 +189,19 @@ const AppRoutes = () => {
         <Route path="/blog/pet-friendly-cleaning-tips" element={<PetFriendlyCleaningTips />} />
         <Route path="/blog/hurricane-season-cleaning-prep" element={<HurricaneSeasonCleaningPrep />} />
         <Route path="/blog/how-to-prepare-for-cleaning-service" element={<HowToPrepareForCleaningService />} />
+        <Route path="/blog/spring-cleaning-guide-south-florida" element={<SpringCleaningGuide />} />
+        <Route path="/blog/eco-friendly-cleaning-products" element={<EcoFriendlyCleaningProducts />} />
+        <Route path="/blog/allergy-free-home-cleaning" element={<AllergyFreeHomeCleaning />} />
+        <Route path="/blog/holiday-cleaning-checklist" element={<HolidayCleaningChecklist />} />
+        <Route path="/blog/bathroom-deep-cleaning-guide" element={<BathroomDeepCleaningGuide />} />
+        <Route path="/blog/kitchen-cleaning-hacks" element={<KitchenCleaningHacks />} />
+        <Route path="/blog/airbnb-turnover-cleaning-tips" element={<AirbnbTurnoverCleaningTips />} />
+        <Route path="/blog/mold-prevention-florida-homes" element={<MoldPreventionFlorida />} />
+        <Route path="/blog/condo-cleaning-rules-south-florida" element={<CondoCleaningRules />} />
+        <Route path="/blog/post-construction-cleaning-guide" element={<PostConstructionCleaningGuide />} />
+        
+        {/* AI-Generated Blog Posts */}
+        <Route path="/blog/ai/:slug" element={<AiBlogPost />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>
