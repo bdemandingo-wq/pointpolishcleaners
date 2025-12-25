@@ -41,8 +41,9 @@ const AIChatbot = () => {
           !isOpen && "animate-pulse"
         )}
         size="icon"
+        aria-label={isOpen ? "Close chat" : "Open chat"}
       >
-        {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+        {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <MessageCircle className="h-6 w-6" aria-hidden="true" />}
       </Button>
 
       {/* Chat Window */}
@@ -67,9 +68,9 @@ const AIChatbot = () => {
               size="icon"
               onClick={clearMessages}
               className="h-8 w-8 text-muted-foreground hover:text-foreground"
-              title="Clear chat"
+              aria-label="Clear chat history"
             >
-              <Trash2 className="h-4 w-4" />
+              <Trash2 className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
 
@@ -160,8 +161,9 @@ const AIChatbot = () => {
                 size="icon" 
                 disabled={isLoading || !input.trim()}
                 className="bg-primary hover:bg-primary/90"
+                aria-label="Send message"
               >
-                <Send className="h-4 w-4" />
+                <Send className="h-4 w-4" aria-hidden="true" />
               </Button>
             </div>
           </form>
