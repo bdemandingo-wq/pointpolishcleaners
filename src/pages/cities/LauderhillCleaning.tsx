@@ -9,7 +9,7 @@ const LauderhillCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Lauderhill Cleaning Service | Inverrary Area | TIDYWISE"
+        pageTitle="Lauderhill House Cleaning FL | TIDYWISE"
         pageDescription="Lauderhill FL budget-friendly cleaning services. Inverrary, Sunrise Golf & Lauderhill Isles. Move in/out cleaning available. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/lauderhill-cleaning"
         pageType="county"

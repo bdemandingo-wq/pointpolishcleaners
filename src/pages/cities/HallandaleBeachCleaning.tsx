@@ -9,7 +9,7 @@ const HallandaleBeachCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Hallandale Beach Condo Cleaning | Golden Isles | TIDYWISE"
+        pageTitle="Hallandale Beach Cleaning FL | TIDYWISE"
         pageDescription="Hallandale Beach FL oceanfront condo & house cleaning. Golden Isles, Gulfstream Park & The Hemispheres. Building-approved cleaners. Book online!"
         canonicalUrl="https://tidywisecleaning.com/hallandale-beach-cleaning"
         pageType="county"

@@ -9,7 +9,7 @@ const LakeWorthCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Lake Worth Beach Cleaning Service | Atlantis Area | TIDYWISE"
+        pageTitle="Lake Worth Beach Cleaning FL | TIDYWISE"
         pageDescription="Lake Worth Beach FL thorough home cleaning. Downtown, Palm Beach Farms & Atlantis area. Affordable rates, background-checked cleaners. Schedule now!"
         canonicalUrl="https://tidywisecleaning.com/lake-worth-cleaning"
         pageType="county"

@@ -16,8 +16,9 @@ const ServiceAreaLinks = lazy(() => import("@/components/seo/ServiceAreaLinks"))
 const StickyCallButton = lazy(() => import("@/components/seo/StickyCallButton"));
 const GoogleMapEmbed = lazy(() => import("@/components/seo/GoogleMapEmbed"));
 
-const LazySection = ({ children }: { children: React.ReactNode }) => (
-  <Suspense fallback={<div className="min-h-[200px]" />}>
+// Lightweight skeleton with reserved height to prevent CLS
+const LazySection = ({ children, minHeight = 200 }: { children: React.ReactNode; minHeight?: number }) => (
+  <Suspense fallback={<div style={{ minHeight }} aria-hidden="true" />}>
     {children}
   </Suspense>
 );
@@ -26,7 +27,7 @@ const Index = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="TIDYWISE House Cleaning Fort Lauderdale, Boca Raton & West Palm Beach"
+        pageTitle="House Cleaning Fort Lauderdale & Boca Raton | TIDYWISE"
         pageDescription="TIDYWISE professional house cleaning in Fort Lauderdale, Boca Raton & West Palm Beach. Serving 40+ cities in Broward, Palm Beach & Miami-Dade. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com"
         pageType="home"
@@ -36,15 +37,15 @@ const Index = () => {
         <Hero />
         <PricingCalculator />
         <Services />
-        <LazySection><WhyChooseUs /></LazySection>
-        <LazySection><Testimonials /></LazySection>
-        <LazySection><ServiceAreaLinks /></LazySection>
-        <LazySection><GoogleMapEmbed /></LazySection>
-        <LazySection><BlogPreview /></LazySection>
-        <LazySection><Contact /></LazySection>
+        <LazySection minHeight={400}><WhyChooseUs /></LazySection>
+        <LazySection minHeight={350}><Testimonials /></LazySection>
+        <LazySection minHeight={300}><ServiceAreaLinks /></LazySection>
+        <LazySection minHeight={400}><GoogleMapEmbed /></LazySection>
+        <LazySection minHeight={300}><BlogPreview /></LazySection>
+        <LazySection minHeight={400}><Contact /></LazySection>
         <Footer />
-        <LazySection><StickyCallButton /></LazySection>
-        <LazySection><AIChatbot /></LazySection>
+        <LazySection minHeight={0}><StickyCallButton /></LazySection>
+        <LazySection minHeight={0}><AIChatbot /></LazySection>
       </main>
     </>
   );

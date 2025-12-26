@@ -9,7 +9,7 @@ const OaklandParkCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Oakland Park Cleaning Service | Coral Heights | TIDYWISE"
+        pageTitle="Oakland Park House Cleaning FL | TIDYWISE"
         pageDescription="Oakland Park FL trusted residential cleaning. Coral Heights, Lake Ridge & Royal Palm Isles. Move-in, move-out & deep cleaning available. Book now!"
         canonicalUrl="https://tidywisecleaning.com/oakland-park-cleaning"
         pageType="county"

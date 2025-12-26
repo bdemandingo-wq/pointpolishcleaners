@@ -9,7 +9,7 @@ const DeerfieldBeachCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Deerfield Beach Cleaning | Hillsboro, Century Village | TIDYWISE"
+        pageTitle="Deerfield Beach Cleaning FL | TIDYWISE"
         pageDescription="Deerfield Beach FL beachside home & condo cleaning. The Cove, Hillsboro Beach & Century Village experts. Eco-friendly options available. Book today!"
         canonicalUrl="https://tidywisecleaning.com/deerfield-beach-cleaning"
         pageType="county"

@@ -3,12 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TIDYWISE House Cleaning Fort Lauderdale, Boca Raton & West Palm Beach</title>
+    <title>House Cleaning Fort Lauderdale & Boca Raton | TIDYWISE</title>
     <meta name="description" content="TIDYWISE professional house cleaning in Fort Lauderdale, Boca Raton & West Palm Beach. Serving 40+ cities in Broward, Palm Beach & Miami-Dade. Call (561) 571-8725!" />
     <meta name="author" content="TIDYWISE" />
     <link rel="icon" href="/favicon.png" type="image/png" />
 
-    <meta property="og:title" content="TIDYWISE House Cleaning | Fort Lauderdale, Boca Raton & West Palm Beach" />
+    <!-- Preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" />
+
+    <!-- Critical CSS inline for above-the-fold -->
+    <style>
+      /* Critical reset and base styles */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        background: #fff;
+        color: #1a1a2e;
+      }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+      
+      /* Critical hero styles */
+      #root { min-height: 100vh; }
+      .min-h-screen { min-height: 100vh; }
+      
+      /* Prevent layout shift - reserve navbar space */
+      nav { height: 64px; }
+      
+      /* Skeleton loading state */
+      .skeleton-hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+      
+      /* Font display swap */
+      @font-face {
+        font-family: 'Playfair Display';
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-display: swap;
+      }
+    </style>
+
+    <meta property="og:title" content="House Cleaning Fort Lauderdale & Boca Raton | TIDYWISE" />
     <meta property="og:description" content="Professional house cleaning in Fort Lauderdale, Boca Raton & West Palm Beach. Licensed, insured & trusted by South Florida families." />
     <meta property="og:url" content="https://tidywisecleaning.com" />
     <meta property="og:type" content="website" />
@@ -16,36 +65,44 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@TidyWise" />
-    <meta name="twitter:title" content="TIDYWISE House Cleaning | Fort Lauderdale, Boca Raton & West Palm Beach" />
+    <meta name="twitter:title" content="House Cleaning Fort Lauderdale & Boca Raton | TIDYWISE" />
     <meta name="twitter:description" content="Professional house cleaning in Fort Lauderdale, Boca Raton & West Palm Beach. Licensed, insured & trusted." />
     <meta name="twitter:image" content="https://tidywisecleaning.com/og-image.webp" />
     
     <link rel="canonical" href="https://tidywisecleaning.com" />
 
-    <!-- Google Analytics 4 - Deferred loading -->
-    <script>
-      // Defer GA loading until after page load
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          var script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7GMDF04SNZ';
-          script.async = true;
-          document.head.appendChild(script);
-          
-          script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', 'G-7GMDF04SNZ');
-          };
-        }, 2000); // 2 second delay after load
-      });
-    </script>
+    <!-- Preload hero background image -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=75" fetchpriority="high" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Defer non-critical scripts -->
+    <script>
+      // Defer GA loading until after interaction or 5 seconds
+      var gaLoaded = false;
+      function loadGA() {
+        if (gaLoaded) return;
+        gaLoaded = true;
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7GMDF04SNZ';
+        script.async = true;
+        document.head.appendChild(script);
+        script.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-7GMDF04SNZ');
+        };
+      }
+      // Load on first interaction or after 5s
+      ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGA, { once: true, passive: true });
+      });
+      setTimeout(loadGA, 5000);
+    </script>
   </body>
 </html>

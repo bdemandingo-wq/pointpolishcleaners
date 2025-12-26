@@ -9,7 +9,7 @@ const AventuraCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Aventura Condo Cleaning | Turnberry, Williams Island | TIDYWISE"
+        pageTitle="Aventura Condo & House Cleaning | TIDYWISE"
         pageDescription="Aventura FL luxury condo & high-rise cleaning specialists. Serving Turnberry, Williams Island & Aventura Mall area. Eco-friendly products. Book online now!"
         canonicalUrl="https://tidywisecleaning.com/aventura-cleaning"
         pageType="county"

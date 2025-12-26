@@ -9,7 +9,7 @@ const RoyalPalmBeachCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Royal Palm Beach Cleaning | Madison Green | TIDYWISE"
+        pageTitle="Royal Palm Beach Cleaning FL | TIDYWISE"
         pageDescription="Royal Palm Beach FL family-owned cleaning service. Madison Green, Saratoga & Crestwood. Consistent quality at honest prices. Schedule your clean today!"
         canonicalUrl="https://tidywisecleaning.com/royal-palm-beach-cleaning"
         pageType="county"

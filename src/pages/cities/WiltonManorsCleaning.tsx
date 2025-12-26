@@ -9,7 +9,7 @@ const WiltonManorsCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Wilton Manors House Cleaning | Jenada Isles | TIDYWISE"
+        pageTitle="Wilton Manors Cleaning FL | TIDYWISE"
         pageDescription="Wilton Manors FL LGBTQ-friendly cleaning service. Jenada Isles, Manor Grove & Central Wilton Manors. Inclusive, professional & thorough. Call us!"
         canonicalUrl="https://tidywisecleaning.com/wilton-manors-cleaning"
         pageType="county"

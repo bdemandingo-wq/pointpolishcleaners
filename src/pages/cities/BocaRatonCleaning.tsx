@@ -10,7 +10,7 @@ const BocaRatonCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Boca Raton House Cleaning | Mizner Park, Royal Palm | TIDYWISE"
+        pageTitle="Boca Raton House Cleaning | TIDYWISE"
         pageDescription="Top-rated cleaning Boca Raton. Professional house & condo cleaning. Serving Mizner Park, Royal Palm, Boca West. Licensed & insured. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/boca-raton-cleaning"
         pageType="county"

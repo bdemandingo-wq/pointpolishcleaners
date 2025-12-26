@@ -9,7 +9,7 @@ const PembrokePinesCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Pembroke Pines Cleaning | Chapel Trail, Silver Lakes | TIDYWISE"
+        pageTitle="Pembroke Pines House Cleaning | TIDYWISE"
         pageDescription="Pembroke Pines cleaning for busy families. Chapel Trail, Silver Lakes & Century Village specialists. Weekly, bi-weekly & deep cleaning. Book your free quote!"
         canonicalUrl="https://tidywisecleaning.com/pembroke-pines-cleaning"
         pageType="county"

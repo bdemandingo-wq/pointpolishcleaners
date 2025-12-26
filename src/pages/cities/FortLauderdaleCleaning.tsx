@@ -10,7 +10,7 @@ const FortLauderdaleCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Fort Lauderdale House Cleaning | Las Olas, Victoria Park | TIDYWISE"
+        pageTitle="Fort Lauderdale House Cleaning | TIDYWISE"
         pageDescription="Best cleaning in Fort Lauderdale. Licensed & insured house cleaning. Same-day quotes. Serving Las Olas, Victoria Park, Rio Vista. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/fort-lauderdale-cleaning"
         pageType="county"

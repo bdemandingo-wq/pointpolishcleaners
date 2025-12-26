@@ -9,7 +9,7 @@ const BoyntonBeachCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Boynton Beach House Cleaning | Leisureville, Aberdeen | TIDYWISE"
+        pageTitle="Boynton Beach House Cleaning | TIDYWISE"
         pageDescription="Boynton Beach FL residential cleaning experts. Leisureville, Aberdeen & Canyon Lakes. Standard, deep & move-out cleaning. Free instant quote online!"
         canonicalUrl="https://tidywisecleaning.com/boynton-beach-cleaning"
         pageType="county"
