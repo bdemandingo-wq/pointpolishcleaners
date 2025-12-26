@@ -10,7 +10,7 @@ const TamaracCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Tamarac FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Tamarac, FL. Licensed & insured. Same-day quotes. Serving Woodmont, Colony West, Mainlands. Call (561) 571-8725!"
+        pageDescription="Tamarac FL senior-friendly cleaning services. Woodmont, Colony West & Mainlands. Thorough, dependable & affordable. Schedule your cleaning online!"
         canonicalUrl="https://tidywisecleaning.com/tamarac-cleaning"
         pageType="county"
         county="Tamarac"

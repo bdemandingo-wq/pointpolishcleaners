@@ -10,7 +10,7 @@ const CoconutCreekCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Coconut Creek FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Coconut Creek, FL. Licensed & insured. Same-day quotes. Serving Wynmoor, Palm Beach Farms, Cypress Bend. Call (561) 571-8725!"
+        pageDescription="Coconut Creek FL professional home cleaning. Wynmoor community specialists. Palm Beach Farms & Cypress Bend. Licensed & insured. Schedule today!"
         canonicalUrl="https://tidywisecleaning.com/coconut-creek-cleaning"
         pageType="county"
         county="Coconut Creek"

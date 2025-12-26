@@ -10,7 +10,7 @@ const AventuraCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Aventura FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Aventura, FL. Licensed & insured. Same-day quotes. Serving Aventura Mall area, Turnberry, Williams Island. Call (561) 571-8725!"
+        pageDescription="Aventura FL luxury condo & high-rise cleaning specialists. Serving Turnberry, Williams Island & Aventura Mall area. Eco-friendly products. Book online now!"
         canonicalUrl="https://tidywisecleaning.com/aventura-cleaning"
         pageType="county"
         county="Aventura"

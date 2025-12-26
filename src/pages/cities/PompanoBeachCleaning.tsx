@@ -10,7 +10,7 @@ const PompanoBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Pompano Beach | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Pompano Beach, FL. Licensed & insured. Same-day quotes. Serving Lighthouse Point, Palm Aire, Cypress Creek. Call (561) 571-8725!"
+        pageDescription="Pompano Beach FL coastal home cleaning. Lighthouse Point, Palm Aire & Cypress Creek. Salt-air safe cleaning methods. Free estimates available!"
         canonicalUrl="https://tidywisecleaning.com/pompano-beach-cleaning"
         pageType="county"
         county="Pompano Beach"

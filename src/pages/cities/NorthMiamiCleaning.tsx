@@ -10,7 +10,7 @@ const NorthMiamiCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service North Miami FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in North Miami, FL. Licensed & insured. Same-day quotes. Serving Sans Souci, Keystone Point, Biscayne Gardens. Call (561) 571-8725!"
+        pageDescription="North Miami FL dependable house cleaning. Sans Souci, Keystone Point & Biscayne Gardens. Pet-friendly & eco-conscious. Book your estimate online!"
         canonicalUrl="https://tidywisecleaning.com/north-miami-cleaning"
         pageType="county"
         county="North Miami"

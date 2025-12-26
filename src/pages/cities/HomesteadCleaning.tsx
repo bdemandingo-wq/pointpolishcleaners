@@ -10,7 +10,7 @@ const HomesteadCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Homestead FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Homestead, FL. Licensed & insured. Same-day quotes. Serving Redland, Florida City, Leisure City. Call (561) 571-8725!"
+        pageDescription="Homestead FL affordable residential cleaning. Redland, Florida City & Leisure City coverage. Honest pricing, no hidden fees. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/homestead-cleaning"
         pageType="county"
         county="Homestead"

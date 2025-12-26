@@ -10,7 +10,7 @@ const PembrokePinesCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Pembroke Pines FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Pembroke Pines, FL. Licensed & insured. Same-day quotes. Serving Chapel Trail, Silver Lakes, Century Village. Call (561) 571-8725!"
+        pageDescription="Pembroke Pines cleaning for busy families. Chapel Trail, Silver Lakes & Century Village specialists. Weekly, bi-weekly & deep cleaning. Book your free quote!"
         canonicalUrl="https://tidywisecleaning.com/pembroke-pines-cleaning"
         pageType="county"
         county="Pembroke Pines"

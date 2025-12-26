@@ -10,7 +10,7 @@ const OaklandParkCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Oakland Park FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Oakland Park, FL. Licensed & insured. Same-day quotes. Serving Coral Heights, Lake Ridge, Royal Palm Isles. Call (561) 571-8725!"
+        pageDescription="Oakland Park FL trusted residential cleaning. Coral Heights, Lake Ridge & Royal Palm Isles. Move-in, move-out & deep cleaning available. Book now!"
         canonicalUrl="https://tidywisecleaning.com/oakland-park-cleaning"
         pageType="county"
         county="Oakland Park"

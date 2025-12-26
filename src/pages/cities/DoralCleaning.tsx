@@ -10,7 +10,7 @@ const DoralCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Doral FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Doral, FL. Licensed & insured. Same-day quotes. Serving Trump National, Isles of Doral, Downtown Doral. Call (561) 571-8725!"
+        pageDescription="Doral FL professional home & office cleaning. Bilingual staff serving Downtown Doral, Trump National & Isles of Doral. Free estimates. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/doral-cleaning"
         pageType="county"
         county="Doral"

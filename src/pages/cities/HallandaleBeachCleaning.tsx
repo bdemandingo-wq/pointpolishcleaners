@@ -10,7 +10,7 @@ const HallandaleBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Hallandale Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Hallandale Beach, FL. Licensed & insured. Same-day quotes. Serving Golden Isles, Gulfstream Park, The Hemispheres. Call (561) 571-8725!"
+        pageDescription="Hallandale Beach FL oceanfront condo & house cleaning. Golden Isles, Gulfstream Park & The Hemispheres. Building-approved cleaners. Book online!"
         canonicalUrl="https://tidywisecleaning.com/hallandale-beach-cleaning"
         pageType="county"
         county="Hallandale Beach"

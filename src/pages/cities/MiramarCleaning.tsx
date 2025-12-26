@@ -10,7 +10,7 @@ const MiramarCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Miramar FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Miramar, FL. Licensed & insured. Same-day quotes. Serving Sunset Lakes, Silver Shores, Riviera Isles. Call (561) 571-8725!"
+        pageDescription="Miramar FL affordable house cleaning you can trust. Sunset Lakes, Silver Shores & Riviera Isles. Flexible scheduling. Satisfaction guaranteed!"
         canonicalUrl="https://tidywisecleaning.com/miramar-cleaning"
         pageType="county"
         county="Miramar"

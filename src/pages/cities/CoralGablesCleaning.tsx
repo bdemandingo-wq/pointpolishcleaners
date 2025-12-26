@@ -10,7 +10,7 @@ const CoralGablesCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Coral Gables FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Coral Gables, FL. Licensed & insured. Same-day quotes. Serving Miracle Mile, Cocoplum, Riviera. Call (561) 571-8725!"
+        pageDescription="Coral Gables FL upscale residential cleaning. Miracle Mile, Cocoplum & Riviera estates. Discreet, professional & detail-oriented. Free consultation!"
         canonicalUrl="https://tidywisecleaning.com/coral-gables-cleaning"
         pageType="county"
         county="Coral Gables"

@@ -10,7 +10,7 @@ const MargateCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Margate FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Margate, FL. Licensed & insured. Same-day quotes. Serving Oriole Golf, Coral Gate, Palm Lakes. Call (561) 571-8725!"
+        pageDescription="Margate FL value-priced residential cleaning. Oriole Golf, Coral Gate & Palm Lakes. Weekly, bi-weekly or monthly options. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/margate-cleaning"
         pageType="county"
         county="Margate"

@@ -10,7 +10,7 @@ const SunriseCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Sunrise FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Sunrise, FL. Licensed & insured. Same-day quotes. Serving Sawgrass Mills, Sunrise Lakes, Welleby. Call (561) 571-8725!"
+        pageDescription="Sunrise FL reliable cleaning near Sawgrass Mills. Sunrise Lakes & Welleby specialists. Weekly maintenance or one-time deep cleans. Get your quote today!"
         canonicalUrl="https://tidywisecleaning.com/sunrise-cleaning"
         pageType="county"
         county="Sunrise"

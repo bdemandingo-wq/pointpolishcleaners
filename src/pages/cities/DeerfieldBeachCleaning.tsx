@@ -10,7 +10,7 @@ const DeerfieldBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Deerfield Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Deerfield Beach, FL. Licensed & insured. Same-day quotes. Serving Cove, Hillsboro Beach, Century Village. Call (561) 571-8725!"
+        pageDescription="Deerfield Beach FL beachside home & condo cleaning. The Cove, Hillsboro Beach & Century Village experts. Eco-friendly options available. Book today!"
         canonicalUrl="https://tidywisecleaning.com/deerfield-beach-cleaning"
         pageType="county"
         county="Deerfield Beach"

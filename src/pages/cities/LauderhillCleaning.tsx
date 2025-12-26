@@ -10,7 +10,7 @@ const LauderhillCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Lauderhill FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Lauderhill, FL. Licensed & insured. Same-day quotes. Serving Inverrary, Sunrise Golf, Lauderhill Isles. Call (561) 571-8725!"
+        pageDescription="Lauderhill FL budget-friendly cleaning services. Inverrary, Sunrise Golf & Lauderhill Isles. Move in/out cleaning available. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/lauderhill-cleaning"
         pageType="county"
         county="Lauderhill"

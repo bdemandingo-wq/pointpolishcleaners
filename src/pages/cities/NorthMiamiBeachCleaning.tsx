@@ -10,7 +10,7 @@ const NorthMiamiBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service North Miami Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in North Miami Beach, FL. Licensed & insured. Same-day quotes. Serving Eastern Shores, Skylake, Ojus. Call (561) 571-8725!"
+        pageDescription="North Miami Beach FL home & apartment cleaning. Eastern Shores, Skylake & Ojus specialists. Flexible scheduling. Get 10% off your first clean!"
         canonicalUrl="https://tidywisecleaning.com/north-miami-beach-cleaning"
         pageType="county"
         county="North Miami Beach"

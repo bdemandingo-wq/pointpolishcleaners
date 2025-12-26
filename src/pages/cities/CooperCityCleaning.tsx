@@ -10,7 +10,7 @@ const CooperCityCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Cooper City FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Cooper City, FL. Licensed & insured. Same-day quotes. Serving Rock Creek, Embassy Lakes, Country Glen. Call (561) 571-8725!"
+        pageDescription="Cooper City FL family-focused home cleaning. Rock Creek, Embassy Lakes & Country Glen. Kid-safe & pet-friendly products. Schedule today!"
         canonicalUrl="https://tidywisecleaning.com/cooper-city-cleaning"
         pageType="county"
         county="Cooper City"

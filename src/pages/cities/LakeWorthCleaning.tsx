@@ -10,7 +10,7 @@ const LakeWorthCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Lake Worth FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Lake Worth Beach, FL. Licensed & insured. Same-day quotes. Serving Downtown, Palm Beach Farms, Atlantis. Call (561) 571-8725!"
+        pageDescription="Lake Worth Beach FL thorough home cleaning. Downtown, Palm Beach Farms & Atlantis area. Affordable rates, background-checked cleaners. Schedule now!"
         canonicalUrl="https://tidywisecleaning.com/lake-worth-cleaning"
         pageType="county"
         county="Lake Worth"

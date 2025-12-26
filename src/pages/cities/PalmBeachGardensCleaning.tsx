@@ -10,7 +10,7 @@ const PalmBeachGardensCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Palm Beach Gardens FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Palm Beach Gardens, FL. Licensed & insured. Same-day quotes. Serving PGA National, The Gardens, Frenchman's Creek. Call (561) 571-8725!"
+        pageDescription="Palm Beach Gardens FL luxury home cleaning. PGA National, The Gardens & Frenchman's Creek. White-glove service with meticulous attention. Book today!"
         canonicalUrl="https://tidywisecleaning.com/palm-beach-gardens-cleaning"
         pageType="county"
         county="Palm Beach Gardens"

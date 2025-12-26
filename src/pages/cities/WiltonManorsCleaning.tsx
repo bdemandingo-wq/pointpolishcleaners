@@ -10,7 +10,7 @@ const WiltonManorsCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Wilton Manors FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Wilton Manors, FL. Licensed & insured. Same-day quotes. Serving Jenada Isles, Manor Grove, Central Wilton Manors. Call (561) 571-8725!"
+        pageDescription="Wilton Manors FL LGBTQ-friendly cleaning service. Jenada Isles, Manor Grove & Central Wilton Manors. Inclusive, professional & thorough. Call us!"
         canonicalUrl="https://tidywisecleaning.com/wilton-manors-cleaning"
         pageType="county"
         county="Wilton Manors"

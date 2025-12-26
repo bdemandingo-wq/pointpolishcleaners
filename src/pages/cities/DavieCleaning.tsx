@@ -10,7 +10,7 @@ const DavieCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Davie FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Davie, FL. Licensed & insured. Same-day quotes. Serving Nova Southeastern, Pine Island Ridge, Rolling Hills. Call (561) 571-8725!"
+        pageDescription="Davie FL home cleaning near Nova Southeastern. Pine Island Ridge & Rolling Hills residents love our attention to detail. Insured cleaners. Book now!"
         canonicalUrl="https://tidywisecleaning.com/davie-cleaning"
         pageType="county"
         county="Davie"

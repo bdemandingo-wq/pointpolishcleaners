@@ -10,7 +10,7 @@ const BoyntonBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Boynton Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Boynton Beach, FL. Licensed & insured. Same-day quotes. Serving Leisureville, Aberdeen, Canyon Lakes. Call (561) 571-8725!"
+        pageDescription="Boynton Beach FL residential cleaning experts. Leisureville, Aberdeen & Canyon Lakes. Standard, deep & move-out cleaning. Free instant quote online!"
         canonicalUrl="https://tidywisecleaning.com/boynton-beach-cleaning"
         pageType="county"
         county="Boynton Beach"

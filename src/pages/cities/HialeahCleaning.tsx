@@ -10,7 +10,7 @@ const HialeahCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Hialeah FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Hialeah, FL. Licensed & insured. Same-day quotes. Serving Hialeah Gardens, Palm Springs, Miami Lakes. Call (561) 571-8725!"
+        pageDescription="Hialeah FL bilingual cleaning services. Hialeah Gardens, Palm Springs & Miami Lakes. Affordable weekly or bi-weekly plans. Llámanos hoy!"
         canonicalUrl="https://tidywisecleaning.com/hialeah-cleaning"
         pageType="county"
         county="Hialeah"

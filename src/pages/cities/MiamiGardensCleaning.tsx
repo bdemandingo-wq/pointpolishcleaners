@@ -10,7 +10,7 @@ const MiamiGardensCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Miami Gardens FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Miami Gardens, FL. Licensed & insured. Same-day quotes. Serving Hard Rock Stadium area, Andover, Scott Lake. Call (561) 571-8725!"
+        pageDescription="Miami Gardens FL reliable home cleaning. Hard Rock Stadium area, Andover & Scott Lake. Recurring maintenance plans available. Free quote online!"
         canonicalUrl="https://tidywisecleaning.com/miami-gardens-cleaning"
         pageType="county"
         county="Miami Gardens"

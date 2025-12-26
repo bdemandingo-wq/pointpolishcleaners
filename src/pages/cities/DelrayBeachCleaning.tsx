@@ -10,7 +10,7 @@ const DelrayBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Delray Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Delray Beach, FL. Licensed & insured. Same-day quotes. Serving Atlantic Avenue, Tropic Isle, Lake Ida. Call (561) 571-8725!"
+        pageDescription="Delray Beach FL professional house cleaning. Atlantic Avenue, Tropic Isle & Lake Ida residents trust TIDYWISE. Recurring or one-time cleans. Get a quote!"
         canonicalUrl="https://tidywisecleaning.com/delray-beach-cleaning"
         pageType="county"
         county="Delray Beach"

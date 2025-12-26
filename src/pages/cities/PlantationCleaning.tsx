@@ -10,7 +10,7 @@ const PlantationCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Plantation FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Plantation, FL. Licensed & insured. Same-day quotes. Serving Jacaranda, Plantation Acres, Central Park. Call (561) 571-8725!"
+        pageDescription="Plantation FL trusted home cleaning since 2020. Jacaranda, Plantation Acres & Central Park. Standard & deep cleaning options. Get 10% off first clean!"
         canonicalUrl="https://tidywisecleaning.com/plantation-cleaning"
         pageType="county"
         county="Plantation"

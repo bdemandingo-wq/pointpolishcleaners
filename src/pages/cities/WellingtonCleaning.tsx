@@ -10,7 +10,7 @@ const WellingtonCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Wellington FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Wellington, FL. Licensed & insured. Same-day quotes. Serving Olympia, Polo West, The Isles. Call (561) 571-8725!"
+        pageDescription="Wellington FL equestrian community cleaning experts. Olympia, Polo West & The Isles. Trusted by Wellington families since 2020. Get 10% off first clean!"
         canonicalUrl="https://tidywisecleaning.com/wellington-cleaning"
         pageType="county"
         county="Wellington"

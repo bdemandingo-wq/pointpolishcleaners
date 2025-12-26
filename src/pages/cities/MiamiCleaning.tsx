@@ -10,7 +10,7 @@ const MiamiCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Miami FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Miami, FL. Licensed & insured. Same-day quotes. Serving Brickell, Wynwood, Coconut Grove, Little Havana. Call (561) 571-8725!"
+        pageDescription="Miami FL house & condo cleaning you can count on. Brickell, Wynwood, Coconut Grove & Little Havana. Same-day availability. Book now!"
         canonicalUrl="https://tidywisecleaning.com/miami-cleaning"
         pageType="county"
         county="Miami"

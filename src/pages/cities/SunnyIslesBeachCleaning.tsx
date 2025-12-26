@@ -10,7 +10,7 @@ const SunnyIslesBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Sunny Isles Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Sunny Isles Beach, FL. Licensed & insured. Same-day quotes. Serving Golden Beach, Oceania, Acqualina. Call (561) 571-8725!"
+        pageDescription="Sunny Isles Beach FL high-rise condo cleaning. Oceania, Acqualina & Golden Beach towers. Building-approved, insured teams. Call (561) 571-8725!"
         canonicalUrl="https://tidywisecleaning.com/sunny-isles-beach-cleaning"
         pageType="county"
         county="Sunny Isles Beach"

@@ -10,7 +10,7 @@ const ParklandCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Parkland FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Parkland, FL. Licensed & insured. Same-day quotes. Serving Heron Bay, Parkland Golf, The Estates. Call (561) 571-8725!"
+        pageDescription="Parkland FL premium estate cleaning. Heron Bay, Parkland Golf & The Estates. Trusted by Parkland's finest homes. Get your custom quote!"
         canonicalUrl="https://tidywisecleaning.com/parkland-cleaning"
         pageType="county"
         county="Parkland"

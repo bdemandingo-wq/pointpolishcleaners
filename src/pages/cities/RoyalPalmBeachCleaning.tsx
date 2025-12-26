@@ -10,7 +10,7 @@ const RoyalPalmBeachCleaning = () => {
     <>
       <SEOSchema
         pageTitle="Best Cleaning Service Royal Palm Beach FL | TIDYWISE"
-        pageDescription="Top-rated house cleaning in Royal Palm Beach, FL. Licensed & insured. Same-day quotes. Serving Madison Green, Saratoga, Crestwood. Call (561) 571-8725!"
+        pageDescription="Royal Palm Beach FL family-owned cleaning service. Madison Green, Saratoga & Crestwood. Consistent quality at honest prices. Schedule your clean today!"
         canonicalUrl="https://tidywisecleaning.com/royal-palm-beach-cleaning"
         pageType="county"
         county="Royal Palm Beach"
