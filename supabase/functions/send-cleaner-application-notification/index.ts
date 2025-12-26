@@ -1,6 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -43,20 +46,45 @@ const handler = async (req: Request): Promise<Response> => {
       .map((area) => workAreaLabels[area] || area)
       .join(", ");
 
-    const supplyPicturesHtml = application.supplyPictures.length > 0
-      ? `
-        <div style="margin-top: 20px;">
-          <h3 style="color: #333; margin-bottom: 10px;">Supply Pictures</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-            ${application.supplyPictures.map((url) => `
-              <a href="${url}" target="_blank" style="display: inline-block;">
-                <img src="${url}" alt="Supply picture" style="max-width: 150px; max-height: 150px; border-radius: 8px; object-fit: cover;" />
-              </a>
-            `).join("")}
+    // Generate signed URLs for supply pictures (valid for 7 days)
+    let supplyPicturesHtml = "";
+    if (application.supplyPictures.length > 0 && SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY) {
+      const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+      
+      const signedUrls: string[] = [];
+      for (const filename of application.supplyPictures) {
+        // Extract just the filename if it's a full URL (for backwards compatibility)
+        const fname = filename.includes('/') ? filename.split('/').pop() : filename;
+        
+        if (fname) {
+          const { data, error } = await supabase.storage
+            .from('supply-pictures')
+            .createSignedUrl(fname, 60 * 60 * 24 * 7); // 7 days
+          
+          if (!error && data?.signedUrl) {
+            signedUrls.push(data.signedUrl);
+          } else {
+            console.error('Failed to generate signed URL for:', fname, error);
+          }
+        }
+      }
+      
+      if (signedUrls.length > 0) {
+        supplyPicturesHtml = `
+          <div style="margin-top: 20px;">
+            <h3 style="color: #333; margin-bottom: 10px;">Supply Pictures</h3>
+            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Links valid for 7 days</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              ${signedUrls.map((url) => `
+                <a href="${url}" target="_blank" style="display: inline-block;">
+                  <img src="${url}" alt="Supply picture" style="max-width: 150px; max-height: 150px; border-radius: 8px; object-fit: cover;" />
+                </a>
+              `).join("")}
+            </div>
           </div>
-        </div>
-      `
-      : "";
+        `;
+      }
+    }
 
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",

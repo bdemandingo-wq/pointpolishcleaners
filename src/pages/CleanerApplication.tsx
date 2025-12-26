@@ -84,7 +84,7 @@ const CleanerApplication = () => {
   };
 
   const uploadFiles = async (): Promise<string[]> => {
-    const urls: string[] = [];
+    const filenames: string[] = [];
     
     for (const file of uploadedFiles) {
       const fileExt = file.name.split(".").pop();
@@ -99,14 +99,11 @@ const CleanerApplication = () => {
         throw error;
       }
       
-      const { data: urlData } = supabase.storage
-        .from("supply-pictures")
-        .getPublicUrl(fileName);
-      
-      urls.push(urlData.publicUrl);
+      // Store just the filename - admins will generate signed URLs to view
+      filenames.push(fileName);
     }
     
-    return urls;
+    return filenames;
   };
 
   const onSubmit = async (data: ApplicationFormData) => {
