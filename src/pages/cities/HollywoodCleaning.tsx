@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Phone, CheckCircle, Star } from "lucide-react";
+import { Phone, CheckCircle, Star, Sparkles, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOSchema from "@/components/seo/SEOSchema";
+import CityPageNavigation from "@/components/seo/CityPageNavigation";
 
 const HollywoodCleaning = () => {
   return (
@@ -76,6 +77,69 @@ const HollywoodCleaning = () => {
             </p>
           </div>
         </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-3xl font-bold text-foreground text-center mb-12">
+              Why Hollywood Residents Choose TIDYWISE
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Beach & Broadwalk Experts</h3>
+                <p className="text-muted-foreground">We understand Hollywood Beach living. From beachfront condos to inland homes, we tackle sand, salt, and humidity with expert care.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Flexible Scheduling</h3>
+                <p className="text-muted-foreground">Book weekly, bi-weekly, or one-time cleanings. We work around your schedule with same-day availability for Hollywood residents.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Family-Owned Service</h3>
+                <p className="text-muted-foreground">As a local South Florida business, we treat every Hollywood home like our own. Fully licensed, insured, and background-checked.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-muted">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-3xl font-bold text-foreground text-center mb-8">
+              Hollywood FL Cleaning Services
+            </h2>
+            <div className="max-w-4xl mx-auto prose prose-lg text-muted-foreground">
+              <p>
+                TIDYWISE delivers professional cleaning services across Hollywood, Florida—from the famous Hollywood Beach 
+                Broadwalk to the upscale neighborhoods of Emerald Hills and Hollywood Hills. Our experienced team 
+                understands the diverse housing in Hollywood, from waterfront condos to family homes in established 
+                neighborhoods.
+              </p>
+              <p>
+                Hollywood's unique blend of beach living and residential communities means homes face specific 
+                cleaning challenges. Whether you're dealing with sand tracked in from the beach, humidity-related 
+                issues, or simply need reliable regular cleaning, our team has the expertise to keep your home 
+                spotless.
+              </p>
+              <p>
+                We offer comprehensive cleaning options including standard maintenance cleaning, deep cleaning 
+                services, and move-in/move-out cleaning. Our eco-friendly products are safe for families, pets, 
+                and the environment—perfect for Hollywood's health-conscious community.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <CityPageNavigation 
+          currentCity="Hollywood"
+          county="broward"
+        />
 
         <Footer />
       </main>

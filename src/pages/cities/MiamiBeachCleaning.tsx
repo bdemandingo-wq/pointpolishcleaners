@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Phone, CheckCircle, Star } from "lucide-react";
+import { Phone, CheckCircle, Star, Sparkles, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOSchema from "@/components/seo/SEOSchema";
+import CityPageNavigation from "@/components/seo/CityPageNavigation";
 
 const MiamiBeachCleaning = () => {
   return (
@@ -76,6 +77,69 @@ const MiamiBeachCleaning = () => {
             </p>
           </div>
         </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-3xl font-bold text-foreground text-center mb-12">
+              Why Miami Beach Residents Choose TIDYWISE
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Condo & High-Rise Experts</h3>
+                <p className="text-muted-foreground">Experienced with South Beach condos, luxury high-rises, and building access requirements. We understand Miami Beach's unique condo lifestyle.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Vacation Rental Ready</h3>
+                <p className="text-muted-foreground">Quick turnovers for Airbnb and VRBO properties. Keep your Miami Beach rental spotless between guests with our reliable service.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Salt Air & Humidity Specialists</h3>
+                <p className="text-muted-foreground">We tackle the unique cleaning challenges of beachfront living, from salt residue to Florida humidity and mold prevention.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-muted">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-3xl font-bold text-foreground text-center mb-8">
+              Miami Beach Cleaning Services
+            </h2>
+            <div className="max-w-4xl mx-auto prose prose-lg text-muted-foreground">
+              <p>
+                TIDYWISE provides comprehensive cleaning services throughout Miami Beach, from the iconic Art Deco District 
+                of South Beach to the family-friendly neighborhoods of North Beach. Our professional cleaners understand 
+                the unique needs of Miami Beach homes and condos, including high-rise living, vacation rentals, and 
+                beachfront properties.
+              </p>
+              <p>
+                Whether you need regular maintenance cleaning for your Mid-Beach condo, deep cleaning services for your 
+                Sunset Islands home, or move-in/move-out cleaning for your rental property, our licensed and insured 
+                team delivers exceptional results. We're familiar with building requirements across Miami Beach and 
+                can coordinate with property managers and front desk staff.
+              </p>
+              <p>
+                Living near the ocean means dealing with salt air, sand, and humidity. Our cleaners use specialized 
+                techniques and eco-friendly products to keep your Miami Beach home fresh and clean while protecting 
+                your surfaces from the elements.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <CityPageNavigation 
+          currentCity="Miami Beach"
+          county="miami-dade"
+        />
 
         <Footer />
       </main>

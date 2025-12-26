@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Phone, CheckCircle, Star } from "lucide-react";
+import { Phone, CheckCircle, Star, Sparkles, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOSchema from "@/components/seo/SEOSchema";
+import CityPageNavigation from "@/components/seo/CityPageNavigation";
 
 const WestPalmBeachCleaning = () => {
   return (
@@ -76,6 +77,69 @@ const WestPalmBeachCleaning = () => {
             </p>
           </div>
         </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-3xl font-bold text-foreground text-center mb-12">
+              Why West Palm Beach Residents Choose TIDYWISE
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Historic Home Specialists</h3>
+                <p className="text-muted-foreground">West Palm Beach's historic districts like El Cid and Old Northwood require special care. We understand how to clean and protect vintage details.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Downtown & Condo Ready</h3>
+                <p className="text-muted-foreground">From City Place condos to waterfront high-rises, we navigate building requirements and coordinate seamlessly with management.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3">Local & Reliable</h3>
+                <p className="text-muted-foreground">As a Palm Beach County business, we know West Palm Beach inside and out. Count on consistent quality and dependable scheduling.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-muted">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-3xl font-bold text-foreground text-center mb-8">
+              West Palm Beach FL Cleaning Services
+            </h2>
+            <div className="max-w-4xl mx-auto prose prose-lg text-muted-foreground">
+              <p>
+                TIDYWISE provides comprehensive cleaning services throughout West Palm Beach, from the vibrant 
+                downtown Clematis Street district to the charming historic neighborhoods of El Cid and Old 
+                Northwood. Our professional team understands the diverse housing stock in WPB, from modern 
+                high-rise condos to beautifully preserved Mediterranean Revival homes.
+              </p>
+              <p>
+                West Palm Beach combines urban energy with residential tranquility, and our cleaning services 
+                adapt to both. Whether you need regular maintenance for your downtown condo, deep cleaning 
+                for your Flamingo Park bungalow, or move-in cleaning for a new rental, we deliver exceptional 
+                results every time.
+              </p>
+              <p>
+                Our eco-friendly products are tough on dirt but gentle on your home's surfaces and safe for 
+                your family. We're fully licensed and insured, with background-checked cleaners you can trust 
+                in your West Palm Beach home.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <CityPageNavigation 
+          currentCity="West Palm Beach"
+          county="palm-beach"
+        />
 
         <Footer />
       </main>
