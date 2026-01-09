@@ -237,32 +237,34 @@ const PricingCalculator = () => {
               )}
             </div>
 
-            {/* Add-ons */}
-            <div className="space-y-4">
-              <Label className="text-base font-medium">Add-On Services:</Label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {addOns.map((addOn) => (
-                  <div
-                    key={addOn.id}
-                    className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-all ${
-                      selectedAddOns.includes(addOn.id)
-                        ? "bg-primary/10 border-primary"
-                        : "bg-background border-border hover:border-primary/50"
-                    }`}
-                    onClick={() => toggleAddOn(addOn.id)}
-                  >
-                    <Checkbox
-                      id={addOn.id}
-                      checked={selectedAddOns.includes(addOn.id)}
-                      onCheckedChange={() => toggleAddOn(addOn.id)}
-                    />
-                    <label htmlFor={addOn.id} className="text-sm cursor-pointer">
-                      {addOn.label} (${addOn.price})
-                    </label>
-                  </div>
-                ))}
+            {/* Add-ons - Hidden for Deep Clean since all add-ons are included */}
+            {serviceType !== "deep" && (
+              <div className="space-y-4">
+                <Label className="text-base font-medium">Add-On Services:</Label>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {addOns.map((addOn) => (
+                    <div
+                      key={addOn.id}
+                      className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-all ${
+                        selectedAddOns.includes(addOn.id)
+                          ? "bg-primary/10 border-primary"
+                          : "bg-background border-border hover:border-primary/50"
+                      }`}
+                      onClick={() => toggleAddOn(addOn.id)}
+                    >
+                      <Checkbox
+                        id={addOn.id}
+                        checked={selectedAddOns.includes(addOn.id)}
+                        onCheckedChange={() => toggleAddOn(addOn.id)}
+                      />
+                      <label htmlFor={addOn.id} className="text-sm cursor-pointer">
+                        {addOn.label} (${addOn.price})
+                      </label>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Book Button */}
             <Button
