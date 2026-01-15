@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User, ChevronDown } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo-optimized.webp";
+
+const scrollToBooking = () => {
+  const bookingSection = document.getElementById('booking');
+  if (bookingSection) {
+    bookingSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +21,19 @@ import {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBookNowClick = () => {
+    if (location.pathname === '/') {
+      // Already on homepage, just scroll
+      scrollToBooking();
+    } else {
+      // Navigate to homepage first, then scroll
+      navigate('/');
+      setTimeout(() => scrollToBooking(), 100);
+    }
+  };
 
   const navLinks = [
     { href: "/", label: "Home", isRoute: true },
@@ -90,8 +110,8 @@ const Navbar = () => {
                 My Bookings
               </Link>
             )}
-            <Button asChild>
-              <Link to="/#booking">Book Now</Link>
+            <Button onClick={handleBookNowClick}>
+              Book Now
             </Button>
           </div>
 
@@ -165,8 +185,8 @@ const Navbar = () => {
                   My Bookings
                 </Link>
               )}
-              <Button asChild className="w-full mt-2">
-                <Link to="/#booking" onClick={() => setIsOpen(false)}>Book Now</Link>
+              <Button className="w-full mt-2" onClick={() => { setIsOpen(false); handleBookNowClick(); }}>
+                Book Now
               </Button>
             </div>
           </div>
