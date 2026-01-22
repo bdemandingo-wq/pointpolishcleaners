@@ -50,7 +50,7 @@ const BookingForm = () => {
 
   useEffect(() => {
     if (!booking) {
-      navigate("/#booking", { replace: true });
+      navigate({ pathname: "/", hash: "#booking" }, { replace: true });
     }
   }, [booking, navigate]);
 

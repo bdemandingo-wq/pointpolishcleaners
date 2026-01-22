@@ -62,7 +62,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/#booking" className="text-background/70 hover:text-background transition-colors">
+                <Link
+                  to={{ pathname: "/", hash: "#booking" }}
+                  className="text-background/70 hover:text-background transition-colors"
+                >
                   Get a Quote
                 </Link>
               </li>
