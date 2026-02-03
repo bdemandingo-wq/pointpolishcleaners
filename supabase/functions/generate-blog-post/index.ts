@@ -84,18 +84,20 @@ serve(async (req) => {
     }
 
     // ============ AUTHENTICATION CHECK ============
-    // Check if this is an internal cron call using the anon key
+    // Check if this is an internal cron call
     const authHeader = req.headers.get('Authorization');
     const token = authHeader?.replace('Bearer ', '').trim();
     
-    // Check if token matches the anon key (used by cron jobs via pg_net)
-    // The anon key is a static JWT that doesn't represent a user session
-    const isAnonKeyCall = token === SUPABASE_ANON_KEY;
+    // The anon key JWT used by pg_cron - this is a static, long-lived token
+    // that doesn't represent a user session but allows internal scheduled calls
+    const CRON_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrc2Vha2p4YXJoanVqbmdva2x6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MzMzOTcsImV4cCI6MjA4MTMwOTM5N30.TWAsnXvAgSCtbQSLYq7cX9Ga7uKJQBKRqIWAnfpP_CE';
     
-    console.log('Auth check - isAnonKeyCall:', isAnonKeyCall);
-    console.log('Token length:', token?.length, 'Anon key length:', SUPABASE_ANON_KEY?.length);
+    // Check if this is a cron job call using the anon key
+    const isCronCall = token === CRON_ANON_KEY;
     
-    if (isAnonKeyCall) {
+    console.log('Auth check - isCronCall:', isCronCall);
+    
+    if (isCronCall) {
       console.log('Internal cron job call detected - bypassing user auth');
     } else {
       // Manual call - require admin user authentication
