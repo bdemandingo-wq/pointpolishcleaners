@@ -197,7 +197,7 @@ const UpholsteryCleaning = () => {
                   Call (561) 571-8725
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
                 <Link to="/#booking">Request Quote</Link>
               </Button>
             </div>

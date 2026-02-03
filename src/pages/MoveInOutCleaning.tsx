@@ -225,10 +225,10 @@ const MoveInOutCleaning = () => {
               Serving Broward, Palm Beach, and Miami-Dade counties. Response in 15 minutes or less!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="default" className="bg-background text-foreground hover:bg-background/90" asChild>
+              <Button size="lg" className="bg-background text-foreground hover:bg-background/90" asChild>
                 <Link to="/#booking">Book Move Cleaning</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary" asChild>
+              <Button size="lg" className="bg-secondary-foreground text-secondary hover:bg-secondary-foreground/90" asChild>
                 <Link to="/blog/move-in-out-cleaning-checklist">View Checklist</Link>
               </Button>
             </div>
