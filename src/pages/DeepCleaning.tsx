@@ -176,7 +176,7 @@ const DeepCleaning = () => {
               <Button size="lg" variant="secondary" asChild>
                 <Link to="/#booking">Book Deep Cleaning</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
                 <Link to="/blog/deep-cleaning-vs-standard-cleaning">Compare Services</Link>
               </Button>
             </div>
