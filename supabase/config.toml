@@ -24,5 +24,8 @@ verify_jwt = false
 [functions.chat]
 verify_jwt = false
 
+[functions.send-sms-notification]
+verify_jwt = false
+
 [functions.generate-blog-post]
 verify_jwt = false

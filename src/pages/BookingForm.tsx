@@ -151,7 +151,30 @@ const BookingForm = () => {
 
       if (error) {
         console.error("Error sending email:", error);
-        // Continue to confirmation even if email fails - booking is saved
+      }
+
+      // Send SMS notification via OpenPhone
+      try {
+        await supabase.functions.invoke("send-sms-notification", {
+          body: {
+            type: "booking",
+            data: {
+              customerName: formData.name,
+              customerEmail: formData.email,
+              customerPhone: formData.phone,
+              address: formData.address,
+              serviceType: booking.serviceType,
+              frequency: booking.frequency,
+              beds: formData.beds,
+              baths: formData.baths,
+              sqft: booking.sqft,
+              totalPrice: booking.totalPrice,
+              preferredDate: preferredDate ? format(preferredDate, "EEEE, MMMM d, yyyy") : "Not specified",
+            },
+          },
+        });
+      } catch (smsError) {
+        console.error("SMS notification error:", smsError);
       }
 
       navigate("/confirmation", {

@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   {
@@ -35,8 +36,25 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Send SMS notification via OpenPhone
+    try {
+      await supabase.functions.invoke("send-sms-notification", {
+        body: {
+          type: "contact",
+          data: {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          },
+        },
+      });
+    } catch (smsError) {
+      console.error("SMS notification error:", smsError);
+    }
+
     toast({
       title: "Message Sent!",
       description: "We'll get back to you within 15 minutes.",

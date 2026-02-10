@@ -152,6 +152,27 @@ const CleanerApplication = () => {
       } catch (emailError) {
         console.error("Failed to send notification email:", emailError);
       }
+
+      // Send SMS notification via OpenPhone
+      try {
+        await supabase.functions.invoke("send-sms-notification", {
+          body: {
+            type: "cleaner_application",
+            data: {
+              name: data.name,
+              email: data.email,
+              phone: data.phone,
+              yearsExperience: data.yearsExperience,
+              hasTransportation: data.hasTransportation,
+              hasSupplies: data.hasSupplies,
+              hasInsurance: data.hasInsurance,
+              workAreas: data.workAreas,
+            },
+          },
+        });
+      } catch (smsError) {
+        console.error("SMS notification error:", smsError);
+      }
       
       toast({
         title: "Application Submitted!",
