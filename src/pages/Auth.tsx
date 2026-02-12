@@ -89,11 +89,14 @@ const Auth = () => {
     }
     setIsSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("sms-password-reset", {
+      const response = await supabase.functions.invoke("sms-password-reset", {
         body: { action: "verify", email, otp: otpCode, newPassword },
       });
-      if (error || data?.error) {
-        toast({ title: "Error", description: data?.error || "Invalid or expired code", variant: "destructive" });
+      const result = response.data;
+      const invokeError = response.error;
+      if (invokeError || result?.error) {
+        const msg = result?.error || (typeof invokeError === 'object' && invokeError?.message) || "Invalid or expired code";
+        toast({ title: "Error", description: msg, variant: "destructive" });
       } else {
         toast({ title: "Password reset!", description: "You can now sign in with your new password." });
         setIsForgotPassword(false);
