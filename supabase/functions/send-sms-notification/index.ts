@@ -16,7 +16,7 @@ interface SmsNotificationRequest {
 }
 
 function formatBookingSms(data: Record<string, unknown>): string {
-  return `🆕 NEW BOOKING!
+  return `New website booking!
 
 Customer: ${data.customerName}
 Service: ${data.serviceType} (${data.frequency})

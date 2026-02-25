@@ -58,7 +58,7 @@ serve(async (req) => {
     const addOnsList = booking.addOns.length > 0 ? booking.addOns.join(", ") : "None";
 
     // SMS to admin
-    const adminSms = `📋 New Booking!\n\nCustomer: ${booking.customerName}\nPhone: ${booking.customerPhone}\nEmail: ${booking.customerEmail}\nService: ${booking.serviceType}\nDate: ${booking.preferredDate}\nAddress: ${booking.address}\n${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)\nFrequency: ${booking.frequency}\nAdd-Ons: ${addOnsList}\nTotal: $${booking.totalPrice}\n${booking.specialInstructions ? `Notes: ${booking.specialInstructions}` : ""}${booking.petInfo ? `\nPets: ${booking.petInfo}` : ""}\n\nLog in to your dashboard to view details.`;
+    const adminSms = `New website booking!\n\nCustomer: ${booking.customerName}\nPhone: ${booking.customerPhone}\nEmail: ${booking.customerEmail}\nService: ${booking.serviceType}\nDate: ${booking.preferredDate}\nAddress: ${booking.address}\n${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)\nFrequency: ${booking.frequency}\nAdd-Ons: ${addOnsList}\nTotal: $${booking.totalPrice}\n${booking.specialInstructions ? `Notes: ${booking.specialInstructions}` : ""}${booking.petInfo ? `\nPets: ${booking.petInfo}` : ""}\n\nLog in to your dashboard to view details.`;
 
     const adminRes = await fetch("https://api.openphone.com/v1/messages", {
       method: "POST",
