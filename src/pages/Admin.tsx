@@ -7,7 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { LogOut, Calendar, DollarSign, Users, Clock, RefreshCw, Trash2 } from "lucide-react";
+import { LogOut, Calendar, DollarSign, Users, Clock, RefreshCw, Trash2, UserCheck, Briefcase, Phone, Mail, MapPin, Car, Shield, Star } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -43,6 +44,21 @@ interface Booking {
   created_at: string;
 }
 
+interface CleanerApplication {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  has_transportation: boolean;
+  has_supplies: boolean;
+  years_experience: number;
+  has_insurance: boolean;
+  can_provide_references: boolean;
+  work_areas: string[];
+  status: string;
+  created_at: string;
+}
+
 const statusColors: Record<BookingStatus, string> = {
   pending: "bg-yellow-100 text-yellow-800 border-yellow-200",
   confirmed: "bg-blue-100 text-blue-800 border-blue-200",
@@ -53,8 +69,10 @@ const statusColors: Record<BookingStatus, string> = {
 
 const Admin = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const [applications, setApplications] = useState<CleanerApplication[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState("bookings");
   const { user, isAdmin, loading: authLoading, signOut } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -72,6 +90,7 @@ const Admin = () => {
         navigate("/");
       } else {
         fetchBookings();
+        fetchApplications();
       }
     }
   }, [user, isAdmin, authLoading, navigate]);
@@ -97,9 +116,54 @@ const Admin = () => {
     }
   };
 
+  const fetchApplications = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("cleaner_applications")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setApplications(data || []);
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "Failed to load applications.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const updateApplicationStatus = async (appId: string, newStatus: string) => {
+    try {
+      const { error } = await supabase
+        .from("cleaner_applications")
+        .update({ status: newStatus })
+        .eq("id", appId);
+
+      if (error) throw error;
+
+      setApplications((prev) =>
+        prev.map((a) => (a.id === appId ? { ...a, status: newStatus } : a))
+      );
+
+      toast({
+        title: "Status updated",
+        description: `Application status changed to ${newStatus}.`,
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "Failed to update application status.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const handleRefresh = () => {
     setRefreshing(true);
     fetchBookings();
+    fetchApplications();
   };
 
   const updateStatus = async (bookingId: string, newStatus: BookingStatus) => {
@@ -238,99 +302,192 @@ const Admin = () => {
           </Card>
         </div>
 
-        {/* Bookings List */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>All Bookings</CardTitle>
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <div className="flex items-center justify-between mb-4">
+            <TabsList>
+              <TabsTrigger value="bookings" className="gap-2">
+                <Calendar className="w-4 h-4" />
+                Bookings ({bookings.length})
+              </TabsTrigger>
+              <TabsTrigger value="applications" className="gap-2">
+                <Briefcase className="w-4 h-4" />
+                Applicants ({applications.length})
+              </TabsTrigger>
+            </TabsList>
             <Button variant="outline" size="sm" onClick={handleRefresh} disabled={refreshing}>
               <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
               Refresh
             </Button>
-          </CardHeader>
-          <CardContent>
-            {bookings.length === 0 ? (
-              <p className="text-center text-muted-foreground py-8">No bookings yet.</p>
-            ) : (
-              <div className="space-y-4">
-                {bookings.map((booking) => (
-                  <div
-                    key={booking.id}
-                    className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors"
-                  >
-                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="font-semibold text-foreground">{booking.customer_name}</h3>
-                          <Badge className={statusColors[booking.status]}>
-                            {booking.status.replace("_", " ")}
-                          </Badge>
+          </div>
+
+          <TabsContent value="bookings">
+            <Card>
+              <CardHeader>
+                <CardTitle>All Bookings</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {bookings.length === 0 ? (
+                  <p className="text-center text-muted-foreground py-8">No bookings yet.</p>
+                ) : (
+                  <div className="space-y-4">
+                    {bookings.map((booking) => (
+                      <div
+                        key={booking.id}
+                        className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors"
+                      >
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <h3 className="font-semibold text-foreground">{booking.customer_name}</h3>
+                              <Badge className={statusColors[booking.status]}>
+                                {booking.status.replace("_", " ")}
+                              </Badge>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-sm text-muted-foreground">
+                              <p>📧 {booking.customer_email}</p>
+                              <p>📞 {booking.customer_phone}</p>
+                              <p>📅 {booking.preferred_date}</p>
+                              <p>💰 ${booking.total_price}</p>
+                            </div>
+                            <div className="mt-2 text-sm">
+                              <p className="text-foreground">
+                                {booking.service_type} • {booking.frequency} • {booking.sqft.toLocaleString()} sq ft
+                              </p>
+                              <p className="text-muted-foreground">{booking.address}</p>
+                            </div>
+                            {booking.special_instructions && (
+                              <p className="mt-2 text-sm text-muted-foreground">
+                                <strong>Notes:</strong> {booking.special_instructions}
+                              </p>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Select
+                              value={booking.status}
+                              onValueChange={(value) => updateStatus(booking.id, value as BookingStatus)}
+                            >
+                              <SelectTrigger className="w-40">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="pending">Pending</SelectItem>
+                                <SelectItem value="confirmed">Confirmed</SelectItem>
+                                <SelectItem value="in_progress">In Progress</SelectItem>
+                                <SelectItem value="completed">Completed</SelectItem>
+                                <SelectItem value="cancelled">Cancelled</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive hover:bg-destructive/10">
+                                  <Trash2 className="w-4 h-4" />
+                                </Button>
+                              </AlertDialogTrigger>
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>Delete Booking</AlertDialogTitle>
+                                  <AlertDialogDescription>
+                                    Are you sure you want to delete {booking.customer_name}'s booking? This action cannot be undone.
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                  <AlertDialogAction
+                                    onClick={() => deleteBooking(booking.id)}
+                                    className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                  >
+                                    Delete
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
+                          </div>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-sm text-muted-foreground">
-                          <p>📧 {booking.customer_email}</p>
-                          <p>📞 {booking.customer_phone}</p>
-                          <p>📅 {booking.preferred_date}</p>
-                          <p>💰 ${booking.total_price}</p>
-                        </div>
-                        <div className="mt-2 text-sm">
-                          <p className="text-foreground">
-                            {booking.service_type} • {booking.frequency} • {booking.sqft.toLocaleString()} sq ft
-                          </p>
-                          <p className="text-muted-foreground">{booking.address}</p>
-                        </div>
-                        {booking.special_instructions && (
-                          <p className="mt-2 text-sm text-muted-foreground">
-                            <strong>Notes:</strong> {booking.special_instructions}
-                          </p>
-                        )}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Select
-                          value={booking.status}
-                          onValueChange={(value) => updateStatus(booking.id, value as BookingStatus)}
-                        >
-                          <SelectTrigger className="w-40">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="pending">Pending</SelectItem>
-                            <SelectItem value="confirmed">Confirmed</SelectItem>
-                            <SelectItem value="in_progress">In Progress</SelectItem>
-                            <SelectItem value="completed">Completed</SelectItem>
-                            <SelectItem value="cancelled">Cancelled</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive hover:bg-destructive/10">
-                              <Trash2 className="w-4 h-4" />
-                            </Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>Delete Booking</AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Are you sure you want to delete {booking.customer_name}'s booking? This action cannot be undone.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction
-                                onClick={() => deleteBooking(booking.id)}
-                                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                              >
-                                Delete
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="applications">
+            <Card>
+              <CardHeader>
+                <CardTitle>Cleaner Applications</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {applications.length === 0 ? (
+                  <p className="text-center text-muted-foreground py-8">No applications yet.</p>
+                ) : (
+                  <div className="space-y-4">
+                    {applications.map((app) => (
+                      <div
+                        key={app.id}
+                        className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors"
+                      >
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <h3 className="font-semibold text-foreground">{app.name}</h3>
+                              <Badge className={
+                                app.status === "approved" ? "bg-green-100 text-green-800 border-green-200" :
+                                app.status === "rejected" ? "bg-red-100 text-red-800 border-red-200" :
+                                "bg-yellow-100 text-yellow-800 border-yellow-200"
+                              }>
+                                {app.status}
+                              </Badge>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm text-muted-foreground">
+                              <p className="flex items-center gap-1"><Mail className="w-3.5 h-3.5" /> {app.email}</p>
+                              {app.phone && <p className="flex items-center gap-1"><Phone className="w-3.5 h-3.5" /> {app.phone}</p>}
+                              <p className="flex items-center gap-1"><Star className="w-3.5 h-3.5" /> {app.years_experience} yrs experience</p>
+                            </div>
+                            <div className="mt-2 flex flex-wrap gap-2 text-sm">
+                              {app.has_transportation && (
+                                <Badge variant="outline" className="gap-1 text-xs"><Car className="w-3 h-3" /> Has Transport</Badge>
+                              )}
+                              {app.has_supplies && (
+                                <Badge variant="outline" className="gap-1 text-xs">🧹 Has Supplies</Badge>
+                              )}
+                              {app.has_insurance && (
+                                <Badge variant="outline" className="gap-1 text-xs"><Shield className="w-3 h-3" /> Insured</Badge>
+                              )}
+                              {app.can_provide_references && (
+                                <Badge variant="outline" className="gap-1 text-xs"><UserCheck className="w-3 h-3" /> References</Badge>
+                              )}
+                            </div>
+                            <div className="mt-2 text-sm text-muted-foreground">
+                              <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {app.work_areas.join(", ")}</span>
+                            </div>
+                            <p className="mt-1 text-xs text-muted-foreground">
+                              Applied {new Date(app.created_at).toLocaleDateString()}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Select
+                              value={app.status}
+                              onValueChange={(value) => updateApplicationStatus(app.id, value)}
+                            >
+                              <SelectTrigger className="w-36">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="pending">Pending</SelectItem>
+                                <SelectItem value="approved">Approved</SelectItem>
+                                <SelectItem value="rejected">Rejected</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   );
