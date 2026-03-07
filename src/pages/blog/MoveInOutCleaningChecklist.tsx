@@ -14,6 +14,11 @@ const MoveInOutCleaningChecklist = () => {
         canonicalUrl="https://tidywisecleaning.com/blog/move-in-out-cleaning-checklist"
         pageType="blog"
         county="South Florida"
+        blogMeta={{
+          datePublished: "2025-01-15",
+          readTime: "7 min",
+          category: "Guides"
+        }}
       />
       <main className="min-h-screen">
         <Navbar />
