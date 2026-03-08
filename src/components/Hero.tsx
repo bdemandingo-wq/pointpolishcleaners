@@ -74,7 +74,7 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary font-semibold text-base md:text-lg px-8 py-6 will-change-transform hover:scale-[1.02] transition-all"
+                className="bg-white text-primary border-white hover:bg-white/90 font-semibold text-base md:text-lg px-8 py-6 will-change-transform hover:scale-[1.02] transition-all"
                 asChild
               >
                 <a href="tel:+15615718725" className="flex items-center gap-2">
