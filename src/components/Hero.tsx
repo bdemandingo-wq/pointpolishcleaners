@@ -1,97 +1,108 @@
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowRight } from "lucide-react";
-import TrustBadges from "./TrustBadges";
+import { Phone, ArrowRight, Shield, Star, Leaf, Lock } from "lucide-react";
+import HeroEstimator from "./HeroEstimator";
+
+const trustPills = [
+  { icon: Shield, label: "Licensed & Insured" },
+  { icon: Star, label: "5.0 Stars · 100+ Reviews" },
+  { icon: Leaf, label: "Eco-Friendly Products" },
+  { icon: Lock, label: "Satisfaction Guaranteed" },
+];
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-16"
+      className="relative min-h-screen flex items-center pt-16 noise-texture"
+      style={{
+        background: "linear-gradient(135deg, hsl(40 33% 98%) 0%, hsl(175 30% 95%) 50%, hsl(40 33% 98%) 100%)",
+      }}
     >
-      {/* Background Image - preloaded, no lazy loading for LCP */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=75')`,
-        }}
-        role="img"
-        aria-label="Clean modern living room"
-      />
-      {/* Overlay - increased opacity for better text contrast */}
-      <div className="absolute inset-0 bg-foreground/70" />
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — Copy + CTAs */}
+          <div className="space-y-6 opacity-0 animate-fade-in">
+            {/* Trust indicator */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success/10 text-success border border-success/20">
+              <span className="relative flex h-2 w-2" aria-hidden="true">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+              </span>
+              <span className="text-sm font-medium">Booking Available Today</span>
+            </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        {/* Trust indicator - use transform for animation, not layout-affecting properties */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success/20 text-success-foreground border border-success/30 mb-6 opacity-0 animate-fade-in">
-          <span className="relative flex h-2 w-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
-          </span>
-          <span className="text-sm font-medium text-background">Booking Available Today</span>
-        </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              Your Home Deserves Better Than Average.
+            </h1>
 
-        <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-background mb-6 opacity-0 animate-fade-in">
-          TIDYWISE House Cleaning in Fort Lauderdale, Boca Raton & West Palm Beach
-        </h1>
-        <p 
-          className="text-background text-lg md:text-xl max-w-3xl mx-auto mb-4 opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.1s" }}
-        >
-          Professional residential & commercial cleaning in Hollywood, Coral Springs, Deerfield Beach, Pompano Beach, Delray Beach, Boynton Beach & 30+ cities across Broward, Miami-Dade & Palm Beach County.
-        </p>
-        <p 
-          className="text-background text-xl md:text-2xl font-semibold max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.15s" }}
-        >
-          For Every Budget, For Every Space, For You.
-        </p>
-        
-        <div 
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-8 opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <Button
-            variant="outline"
-            size="lg"
-            className="bg-info text-info-foreground border-info hover:bg-info/90 font-semibold text-base md:text-lg px-6 md:px-8 py-6 will-change-transform"
-            asChild
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+              TIDYWISE delivers professional home cleaning across Fort Lauderdale, Boca Raton, West Palm Beach, Miami & 30+ South Florida cities — with transparent pricing, vetted cleaners, and a satisfaction guarantee.
+            </p>
+
+            {/* Trust pills */}
+            <div className="flex flex-wrap gap-2">
+              {trustPills.map((pill) => (
+                <div
+                  key={pill.label}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border text-sm font-medium text-foreground shadow-soft"
+                >
+                  <pill.icon className="w-4 h-4 text-primary" aria-hidden="true" />
+                  <span>{pill.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div
+              className="flex flex-col sm:flex-row gap-3 pt-2 opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <Button
+                size="lg"
+                className="bg-success text-success-foreground hover:bg-success/90 font-semibold text-base md:text-lg px-8 py-6 group will-change-transform hover:scale-[1.02] transition-all"
+                asChild
+              >
+                <a href="#booking" className="flex items-center gap-2">
+                  Get My Instant Quote
+                  <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-base md:text-lg px-8 py-6 will-change-transform hover:scale-[1.02] transition-all"
+                asChild
+              >
+                <a href="tel:+15615718725" className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" aria-hidden="true" />
+                  Call (561) 571-8725
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right — Instant Price Estimator */}
+          <div
+            className="opacity-0 animate-fade-in lg:pl-8"
+            style={{ animationDelay: "0.3s" }}
           >
-            <a href="tel:+15615718725" className="flex items-center gap-2">
-              <Phone className="w-5 h-5" aria-hidden="true" />
-              Call (561) 571-8725
-            </a>
-          </Button>
-          <Button
-            size="lg"
-            className="bg-success text-success-foreground hover:bg-success/90 font-semibold text-base md:text-lg px-6 md:px-8 py-6 group will-change-transform"
-            asChild
-          >
-            <a href="#booking" className="flex items-center gap-2">
-              Get Instant Quote
-              <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-            </a>
-          </Button>
-        </div>
-
-        {/* Trust Badges - reserve space to prevent CLS */}
-        <div 
-          className="min-h-[80px] opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.25s" }}
-        >
-          <TrustBadges variant="light" showReview={true} />
+            <HeroEstimator />
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator - use transform animations only */}
-      <div 
-        className="absolute bottom-8 left-1/2 will-change-transform" 
-        style={{ transform: 'translateX(-50%)' }}
+      {/* Scroll indicator */}
+      <div
+        className="absolute bottom-8 left-1/2 will-change-transform"
+        style={{ transform: "translateX(-50%)" }}
         aria-hidden="true"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-background flex items-start justify-center p-2 animate-bounce">
-          <div className="w-1 h-2 bg-background rounded-full" />
-        </div>
+        <a href="#social-proof" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <span className="text-sm font-medium">See pricing & services</span>
+          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2 animate-bounce">
+            <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
+          </div>
+        </a>
       </div>
     </section>
   );

@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, ChevronDown } from "lucide-react";
+import { Menu, X, User, ChevronDown, Phone } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/logo-optimized.webp";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const scrollToBooking = () => {
   const bookingSection = document.getElementById('booking');
@@ -11,12 +16,6 @@ const scrollToBooking = () => {
     bookingSection.scrollIntoView({ behavior: 'smooth' });
   }
 };
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +25,17 @@ const Navbar = () => {
 
   const handleBookNowClick = () => {
     if (location.pathname === '/') {
-      // Already on homepage, just scroll
       scrollToBooking();
     } else {
-      // Navigate to homepage first, then scroll
+      navigate('/');
+      setTimeout(() => scrollToBooking(), 100);
+    }
+  };
+
+  const handlePricingClick = () => {
+    if (location.pathname === '/') {
+      scrollToBooking();
+    } else {
       navigate('/');
       setTimeout(() => scrollToBooking(), 100);
     }
@@ -38,6 +44,7 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", label: "Home", isRoute: true },
     { href: "/#services", label: "Services", isDropdown: true },
+    { href: "/#booking", label: "Pricing", isScroll: true },
     { href: "/service-areas", label: "Areas", isRoute: true },
     { href: "/blog", label: "Blog", isRoute: true },
     { href: "/faq", label: "FAQ", isRoute: true },
@@ -47,6 +54,8 @@ const Navbar = () => {
     { href: "/standard-cleaning", label: "Standard Cleaning" },
     { href: "/deep-cleaning", label: "Deep Cleaning" },
     { href: "/move-in-out-cleaning", label: "Move In/Out Cleaning" },
+    { href: "/carpet-cleaning", label: "Carpet Cleaning" },
+    { href: "/upholstery-cleaning", label: "Upholstery Cleaning" },
   ];
 
   return (
@@ -65,11 +74,11 @@ const Navbar = () => {
             <span className="font-display text-xl font-bold text-foreground">TIDYWISE</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5">
             {navLinks.map((link) => (
               link.isDropdown ? (
                 <DropdownMenu key={link.href}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors font-medium">
+                  <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors font-medium text-sm">
                     {link.label}
                     <ChevronDown className="w-4 h-4" />
                   </DropdownMenuTrigger>
@@ -83,11 +92,19 @@ const Navbar = () => {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
+              ) : link.isScroll ? (
+                <button
+                  key={link.href}
+                  onClick={handlePricingClick}
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
+                >
+                  {link.label}
+                </button>
               ) : link.isRoute ? (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
                 >
                   {link.label}
                 </Link>
@@ -95,7 +112,7 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
                 >
                   {link.label}
                 </a>
@@ -104,13 +121,24 @@ const Navbar = () => {
             {user && (
               <Link
                 to="/my-bookings"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
               >
                 <User className="h-4 w-4" />
                 My Bookings
               </Link>
             )}
-            <Button onClick={handleBookNowClick}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              asChild
+            >
+              <a href="tel:+15615718725" className="flex items-center gap-1.5">
+                <Phone className="w-4 h-4" />
+                Call Now
+              </a>
+            </Button>
+            <Button size="sm" className="bg-success text-success-foreground hover:bg-success/90" onClick={handleBookNowClick}>
               Book Now
             </Button>
           </div>
@@ -153,6 +181,13 @@ const Navbar = () => {
                   ))}
                 </div>
               </div>
+
+              <button
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2 text-left"
+                onClick={() => { setIsOpen(false); handlePricingClick(); }}
+              >
+                Pricing
+              </button>
               
               <Link
                 to="/service-areas"
@@ -185,9 +220,17 @@ const Navbar = () => {
                   My Bookings
                 </Link>
               )}
-              <Button className="w-full mt-2" onClick={() => { setIsOpen(false); handleBookNowClick(); }}>
-                Book Now
-              </Button>
+              <div className="flex gap-2 mt-2">
+                <Button variant="outline" className="flex-1 border-primary text-primary" asChild>
+                  <a href="tel:+15615718725" className="flex items-center justify-center gap-1.5">
+                    <Phone className="w-4 h-4" />
+                    Call
+                  </a>
+                </Button>
+                <Button className="flex-1 bg-success text-success-foreground" onClick={() => { setIsOpen(false); handleBookNowClick(); }}>
+                  Book Now
+                </Button>
+              </div>
             </div>
           </div>
         )}

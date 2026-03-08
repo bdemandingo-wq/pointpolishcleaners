@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['Playfair Display', 'serif'],
-        body: ['Inter', 'sans-serif'],
+        body: ['DM Sans', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,7 +52,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: "hsl(var(--gold))",
-        navy: "hsl(var(--navy))",
+        amber: "hsl(var(--amber))",
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          light: "hsl(var(--teal-light))",
+        },
         cream: "hsl(var(--cream))",
         success: {
           DEFAULT: "hsl(var(--success))",

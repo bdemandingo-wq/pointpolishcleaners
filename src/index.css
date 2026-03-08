@@ -4,86 +4,88 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 20% 15%;
+    --background: 40 33% 98%;
+    --foreground: 20 14% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 20 14% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
+    --popover-foreground: 20 14% 10%;
 
-    --primary: 221 83% 53%;
+    --primary: 175 85% 32%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 93% 58%;
-    --secondary-foreground: 220 20% 15%;
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 20 14% 10%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 15% 40%;
+    --muted: 40 20% 95%;
+    --muted-foreground: 20 10% 40%;
 
-    --accent: 221 83% 53%;
+    --accent: 175 85% 32%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --border: 40 10% 90%;
+    --input: 40 10% 90%;
+    --ring: 175 85% 32%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     /* Custom tokens */
-    --hero-overlay: 220 20% 10%;
-    --gold: 45 93% 58%;
-    --gold-hover: 45 93% 48%;
-    --navy: 221 83% 25%;
-    --navy-light: 221 83% 53%;
-    --cream: 40 33% 97%;
-    --success: 142 76% 36%;
+    --hero-overlay: 20 14% 10%;
+    --gold: 38 92% 50%;
+    --gold-hover: 38 92% 42%;
+    --teal: 175 85% 32%;
+    --teal-light: 175 60% 45%;
+    --cream: 40 33% 98%;
+    --success: 160 84% 39%;
     --success-foreground: 0 0% 100%;
-    --info: 217 91% 60%;
+    --info: 175 85% 32%;
     --info-foreground: 0 0% 100%;
+    --amber: 38 92% 50%;
     
     /* Typography */
     --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(220 20% 10% / 0.1);
-    --shadow-elevated: 0 12px 40px -12px hsl(220 20% 10% / 0.2);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(20 14% 10% / 0.08);
+    --shadow-elevated: 0 12px 40px -12px hsl(20 14% 10% / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 1px 3px hsl(20 14% 10% / 0.06), 0 6px 16px hsl(20 14% 10% / 0.08);
   }
 
   .dark {
-    --background: 220 20% 10%;
-    --foreground: 0 0% 98%;
+    --background: 20 14% 8%;
+    --foreground: 40 20% 95%;
 
-    --card: 220 20% 13%;
-    --card-foreground: 0 0% 98%;
+    --card: 20 14% 11%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 220 20% 13%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 20 14% 11%;
+    --popover-foreground: 40 20% 95%;
 
-    --primary: 221 83% 60%;
+    --primary: 175 60% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 93% 58%;
-    --secondary-foreground: 220 20% 10%;
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 20 14% 8%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 20 10% 18%;
+    --muted-foreground: 20 8% 55%;
 
-    --accent: 221 83% 60%;
+    --accent: 175 60% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 221 83% 60%;
+    --border: 20 10% 22%;
+    --input: 20 10% 22%;
+    --ring: 175 60% 45%;
   }
 }
 
@@ -121,8 +123,19 @@
   }
 
   .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-1;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
     will-change: transform;
+  }
+
+  /* Noise texture overlay */
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
   }
 }
 
@@ -137,6 +150,10 @@
 
   .shadow-glow {
     box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
   }
 
   /* Optimized fade-in animation using transform and opacity only */
@@ -154,6 +171,22 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+    will-change: opacity, transform;
   }
 
   /* Optimized bounce animation using transform only */
@@ -197,5 +230,15 @@
       transform: scale(2);
       opacity: 0;
     }
+  }
+
+  /* Scroll snap for carousel */
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-snap-center {
+    scroll-snap-align: center;
   }
 }

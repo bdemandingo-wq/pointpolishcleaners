@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Sparkles, Home, Truck, Building2, Check, Armchair, Layers } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Home, Truck, Building2, Check, Armchair, Layers, ArrowRight, Calendar } from "lucide-react";
 
 const services = [
   {
@@ -9,6 +10,8 @@ const services = [
     description: "Perfect for regular maintenance cleaning to keep your home spotless.",
     price: "From $150",
     link: "/standard-cleaning",
+    badge: "Best Value",
+    badgeColor: "bg-success text-success-foreground",
     features: [
       "All rooms dusted & vacuumed",
       "Kitchen & bathrooms sanitized",
@@ -22,6 +25,8 @@ const services = [
     description: "Comprehensive cleaning for homes that need extra attention to detail.",
     price: "From $250",
     link: "/deep-cleaning",
+    badge: "Most Popular",
+    badgeColor: "bg-secondary text-secondary-foreground",
     features: [
       "Everything in Standard Cleaning",
       "Baseboards & trim cleaned",
@@ -87,12 +92,12 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             Our Premium Cleaning Services
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From standard maintenance to deep cleaning, carpet care to upholstery cleaning - 
+            From standard maintenance to deep cleaning, carpet care to upholstery cleaning — 
             we offer comprehensive solutions for every need in South Florida.
           </p>
         </div>
@@ -105,10 +110,15 @@ const Services = () => {
               className="block group"
             >
               <Card
-                className="hover-lift border-border/50 animate-fade-in h-full transition-all group-hover:border-primary/50"
+                className="h-full border-t-4 border-t-primary/20 border-border/50 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:border-t-secondary opacity-0 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
+                <CardHeader className="relative">
+                  {service.badge && (
+                    <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded-full ${service.badgeColor}`}>
+                      {service.badge}
+                    </span>
+                  )}
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
@@ -117,33 +127,38 @@ const Services = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-2xl font-bold text-primary mb-4">{service.price}</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-6">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2 text-sm">
-                        <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
+                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    Book This Service
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </Button>
                 </CardContent>
               </Card>
             </Link>
           ))}
         </div>
 
-        {/* Internal Links for SEO */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">
-            Serving all of South Florida with professional cleaning services
+        {/* Urgency + internal links */}
+        <div className="mt-10 text-center space-y-4">
+          <p className="text-foreground font-medium flex items-center justify-center gap-2">
+            <Calendar className="w-5 h-5 text-secondary" />
+            🗓️ Limited slots this week — book now to secure your preferred date.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/broward-county-cleaning" className="text-sm text-primary hover:underline">Broward County</Link>
+          <div className="flex flex-wrap justify-center gap-3 text-sm">
+            <Link to="/broward-county-cleaning" className="text-primary hover:underline">Broward County</Link>
             <span className="text-muted-foreground">•</span>
-            <Link to="/miami-dade-cleaning" className="text-sm text-primary hover:underline">Miami-Dade County</Link>
+            <Link to="/miami-dade-cleaning" className="text-primary hover:underline">Miami-Dade County</Link>
             <span className="text-muted-foreground">•</span>
-            <Link to="/palm-beach-county-cleaning" className="text-sm text-primary hover:underline">Palm Beach County</Link>
+            <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline">Palm Beach County</Link>
             <span className="text-muted-foreground">•</span>
-            <Link to="/service-areas" className="text-sm text-primary hover:underline">All Service Areas</Link>
+            <Link to="/service-areas" className="text-primary hover:underline">All Service Areas</Link>
           </div>
         </div>
       </div>
