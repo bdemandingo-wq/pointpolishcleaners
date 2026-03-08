@@ -39,7 +39,7 @@ const StickyCallButton = () => {
         </Button>
         <Button
           size="lg"
-          className="flex-1 bg-success text-success-foreground font-semibold"
+          className="flex-1 bg-primary text-primary-foreground font-semibold"
           asChild
         >
           <a href="#booking" className="flex items-center justify-center gap-2">
