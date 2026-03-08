@@ -13,17 +13,21 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-16 noise-texture"
+      className="relative min-h-screen flex items-center pt-16"
       style={{
-        background: "linear-gradient(135deg, hsl(40 33% 98%) 0%, hsl(224 30% 95%) 50%, hsl(40 33% 98%) 100%)",
+        backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=75')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/55" />
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Copy + CTAs */}
           <div className="space-y-6 opacity-0 animate-fade-in">
             {/* Trust indicator - green */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary border border-secondary/20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 text-secondary border border-secondary/30">
               <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
@@ -31,20 +35,20 @@ const Hero = () => {
               <span className="text-sm font-medium">Booking Available Today</span>
             </div>
 
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Your Home Deserves Better Than Average.
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed">
               TIDYWISE delivers professional home cleaning across Fort Lauderdale, Boca Raton, West Palm Beach, Miami & 30+ South Florida cities — with transparent pricing, vetted cleaners, and a satisfaction guarantee.
             </p>
 
-            {/* Trust pills - blue */}
+            {/* Trust pills */}
             <div className="flex flex-wrap gap-2">
               {trustPills.map((pill) => (
                 <div
                   key={pill.label}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary shadow-soft"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-sm font-medium text-white shadow-soft"
                 >
                   <pill.icon className="w-4 h-4" aria-hidden="true" />
                   <span>{pill.label}</span>
@@ -70,7 +74,7 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-base md:text-lg px-8 py-6 will-change-transform hover:scale-[1.02] transition-all"
+                className="border-white text-white hover:bg-white hover:text-primary font-semibold text-base md:text-lg px-8 py-6 will-change-transform hover:scale-[1.02] transition-all"
                 asChild
               >
                 <a href="tel:+15615718725" className="flex items-center gap-2">
@@ -97,10 +101,10 @@ const Hero = () => {
         style={{ transform: "translateX(-50%)" }}
         aria-hidden="true"
       >
-        <a href="#social-proof" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+        <a href="#social-proof" className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors">
           <span className="text-sm font-medium">See pricing & services</span>
-          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2 animate-bounce">
-            <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
+          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2 animate-bounce">
+            <div className="w-1 h-2 bg-white/50 rounded-full" />
           </div>
         </a>
       </div>
