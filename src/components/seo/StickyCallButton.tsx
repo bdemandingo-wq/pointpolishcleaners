@@ -29,7 +29,7 @@ const StickyCallButton = () => {
       <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2">
         <Button
           size="lg"
-          className="flex-1 bg-info text-info-foreground font-semibold"
+          className="flex-1 bg-primary text-primary-foreground font-semibold"
           asChild
         >
           <a href={telLink} className="flex items-center justify-center gap-2">
