@@ -77,7 +77,7 @@ const addOns = [
   { id: "appliances", label: "Appliances", price: 50 },
   { id: "baseboards", label: "Baseboards", price: 40 },
   { id: "walls", label: "Walls", price: 25 },
-  { id: "carpets", label: "Carpets", price: 150 },
+  { id: "carpets", label: "Carpets", price: 0, isCustom: true },
   { id: "laundry", label: "Laundry", price: 10 },
   { id: "dishes", label: "Dishes", price: 15 },
 ];
@@ -258,7 +258,7 @@ const PricingCalculator = () => {
                         onCheckedChange={() => toggleAddOn(addOn.id)}
                       />
                       <label htmlFor={addOn.id} className="text-sm cursor-pointer">
-                        {addOn.label} (${addOn.price})
+                        {addOn.label} {addOn.isCustom ? "(Custom Quote)" : `($${addOn.price})`}
                       </label>
                     </div>
                   ))}
