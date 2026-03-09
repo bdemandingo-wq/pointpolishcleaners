@@ -40,11 +40,15 @@ const MoveInOutCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Move In/Out Cleaning Services South Florida | TIDYWISE"
-        pageDescription="Professional move in/out cleaning in South Florida. Get your deposit back! Inside appliances, cabinets, deep clean. Call (561) 571-8725 for free quote!"
+        pageTitle="Move In Move Out Cleaning South Florida | TIDYWISE"
+        pageDescription="Move-out cleaning to get your full deposit back. Move-in cleaning for a fresh start. Serving Fort Lauderdale, Miami & 40+ South Florida cities. Book TIDYWISE today."
         canonicalUrl="https://tidywisecleaning.com/move-in-out-cleaning"
         pageType="service"
         county="South Florida"
+        breadcrumbs={[
+          { name: "Home", url: "https://tidywisecleaning.com" },
+          { name: "Move In/Out Cleaning", url: "https://tidywisecleaning.com/move-in-out-cleaning" }
+        ]}
       />
       <main className="min-h-screen">
         <Navbar />
