@@ -114,10 +114,12 @@ const ServiceAreas = () => {
             <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
               Our Service Areas
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-              TIDYWISE provides professional cleaning services throughout South Florida. 
-              Find your city below or call us to confirm service availability in your area.
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-4">
+              Looking for house cleaning near me in South Florida? TIDYWISE serves homeowners and businesses 
+              across 40+ cities in Broward, Miami-Dade, and Palm Beach County. 
+              Find your city below to see local pricing and availability.
             </p>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
             
             <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90" asChild>
               <a href="tel:+15615718725" className="flex items-center gap-2">

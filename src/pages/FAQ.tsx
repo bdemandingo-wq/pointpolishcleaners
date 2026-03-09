@@ -157,11 +157,24 @@ const FAQ = () => {
   return (
     <>
       <Helmet>
-        <title>Frequently Asked Questions | TIDYWISE Cleaning Services</title>
-        <meta name="description" content="Find answers to common questions about TIDYWISE cleaning services, pricing, booking, cancellations, and more. Serving South Florida." />
+        <title>Cleaning Service FAQ South Florida | TIDYWISE</title>
+        <meta name="description" content="Find answers about TIDYWISE cleaning services, pricing, booking & cancellations. Serving 40+ South Florida cities. Call (561) 571-8725." />
         <link rel="canonical" href="https://tidywisecleaning.com/faq" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="alternate" hrefLang="en-us" href="https://tidywisecleaning.com/faq" />
+        <link rel="alternate" hrefLang="x-default" href="https://tidywisecleaning.com/faq" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tidywisecleaning.com" },
+              { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://tidywisecleaning.com/faq" }
+            ]
+          })}
         </script>
       </Helmet>
       
