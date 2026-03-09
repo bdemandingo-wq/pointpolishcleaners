@@ -32,6 +32,10 @@ const CarpetCleaning = () => {
         canonicalUrl="https://tidywisecleaning.com/carpet-cleaning"
         pageType="service"
         county="South Florida"
+        breadcrumbs={[
+          { name: "Home", url: "https://tidywisecleaning.com" },
+          { name: "Carpet Cleaning", url: "https://tidywisecleaning.com/carpet-cleaning" }
+        ]}
       />
       <main className="min-h-screen">
         <Navbar />
