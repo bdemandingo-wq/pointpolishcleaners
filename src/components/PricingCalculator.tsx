@@ -134,6 +134,16 @@ const PricingCalculator = () => {
   };
 
   const handleBooking = () => {
+    // GA4 conversion tracking
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "view_item", {
+        item_name: selectedService.label,
+        currency: "USD",
+        value: totalPrice || 0,
+        event_category: "pricing_calculator",
+      });
+    }
+
     navigate("/booking", {
       state: {
         sqft: sqft[0],

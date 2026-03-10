@@ -77,7 +77,18 @@ const Hero = () => {
                 className="bg-white text-primary border-white hover:bg-white/90 font-semibold text-base md:text-lg px-8 py-6 will-change-transform hover:scale-[1.02] transition-all"
                 asChild
               >
-                <a href="tel:+15615718725" className="flex items-center gap-2">
+                <a
+                  href="tel:+15615718725"
+                  className="flex items-center gap-2"
+                  onClick={() => {
+                    if (typeof window.gtag === "function") {
+                      window.gtag("event", "contact", {
+                        event_category: "phone_call",
+                        event_label: "hero_cta",
+                      });
+                    }
+                  }}
+                >
                   <Phone className="w-5 h-5" aria-hidden="true" />
                   Call (561) 571-8725
                 </a>

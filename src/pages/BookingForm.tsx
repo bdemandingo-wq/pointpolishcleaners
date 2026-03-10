@@ -97,6 +97,15 @@ const BookingForm = () => {
         return;
       }
 
+      // GA4 conversion tracking
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "booking",
+          event_label: booking.serviceType,
+          value: parseFloat(booking.totalPrice) || 0,
+          currency: "USD",
+        });
+      }
 
       // Send SMS notification via OpenPhone
       try {
