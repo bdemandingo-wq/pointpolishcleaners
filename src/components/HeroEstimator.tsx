@@ -24,17 +24,17 @@ const HeroEstimator = () => {
 
   return (
     <Card className="shadow-elevated border-0 bg-card">
-      <CardContent className="p-6 space-y-4">
-        <div className="text-center mb-2">
-          <h3 className="font-display text-lg font-bold text-foreground">Instant Price Estimator</h3>
-          <p className="text-sm text-muted-foreground">Get your estimate in seconds</p>
+      <CardContent className="p-3 sm:p-6 space-y-2 sm:space-y-4">
+        <div className="text-center mb-0 sm:mb-2">
+          <h3 className="font-display text-base sm:text-lg font-bold text-foreground">Instant Price Estimator</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground">Get your estimate in seconds</p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           <div>
-            <label className="text-sm font-medium text-foreground mb-1 block">Service Type</label>
+            <label className="text-xs sm:text-sm font-medium text-foreground mb-0.5 sm:mb-1 block">Service Type</label>
             <Select value={service} onValueChange={setService}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger className="bg-background h-9 sm:h-10 text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -48,9 +48,9 @@ const HeroEstimator = () => {
           </div>
 
           <div>
-            <label className="text-sm font-medium text-foreground mb-1 block">Home Size</label>
+            <label className="text-xs sm:text-sm font-medium text-foreground mb-0.5 sm:mb-1 block">Home Size</label>
             <Select value={size} onValueChange={setSize}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger className="bg-background h-9 sm:h-10 text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -65,16 +65,16 @@ const HeroEstimator = () => {
           </div>
         </div>
 
-        <div className="bg-primary/5 rounded-lg p-4 text-center">
-          <p className="text-sm text-muted-foreground mb-1">Estimated Price</p>
-          <p className="text-2xl font-bold text-primary">
+        <div className="bg-primary/5 rounded-lg p-2.5 sm:p-4 text-center">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-0.5">Estimated Price</p>
+          <p className="text-xl sm:text-2xl font-bold text-primary">
             {isCustom ? "Request Quote" : `From ${estimate}`}
           </p>
         </div>
 
         <Button
-          size="lg"
-          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold group"
+          size="default"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold group text-sm sm:text-base h-9 sm:h-11"
           asChild
         >
           <a href="#booking" className="flex items-center justify-center gap-2">
@@ -83,7 +83,7 @@ const HeroEstimator = () => {
           </a>
         </Button>
 
-        <p className="text-xs text-center text-muted-foreground">
+        <p className="text-[10px] sm:text-xs text-center text-muted-foreground">
           No credit card. No commitment. Instant estimate.
         </p>
       </CardContent>
