@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { ArrowLeft, Mail, Lock, User, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 
 const emailSchema = z.string().email("Please enter a valid email address");
