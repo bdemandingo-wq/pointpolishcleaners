@@ -2,8 +2,7 @@ import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
 const OPENPHONE_API_KEY = Deno.env.get("OPENPHONE_API_KEY");
 const OPENPHONE_PHONE_NUMBER_ID = "PNr7XukuaV";
-const NOTIFY_PHONE_NUMBER = "+15615718725";
-const PERSONAL_PHONE_NUMBER = "+18137356859";
+const NOTIFY_PHONE_NUMBER = "+19045139002";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -42,7 +41,7 @@ Log in to your dashboard to review.`;
 }
 
 function formatContactSms(data: Record<string, unknown>): string {
-  return `🆕 NEW COMMERCIAL INQUIRY!
+  return `🆕 NEW INQUIRY!
 
 Name: ${data.name}
 Email: ${data.email}
@@ -79,8 +78,8 @@ const handler = async (req: Request): Promise<Response> => {
         throw new Error(`Unknown notification type: ${type}`);
     }
 
-    // Send to OpenPhone admin number
-    const adminRes = await fetch("https://api.openphone.com/v1/messages", {
+    // Send to owner phone number
+    const res = await fetch("https://api.openphone.com/v1/messages", {
       method: "POST",
       headers: {
         "Authorization": OPENPHONE_API_KEY,
@@ -93,32 +92,11 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
-    const adminData = await adminRes.json();
-    if (!adminRes.ok) {
-      console.error("Admin SMS error:", adminRes.status, adminData);
+    const resData = await res.json();
+    if (!res.ok) {
+      console.error("SMS error:", res.status, resData);
     } else {
-      console.log("SMS sent to admin:", adminData);
-    }
-
-    // Send to personal number
-    const personalRes = await fetch("https://api.openphone.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Authorization": OPENPHONE_API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        content: message,
-        from: OPENPHONE_PHONE_NUMBER_ID,
-        to: [PERSONAL_PHONE_NUMBER],
-      }),
-    });
-
-    const personalData = await personalRes.json();
-    if (!personalRes.ok) {
-      console.error("Personal SMS error:", personalRes.status, personalData);
-    } else {
-      console.log("SMS sent to personal:", personalData);
+      console.log("SMS sent:", resData);
     }
 
     return new Response(JSON.stringify({ success: true }), {
