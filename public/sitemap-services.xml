@@ -1,58 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://tidywisecleaning.com/standard-cleaning</loc>
-    <lastmod>2025-03-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://tidywisecleaning.com/og-image.webp</image:loc>
-      <image:title>Standard House Cleaning Service South Florida</image:title>
-      <image:caption>Professional standard cleaning for homes across South Florida</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tidywisecleaning.com/deep-cleaning</loc>
-    <lastmod>2025-03-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://tidywisecleaning.com/og-image.webp</image:loc>
-      <image:title>Deep Cleaning Service South Florida</image:title>
-      <image:caption>Thorough deep cleaning for every corner of your home</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tidywisecleaning.com/move-in-out-cleaning</loc>
-    <lastmod>2025-03-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://tidywisecleaning.com/og-image.webp</image:loc>
-      <image:title>Move In Move Out Cleaning Service South Florida</image:title>
-      <image:caption>Get your deposit back with professional move cleaning</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tidywisecleaning.com/carpet-cleaning</loc>
-    <lastmod>2025-03-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://tidywisecleaning.com/og-image.webp</image:loc>
-      <image:title>Carpet Cleaning Service South Florida</image:title>
-      <image:caption>Professional carpet deep cleaning and stain removal</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tidywisecleaning.com/upholstery-cleaning</loc>
-    <lastmod>2025-03-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://tidywisecleaning.com/og-image.webp</image:loc>
-      <image:title>Upholstery Cleaning Service South Florida</image:title>
-      <image:caption>Expert furniture and fabric cleaning throughout South Florida</image:caption>
-    </image:image>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://pointpolishcleaners.com/standard-cleaning</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pointpolishcleaners.com/deep-cleaning</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pointpolishcleaners.com/move-in-out-cleaning</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pointpolishcleaners.com/carpet-cleaning</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pointpolishcleaners.com/upholstery-cleaning</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
