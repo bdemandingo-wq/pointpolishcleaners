@@ -35,7 +35,7 @@ const SouthsideCleaning = lazy(() => import("./pages/cities/SouthsideCleaning"))
 
 // Blog posts
 const BrowardCostGuide = lazy(() => import("./pages/blog/BrowardCostGuide"));
-const JacksonvillePermitRules = lazy(() => import("./pages/blog/JacksonvillePermitRules"));
+const MiamiPermitRules = lazy(() => import("./pages/blog/MiamiPermitRules"));
 const PalmBeachSeasonalDiscounts = lazy(() => import("./pages/blog/PalmBeachSeasonalDiscounts"));
 const MoveInOutCleaningChecklist = lazy(() => import("./pages/blog/MoveInOutCleaningChecklist"));
 const DeepCleaningVsStandardCleaning = lazy(() => import("./pages/blog/DeepCleaningVsStandardCleaning"));
