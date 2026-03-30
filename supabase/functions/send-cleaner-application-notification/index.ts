@@ -45,9 +45,11 @@ interface CleanerApplicationRequest {
 }
 
 const workAreaLabels: Record<string, string> = {
-  "broward": "Duval County",
-  "palm-beach": "St. Johns County",
-  "miami-dade": "Miami Dade County",
+  "jacksonville": "Jacksonville",
+  "jax-beach": "Jacksonville Beach / Beaches",
+  "ponte-vedra": "Ponte Vedra / St. Johns County",
+  "mandarin": "Mandarin / Southside",
+  "riverside": "Riverside / Avondale",
 };
 
 const handler = async (req: Request): Promise<Response> => {
