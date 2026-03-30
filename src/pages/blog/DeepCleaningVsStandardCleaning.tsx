@@ -11,11 +11,11 @@ const DeepCleaningVsStandardCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Deep Cleaning vs Standard Cleaning: What's the Difference? | TIDYWISE"
-        pageDescription="Learn the difference between deep cleaning and standard cleaning services. Find out which cleaning type is right for your South Florida home. Free quotes available!"
-        canonicalUrl="https://tidywisecleaning.com/blog/deep-cleaning-vs-standard-cleaning"
+        pageTitle="Deep Cleaning vs Standard Cleaning: What's the Difference? | Point Polish Cleaners"
+        pageDescription="Learn the difference between deep cleaning and standard cleaning services. Find out which cleaning type is right for your Jacksonville, FL home. Free quotes available!"
+        canonicalUrl="https://pointpolishcleaners.com/blog/deep-cleaning-vs-standard-cleaning"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-01-20", readTime: "8 min", category: "Guides" }}
       />
       <main className="min-h-screen">
@@ -46,7 +46,7 @@ const DeepCleaningVsStandardCleaning = () => {
               
               <p className="text-lg text-muted-foreground">
                 Not sure whether to book a standard or deep cleaning? Here's everything you need to know 
-                to make the right choice for your South Florida home.
+                to make the right choice for your Jacksonville, FL home.
               </p>
             </header>
 
@@ -142,11 +142,11 @@ const DeepCleaningVsStandardCleaning = () => {
                   Book Your Cleaning Today
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  TIDYWISE serves 
+                  Point Polish Cleaners serves 
                   <Link to="/broward-county-cleaning" className="text-primary hover:underline mx-1">Broward</Link>,
-                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Miami-Dade</Link>, and
-                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">Palm Beach County</Link>.
-                  Call <a href="tel:+15615718725" className="text-primary font-semibold">(561) 571-8725</a> or 
+                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Jacksonville</Link>, and
+                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">St. Johns County</Link>.
+                  Call <a href="tel:+19045139002" className="text-primary font-semibold">(904) 513-9002</a> or 
                   <Link to="/#booking" className="text-primary hover:underline ml-1">book online</Link> for a free quote!
                 </p>
               </div>

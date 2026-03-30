@@ -52,7 +52,7 @@ const Confirmation = () => {
               Booking Confirmed!
             </h1>
             <p className="text-muted-foreground">
-              Thank you for choosing TIDYWISE. We'll contact you shortly.
+              Thank you for choosing Point Polish Cleaners. We'll contact you shortly.
             </p>
           </div>
 
@@ -135,7 +135,7 @@ const Confirmation = () => {
                 className="flex-1"
                 asChild
               >
-                <a href="tel:+15615718725" className="flex items-center justify-center gap-2">
+                <a href="tel:+19045139002" className="flex items-center justify-center gap-2">
                   <Phone className="w-4 h-4" />
                   Call Us Now
                 </a>

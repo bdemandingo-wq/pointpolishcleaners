@@ -11,11 +11,11 @@ const CondoCleaningRules = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Condo Cleaning Rules & Tips for South Florida | TIDYWISE"
-        pageDescription="Navigate HOA rules and building regulations while keeping your South Florida condo spotless."
-        canonicalUrl="https://tidywisecleaning.com/blog/condo-cleaning-rules-south-florida"
+        pageTitle="Condo Cleaning Rules & Tips for Jacksonville, FL | Point Polish Cleaners"
+        pageDescription="Navigate HOA rules and building regulations while keeping your Jacksonville, FL condo spotless."
+        canonicalUrl="https://pointpolishcleaners.com/blog/condo-cleaning-rules-south-florida"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-04-10", readTime: "6 min", category: "Local Guides" }}
       />
       <main className="min-h-screen">
@@ -35,7 +35,7 @@ const CondoCleaningRules = () => {
                 Local
               </span>
               <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">
-                Condo Cleaning Rules & Tips for South Florida
+                Condo Cleaning Rules & Tips for Jacksonville, FL
               </h1>
               <div className="flex items-center gap-4 text-muted-foreground text-sm">
                 <span className="flex items-center gap-1">
@@ -49,7 +49,7 @@ const CondoCleaningRules = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground mb-6">
-                Living in a South Florida condo comes with unique cleaning considerations. From HOA 
+                Living in a Jacksonville, FL condo comes with unique cleaning considerations. From HOA 
                 regulations to high-rise logistics, here's what you need to know.
               </p>
 
@@ -121,10 +121,10 @@ const CondoCleaningRules = () => {
 
               <div className="bg-primary/10 rounded-xl p-6 mt-8">
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                  TIDYWISE Knows Condo Cleaning
+                  Point Polish Cleaners Knows Condo Cleaning
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  We're experienced with South Florida condo buildings and their requirements. 
+                  We're experienced with Jacksonville, FL condo buildings and their requirements. 
                   We handle registration, scheduling, and all the logistics.
                 </p>
                 <Link 

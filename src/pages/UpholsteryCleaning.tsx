@@ -36,14 +36,14 @@ const UpholsteryCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Upholstery Cleaning Near Me | South Florida | TIDYWISE"
-        pageDescription="Professional upholstery and furniture cleaning in Broward, Miami-Dade & Palm Beach County. Sofa, chair & fabric cleaning. Get a custom quote today!"
-        canonicalUrl="https://tidywisecleaning.com/upholstery-cleaning"
+        pageTitle="Upholstery Cleaning Near Me | Jacksonville, FL | Point Polish Cleaners"
+        pageDescription="Professional upholstery and furniture cleaning in Broward, Jacksonville & St. Johns County. Sofa, chair & fabric cleaning. Get a custom quote today!"
+        canonicalUrl="https://pointpolishcleaners.com/upholstery-cleaning"
         pageType="service"
-        county="South Florida"
+        county="Jacksonville, FL"
         breadcrumbs={[
-          { name: "Home", url: "https://tidywisecleaning.com" },
-          { name: "Upholstery Cleaning", url: "https://tidywisecleaning.com/upholstery-cleaning" }
+          { name: "Home", url: "https://pointpolishcleaners.com" },
+          { name: "Upholstery Cleaning", url: "https://pointpolishcleaners.com/upholstery-cleaning" }
         ]}
       />
       <main className="min-h-screen">
@@ -62,11 +62,11 @@ const UpholsteryCleaning = () => {
               </h1>
               <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
                 Revive your furniture with our expert upholstery cleaning service. 
-                We safely clean all fabric types throughout South Florida.
+                We safely clean all fabric types throughout Jacksonville, FL.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-primary text-primary-foreground" asChild>
-                  <a href="tel:+15615718725" className="flex items-center gap-2">
+                  <a href="tel:+19045139002" className="flex items-center gap-2">
                     <Phone className="w-5 h-5" />
                     Get Custom Quote
                   </a>
@@ -197,9 +197,9 @@ const UpholsteryCleaning = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <a href="tel:+15615718725" className="flex items-center gap-2">
+                <a href="tel:+19045139002" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call (561) 571-8725
+                  Call (904) 513-9002
                 </a>
               </Button>
               <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>

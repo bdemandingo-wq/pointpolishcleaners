@@ -39,15 +39,15 @@ const faqs = [
     questions: [
       {
         q: "How do I book a cleaning?",
-        a: "You can book online through our website (click 'Book Now'), call us at (561) 571-8725, or use our AI chat assistant. We respond within 15 minutes during business hours!"
+        a: "You can book online through our website (click 'Book Now'), call us at (904) 513-9002, or use our AI chat assistant. We respond within 15 minutes during business hours!"
       },
       {
         q: "Can I book same-day or next-day cleaning?",
-        a: "For same-day or next-day bookings, please call us directly at (561) 571-8725. Online bookings require at least 2 days advance notice to ensure we can schedule the right team for your home."
+        a: "For same-day or next-day bookings, please call us directly at (904) 513-9002. Online bookings require at least 2 days advance notice to ensure we can schedule the right team for your home."
       },
       {
         q: "What areas do you serve?",
-        a: "We serve all of Broward County, Palm Beach County, and Miami-Dade County. This includes cities like Fort Lauderdale, Boca Raton, Miami, Hollywood, West Palm Beach, and 40+ other cities. Check our Service Areas page for the full list."
+        a: "We serve all of Duval County, St. Johns County, and Duval County. This includes cities like Jacksonville, Jacksonville Beach, Miami, Hollywood, Ponte Vedra, and 12+ other cities. Check our Service Areas page for the full list."
       },
       {
         q: "How long does a cleaning take?",
@@ -81,11 +81,11 @@ const faqs = [
     questions: [
       {
         q: "Are your cleaners background-checked?",
-        a: "Absolutely. Every team member undergoes a thorough background check before joining TIDYWISE. Your safety and peace of mind are our top priorities."
+        a: "Absolutely. Every team member undergoes a thorough background check before joining Point Polish Cleaners. Your safety and peace of mind are our top priorities."
       },
       {
         q: "Are you licensed and insured?",
-        a: "Yes, TIDYWISE is fully licensed, bonded, and insured. This protects both you and our team in the unlikely event of any issues."
+        a: "Yes, Point Polish Cleaners is fully licensed, bonded, and insured. This protects both you and our team in the unlikely event of any issues."
       },
       {
         q: "What if something is damaged during cleaning?",
@@ -127,7 +127,7 @@ const faqs = [
       },
       {
         q: "Can I reschedule my cleaning?",
-        a: "Yes! You can reschedule with at least 24 hours notice at no charge. Just call us at (561) 571-8725 or reply to your confirmation email."
+        a: "Yes! You can reschedule with at least 24 hours notice at no charge. Just call us at (904) 513-9002 or reply to your confirmation email."
       },
       {
         q: "What if my cleaner can't make it?",
@@ -157,12 +157,12 @@ const FAQ = () => {
   return (
     <>
       <Helmet>
-        <title>Cleaning Service FAQ South Florida | TIDYWISE</title>
-        <meta name="description" content="Find answers about TIDYWISE cleaning services, pricing, booking & cancellations. Serving 40+ South Florida cities. Call (561) 571-8725." />
-        <link rel="canonical" href="https://tidywisecleaning.com/faq" />
+        <title>Cleaning Service FAQ Jacksonville, FL | Point Polish Cleaners</title>
+        <meta name="description" content="Find answers about Point Polish Cleaners cleaning services, pricing, booking & cancellations. Serving 12+ Jacksonville, FL cities. Call (904) 513-9002." />
+        <link rel="canonical" href="https://pointpolishcleaners.com/faq" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <link rel="alternate" hrefLang="en-us" href="https://tidywisecleaning.com/faq" />
-        <link rel="alternate" hrefLang="x-default" href="https://tidywisecleaning.com/faq" />
+        <link rel="alternate" hrefLang="en-us" href="https://pointpolishcleaners.com/faq" />
+        <link rel="alternate" hrefLang="x-default" href="https://pointpolishcleaners.com/faq" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
@@ -171,8 +171,8 @@ const FAQ = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tidywisecleaning.com" },
-              { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://tidywisecleaning.com/faq" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pointpolishcleaners.com" },
+              { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://pointpolishcleaners.com/faq" }
             ]
           })}
         </script>
@@ -233,9 +233,9 @@ const FAQ = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <a href="tel:+15615718725" className="flex items-center gap-2">
+                <a href="tel:+19045139002" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call (561) 571-8725
+                  Call (904) 513-9002
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>

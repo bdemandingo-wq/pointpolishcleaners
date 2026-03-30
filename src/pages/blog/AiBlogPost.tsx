@@ -77,11 +77,11 @@ const AiBlogPost = () => {
   return (
     <>
       <SEOSchema
-        pageTitle={`${post.title} | TIDYWISE`}
+        pageTitle={`${post.title} | Point Polish Cleaners`}
         pageDescription={post.excerpt}
-        canonicalUrl={`https://tidywisecleaning.com/blog/ai/${slug}`}
+        canonicalUrl={`https://pointpolishcleaners.com/blog/ai/${slug}`}
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
       />
       <main className="min-h-screen">
         <Navbar />
@@ -133,7 +133,7 @@ const AiBlogPost = () => {
                 Ready for Professional Cleaning?
               </h3>
               <p className="text-muted-foreground mb-4">
-                Let TIDYWISE handle your cleaning needs. We serve all of South Florida 
+                Let Point Polish Cleaners handle your cleaning needs. We serve all of Jacksonville, FL 
                 with eco-friendly, professional cleaning services.
               </p>
               <Link 

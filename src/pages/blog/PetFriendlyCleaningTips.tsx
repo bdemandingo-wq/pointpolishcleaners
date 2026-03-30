@@ -11,11 +11,11 @@ const PetFriendlyCleaningTips = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Pet-Friendly Home Cleaning Tips for Florida Pet Owners | TIDYWISE"
+        pageTitle="Pet-Friendly Home Cleaning Tips for Florida Pet Owners | Point Polish Cleaners"
         pageDescription="Keep your Florida home fresh with pets! Expert tips for removing pet hair, odors, and stains. Pet-safe cleaning products. Professional pet-friendly cleaning services."
-        canonicalUrl="https://tidywisecleaning.com/blog/pet-friendly-cleaning-tips"
+        canonicalUrl="https://pointpolishcleaners.com/blog/pet-friendly-cleaning-tips"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-01-25", readTime: "7 min", category: "Tips" }}
       />
       <main className="min-h-screen">
@@ -46,7 +46,7 @@ const PetFriendlyCleaningTips = () => {
               
               <p className="text-lg text-muted-foreground">
                 Love your furry friends but struggling with pet hair and odors? Here are expert tips to 
-                keep your South Florida home fresh and clean—safely for your pets.
+                keep your Jacksonville, FL home fresh and clean—safely for your pets.
               </p>
             </header>
 
@@ -103,7 +103,7 @@ const PetFriendlyCleaningTips = () => {
               </ul>
               <p className="text-muted-foreground mb-8">
                 <strong>Safe alternatives:</strong> Vinegar and water solutions, hydrogen peroxide (diluted), 
-                and certified pet-safe cleaning products. At TIDYWISE, we use eco-friendly, pet-safe products 
+                and certified pet-safe cleaning products. At Point Polish Cleaners, we use eco-friendly, pet-safe products 
                 upon request.
               </p>
 
@@ -140,11 +140,11 @@ const PetFriendlyCleaningTips = () => {
                   Pet-Friendly Cleaning Services
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  TIDYWISE loves pets! We serve pet owners across 
+                  Point Polish Cleaners loves pets! We serve pet owners across 
                   <Link to="/broward-county-cleaning" className="text-primary hover:underline mx-1">Broward</Link>,
-                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Miami-Dade</Link>, and
-                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">Palm Beach County</Link>.
-                  Call <a href="tel:+15615718725" className="text-primary font-semibold">(561) 571-8725</a> or 
+                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Jacksonville</Link>, and
+                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">St. Johns County</Link>.
+                  Call <a href="tel:+19045139002" className="text-primary font-semibold">(904) 513-9002</a> or 
                   <Link to="/#booking" className="text-primary hover:underline ml-1">book online</Link>!
                 </p>
               </div>

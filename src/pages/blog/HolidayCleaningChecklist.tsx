@@ -11,11 +11,11 @@ const HolidayCleaningChecklist = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Holiday Cleaning Checklist: Prepare Your Home for Guests | TIDYWISE"
-        pageDescription="Get your South Florida home guest-ready for the holidays with our complete cleaning checklist."
-        canonicalUrl="https://tidywisecleaning.com/blog/holiday-cleaning-checklist"
+        pageTitle="Holiday Cleaning Checklist: Prepare Your Home for Guests | Point Polish Cleaners"
+        pageDescription="Get your Jacksonville, FL home guest-ready for the holidays with our complete cleaning checklist."
+        canonicalUrl="https://pointpolishcleaners.com/blog/holiday-cleaning-checklist"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-11-15", readTime: "5 min", category: "Guides" }}
       />
       <main className="min-h-screen">
@@ -50,7 +50,7 @@ const HolidayCleaningChecklist = () => {
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground mb-6">
                 The holidays are coming and so are your guests! Whether you're hosting a dinner party or 
-                welcoming out-of-town family, here's your complete checklist to make your South Florida 
+                welcoming out-of-town family, here's your complete checklist to make your Jacksonville, FL 
                 home sparkle.
               </p>
 
@@ -112,7 +112,7 @@ const HolidayCleaningChecklist = () => {
                   Too Busy for Holiday Cleaning?
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Let TIDYWISE handle the deep cleaning so you can focus on decorating and cooking! 
+                  Let Point Polish Cleaners handle the deep cleaning so you can focus on decorating and cooking! 
                   Book early—holiday slots fill up fast.
                 </p>
                 <Link 

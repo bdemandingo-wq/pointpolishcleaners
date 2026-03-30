@@ -11,11 +11,11 @@ const HowToPrepareForCleaningService = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="How to Prepare for Your Cleaning Service Visit | TIDYWISE"
-        pageDescription="Get the most from your professional cleaning service. Simple prep tips to maximize results. What to do before cleaners arrive. South Florida cleaning experts."
-        canonicalUrl="https://tidywisecleaning.com/blog/how-to-prepare-for-cleaning-service"
+        pageTitle="How to Prepare for Your Cleaning Service Visit | Point Polish Cleaners"
+        pageDescription="Get the most from your professional cleaning service. Simple prep tips to maximize results. What to do before cleaners arrive. Jacksonville, FL cleaning experts."
+        canonicalUrl="https://pointpolishcleaners.com/blog/how-to-prepare-for-cleaning-service"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-02-01", readTime: "5 min", category: "Tips" }}
       />
       <main className="min-h-screen">
@@ -168,11 +168,11 @@ const HowToPrepareForCleaningService = () => {
                   Ready to Book?
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  TIDYWISE makes professional cleaning easy. We serve 
+                  Point Polish Cleaners makes professional cleaning easy. We serve 
                   <Link to="/broward-county-cleaning" className="text-primary hover:underline mx-1">Broward</Link>,
-                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Miami-Dade</Link>, and
-                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">Palm Beach County</Link>.
-                  Call <a href="tel:+15615718725" className="text-primary font-semibold">(561) 571-8725</a> or 
+                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Jacksonville</Link>, and
+                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">St. Johns County</Link>.
+                  Call <a href="tel:+19045139002" className="text-primary font-semibold">(904) 513-9002</a> or 
                   <Link to="/#booking" className="text-primary hover:underline ml-1">book online</Link>—response in 15 minutes or less!
                 </p>
               </div>

@@ -11,11 +11,11 @@ const EcoFriendlyCleaningProducts = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Best Eco-Friendly Cleaning Products for Florida Homes | TIDYWISE"
-        pageDescription="Discover sustainable cleaning products perfect for South Florida's climate. Protect your family and the environment."
-        canonicalUrl="https://tidywisecleaning.com/blog/eco-friendly-cleaning-products"
+        pageTitle="Best Eco-Friendly Cleaning Products for Florida Homes | Point Polish Cleaners"
+        pageDescription="Discover sustainable cleaning products perfect for Jacksonville, FL's climate. Protect your family and the environment."
+        canonicalUrl="https://pointpolishcleaners.com/blog/eco-friendly-cleaning-products"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-02-10", readTime: "6 min", category: "Tips" }}
       />
       <main className="min-h-screen">
@@ -49,7 +49,7 @@ const EcoFriendlyCleaningProducts = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground mb-6">
-                South Florida's delicate ecosystem—from the Everglades to our beautiful beaches—deserves 
+                Jacksonville, FL's delicate ecosystem—from the Everglades to our beautiful beaches—deserves 
                 protection. Using eco-friendly cleaning products is one way to do your part while keeping 
                 your home sparkling clean.
               </p>
@@ -101,7 +101,7 @@ const EcoFriendlyCleaningProducts = () => {
 
               <div className="bg-primary/10 rounded-xl p-6 mt-8">
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                  TIDYWISE Uses Eco-Friendly Products
+                  Point Polish Cleaners Uses Eco-Friendly Products
                 </h3>
                 <p className="text-muted-foreground mb-4">
                   We offer green cleaning options for all our services. Ask about our eco-friendly 

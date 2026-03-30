@@ -11,11 +11,11 @@ const HurricaneSeasonCleaningPrep = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Hurricane Season Home Cleaning & Prep Guide | South Florida | TIDYWISE"
-        pageDescription="Prepare your South Florida home for hurricane season. Pre-storm cleaning checklist, post-storm cleanup tips, and professional cleaning services. Be ready!"
-        canonicalUrl="https://tidywisecleaning.com/blog/hurricane-season-cleaning-prep"
+        pageTitle="Hurricane Season Home Cleaning & Prep Guide | Jacksonville, FL | Point Polish Cleaners"
+        pageDescription="Prepare your Jacksonville, FL home for hurricane season. Pre-storm cleaning checklist, post-storm cleanup tips, and professional cleaning services. Be ready!"
+        canonicalUrl="https://pointpolishcleaners.com/blog/hurricane-season-cleaning-prep"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-05-01", readTime: "8 min", category: "Guides" }}
       />
       <main className="min-h-screen">
@@ -41,7 +41,7 @@ const HurricaneSeasonCleaningPrep = () => {
               </div>
               
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Hurricane Season Home Cleaning & Prep Guide for South Florida
+                Hurricane Season Home Cleaning & Prep Guide for Jacksonville, FL
               </h1>
               
               <p className="text-lg text-muted-foreground">
@@ -56,7 +56,7 @@ const HurricaneSeasonCleaningPrep = () => {
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground m-0 mb-2">Hurricane Season Reminder</h3>
                   <p className="text-muted-foreground m-0">
-                    South Florida averages 6-8 tropical systems per season. Being prepared isn't optional—it's essential!
+                    Jacksonville, FL averages 6-8 tropical systems per season. Being prepared isn't optional—it's essential!
                   </p>
                 </div>
               </div>
@@ -153,14 +153,14 @@ const HurricaneSeasonCleaningPrep = () => {
 
               <div className="bg-primary/10 p-6 rounded-xl">
                 <h3 className="font-display text-xl font-semibold text-foreground mb-4">
-                  TIDYWISE is Here for You
+                  Point Polish Cleaners is Here for You
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Whether you need pre-storm prep or post-storm cleanup, TIDYWISE serves 
+                  Whether you need pre-storm prep or post-storm cleanup, Point Polish Cleaners serves 
                   <Link to="/broward-county-cleaning" className="text-primary hover:underline mx-1">Broward</Link>,
-                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Miami-Dade</Link>, and
-                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">Palm Beach County</Link>.
-                  Call <a href="tel:+15615718725" className="text-primary font-semibold">(561) 571-8725</a> for emergency cleaning services.
+                  <Link to="/miami-dade-cleaning" className="text-primary hover:underline mx-1">Jacksonville</Link>, and
+                  <Link to="/palm-beach-county-cleaning" className="text-primary hover:underline mx-1">St. Johns County</Link>.
+                  Call <a href="tel:+19045139002" className="text-primary font-semibold">(904) 513-9002</a> for emergency cleaning services.
                 </p>
               </div>
             </div>

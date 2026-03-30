@@ -187,7 +187,7 @@ const BookingForm = () => {
                 </p>
                 <p className="text-sm text-amber-700 dark:text-amber-500">
                   Please call us directly at{" "}
-                  <a href="tel:+15615718725" className="font-semibold underline">(561) 571-8725</a>{" "}
+                  <a href="tel:+19045139002" className="font-semibold underline">(904) 513-9002</a>{" "}
                   instead of booking online.
                 </p>
               </div>
@@ -318,7 +318,7 @@ const BookingForm = () => {
                     <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
                       id="address"
-                      placeholder="123 Main St, West Palm Beach, FL 33401"
+                      placeholder="123 Main St, Ponte Vedra, FL 33401"
                       className="pl-10"
                       value={formData.address}
                       onChange={(e) => handleInputChange("address", e.target.value)}

@@ -11,11 +11,11 @@ const AllergyFreeHomeCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Allergy-Free Home Cleaning Tips for Florida Residents | TIDYWISE"
+        pageTitle="Allergy-Free Home Cleaning Tips for Florida Residents | Point Polish Cleaners"
         pageDescription="Combat Florida's year-round allergens with proper cleaning techniques. Expert tips for allergy sufferers."
-        canonicalUrl="https://tidywisecleaning.com/blog/allergy-free-home-cleaning"
+        canonicalUrl="https://pointpolishcleaners.com/blog/allergy-free-home-cleaning"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-02-20", readTime: "6 min", category: "Tips" }}
       />
       <main className="min-h-screen">
@@ -107,8 +107,8 @@ const AllergyFreeHomeCleaning = () => {
                   Allergy-Friendly Cleaning Services
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  TIDYWISE offers allergy-conscious cleaning with HEPA vacuums and hypoallergenic products. 
-                  Breathe easier in your South Florida home.
+                  Point Polish Cleaners offers allergy-conscious cleaning with HEPA vacuums and hypoallergenic products. 
+                  Breathe easier in your Jacksonville, FL home.
                 </p>
                 <Link 
                   to="/#booking"

@@ -36,14 +36,14 @@ const DeepCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Deep Cleaning Service Fort Lauderdale & South Florida | TIDYWISE"
-        pageDescription="Professional deep cleaning in South Florida starting at $250. Baseboards, inside cabinets, appliances & more. Highly-rated, eco-friendly cleaners. Instant quote online."
-        canonicalUrl="https://tidywisecleaning.com/deep-cleaning"
+        pageTitle="Deep Cleaning Service Jacksonville & Jacksonville, FL | Point Polish Cleaners"
+        pageDescription="Professional deep cleaning in Jacksonville, FL starting at $250. Baseboards, inside cabinets, appliances & more. Highly-rated, eco-friendly cleaners. Instant quote online."
+        canonicalUrl="https://pointpolishcleaners.com/deep-cleaning"
         pageType="service"
-        county="South Florida"
+        county="Jacksonville, FL"
         breadcrumbs={[
-          { name: "Home", url: "https://tidywisecleaning.com" },
-          { name: "Deep Cleaning", url: "https://tidywisecleaning.com/deep-cleaning" }
+          { name: "Home", url: "https://pointpolishcleaners.com" },
+          { name: "Deep Cleaning", url: "https://pointpolishcleaners.com/deep-cleaning" }
         ]}
       />
       <main className="min-h-screen">
@@ -68,9 +68,9 @@ const DeepCleaning = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90" asChild>
-                <a href="tel:+15615718725" className="flex items-center gap-2">
+                <a href="tel:+19045139002" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call (561) 571-8725
+                  Call (904) 513-9002
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
@@ -175,7 +175,7 @@ const DeepCleaning = () => {
               Ready for a Deep Clean?
             </h2>
             <p className="text-primary-foreground mb-8 max-w-xl mx-auto">
-              Experience the TIDYWISE difference. Serving Broward, Palm Beach, and Miami-Dade counties.
+              Experience the Point Polish Cleaners difference. Serving Broward, Palm Beach, and Jacksonville counties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>

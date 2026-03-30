@@ -11,11 +11,11 @@ const KitchenCleaningHacks = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="10 Kitchen Cleaning Hacks That Save Time | TIDYWISE"
-        pageDescription="Professional kitchen cleaning tips from South Florida's cleaning experts. Make kitchen cleaning faster and easier."
-        canonicalUrl="https://tidywisecleaning.com/blog/kitchen-cleaning-hacks"
+        pageTitle="10 Kitchen Cleaning Hacks That Save Time | Point Polish Cleaners"
+        pageDescription="Professional kitchen cleaning tips from Jacksonville, FL's cleaning experts. Make kitchen cleaning faster and easier."
+        canonicalUrl="https://pointpolishcleaners.com/blog/kitchen-cleaning-hacks"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-03-15", readTime: "6 min", category: "Tips" }}
       />
       <main className="min-h-screen">
@@ -49,7 +49,7 @@ const KitchenCleaningHacks = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground mb-6">
-                Kitchen cleaning doesn't have to take all day. These pro tips from South Florida's 
+                Kitchen cleaning doesn't have to take all day. These pro tips from Jacksonville, FL's 
                 cleaning experts will help you get a sparkling kitchen in less time.
               </p>
 
@@ -129,7 +129,7 @@ const KitchenCleaningHacks = () => {
                   Skip the Kitchen Cleaning
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Let TIDYWISE professionals handle your kitchen deep clean. We'll make it sparkle 
+                  Let Point Polish Cleaners professionals handle your kitchen deep clean. We'll make it sparkle 
                   while you enjoy your free time!
                 </p>
                 <Link 

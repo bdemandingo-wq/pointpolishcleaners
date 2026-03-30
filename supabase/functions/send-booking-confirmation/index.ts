@@ -3,7 +3,7 @@ import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const OPENPHONE_API_KEY = Deno.env.get("OPENPHONE_API_KEY");
 const OPENPHONE_PHONE_NUMBER_ID = "PNr7XukuaV";
-const ADMIN_PHONE_NUMBER = "+15615718725";
+const ADMIN_PHONE_NUMBER = "+19045139002";
 const PERSONAL_PHONE_NUMBER = "+18137356859";
 
 const corsHeaders = {
@@ -87,7 +87,7 @@ serve(async (req) => {
     }
 
     // SMS to customer
-    const customerSms = `✅ TIDYWISE Booking Confirmed!\n\n📅 Date: ${booking.preferredDate}\n🧽 Service: ${booking.serviceType}\n📍 Address: ${booking.address}\n🏠 ${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)\n🔄 Frequency: ${booking.frequency}\n💰 Total: $${booking.totalPrice}\n\nPlease be home for the final walkthrough.\n\nThank you for choosing TIDYWISE! 💙`;
+    const customerSms = `✅ Point Polish Cleaners Booking Confirmed!\n\n📅 Date: ${booking.preferredDate}\n🧽 Service: ${booking.serviceType}\n📍 Address: ${booking.address}\n🏠 ${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)\n🔄 Frequency: ${booking.frequency}\n💰 Total: $${booking.totalPrice}\n\nPlease be home for the final walkthrough.\n\nThank you for choosing Point Polish Cleaners! 💙`;
 
     const customerRes = await fetch("https://api.openphone.com/v1/messages", {
       method: "POST",

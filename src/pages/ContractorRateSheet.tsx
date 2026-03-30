@@ -27,16 +27,16 @@ const ContractorRateSheet = () => {
         <div className="max-w-3xl mx-auto bg-card border border-border rounded-lg p-8 print:border-0 print:shadow-none print:p-0">
           {/* Header */}
           <div className="text-center border-b border-border pb-6 mb-8">
-            <h1 className="font-display text-4xl font-bold text-primary mb-2">TIDYWISE</h1>
+            <h1 className="font-display text-4xl font-bold text-primary mb-2">Point Polish Cleaners</h1>
             <p className="text-lg text-muted-foreground">Professional Cleaning Services</p>
             <div className="flex justify-center gap-6 mt-4 text-sm">
-              <a href="tel:5615718725" className="flex items-center gap-1 text-foreground hover:text-primary">
+              <a href="tel:9045139002" className="flex items-center gap-1 text-foreground hover:text-primary">
                 <Phone className="h-4 w-4" />
-                (561) 571-8725
+                (904) 513-9002
               </a>
-              <a href="mailto:support@tidywisecleaning.com" className="flex items-center gap-1 text-foreground hover:text-primary">
+              <a href="mailto:support@pointpolishcleaners.com" className="flex items-center gap-1 text-foreground hover:text-primary">
                 <Mail className="h-4 w-4" />
-                support@tidywisecleaning.com
+                support@pointpolishcleaners.com
               </a>
             </div>
           </div>
@@ -195,7 +195,7 @@ const ContractorRateSheet = () => {
               Service Areas
             </h3>
             <p className="text-sm text-muted-foreground">
-              <strong>Broward County</strong> • <strong>Palm Beach County</strong> • <strong>Miami-Dade County</strong>
+              <strong>Duval County</strong> • <strong>St. Johns County</strong> • <strong>Duval County</strong>
             </p>
           </section>
 
@@ -204,13 +204,13 @@ const ContractorRateSheet = () => {
             <p className="text-lg font-semibold mb-2">Ready to get started?</p>
             <p className="text-muted-foreground mb-4">Contact us for a custom quote on your next project</p>
             <div className="flex justify-center gap-4">
-              <a href="tel:5615718725" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium print:bg-transparent print:text-primary print:border print:border-primary">
+              <a href="tel:9045139002" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium print:bg-transparent print:text-primary print:border print:border-primary">
                 <Phone className="h-4 w-4" />
-                (561) 571-8725
+                (904) 513-9002
               </a>
             </div>
             <p className="text-xs text-muted-foreground mt-6">
-              tidywisecleaning.com • Serving South Florida Since 2024
+              pointpolishcleaners.com • Serving Jacksonville, FL Since 2024
             </p>
           </div>
         </div>

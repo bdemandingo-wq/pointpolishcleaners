@@ -5,7 +5,7 @@ const reviews = [
     id: 1,
     name: "Ashleigh Craig",
     rating: 5,
-    text: "I used Tidywise to do a deep clean of my home, and I couldn't be happier with the results! From the moment I booked, the communication was professional and prompt. The team arrived on time, fully equipped, and ready to work. They paid attention to every detail—baseboards, windows, inside appliances—nothing was missed. My home looked and smelled amazing afterward. Highly recommend!",
+    text: "I used Point Polish Cleaners to do a deep clean of my home, and I couldn't be happier with the results! From the moment I booked, the communication was professional and prompt. The team arrived on time, fully equipped, and ready to work. They paid attention to every detail—baseboards, windows, inside appliances—nothing was missed. My home looked and smelled amazing afterward. Highly recommend!",
     date: "2 weeks ago",
   },
   {
@@ -46,7 +46,7 @@ const GoogleReviews = () => {
             ))}
           </div>
           <p className="text-muted-foreground">
-            Rated <strong>4.9/5</strong> by over 100+ happy customers in South Florida
+            Rated <strong>4.9/5</strong> by over 100+ happy customers in Jacksonville, FL
           </p>
         </div>
 

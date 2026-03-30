@@ -11,11 +11,11 @@ const PostConstructionCleaningGuide = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Post-Construction Cleaning: What to Expect | TIDYWISE"
-        pageDescription="Just finished a renovation? Here's everything you need to know about post-construction cleaning in South Florida."
-        canonicalUrl="https://tidywisecleaning.com/blog/post-construction-cleaning-guide"
+        pageTitle="Post-Construction Cleaning: What to Expect | Point Polish Cleaners"
+        pageDescription="Just finished a renovation? Here's everything you need to know about post-construction cleaning in Jacksonville, FL."
+        canonicalUrl="https://pointpolishcleaners.com/blog/post-construction-cleaning-guide"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-04-01", readTime: "7 min", category: "Guides" }}
       />
       <main className="min-h-screen">
@@ -138,7 +138,7 @@ const PostConstructionCleaningGuide = () => {
                   Construction Cleanup Specialists
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  TIDYWISE offers professional post-construction cleaning throughout South Florida. 
+                  Point Polish Cleaners offers professional post-construction cleaning throughout Jacksonville, FL. 
                   We'll get your newly renovated space sparkling and move-in ready.
                 </p>
                 <Link 

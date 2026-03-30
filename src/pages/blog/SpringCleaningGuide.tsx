@@ -11,11 +11,11 @@ const SpringCleaningGuide = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Spring Cleaning Guide for South Florida Homes | TIDYWISE"
-        pageDescription="Complete spring cleaning guide for South Florida homes. Tackle pollen, humidity, and seasonal challenges with our expert tips."
-        canonicalUrl="https://tidywisecleaning.com/blog/spring-cleaning-guide-south-florida"
+        pageTitle="Spring Cleaning Guide for Jacksonville, FL Homes | Point Polish Cleaners"
+        pageDescription="Complete spring cleaning guide for Jacksonville, FL homes. Tackle pollen, humidity, and seasonal challenges with our expert tips."
+        canonicalUrl="https://pointpolishcleaners.com/blog/spring-cleaning-guide-south-florida"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-03-01", readTime: "6 min", category: "Guides" }}
       />
       <main className="min-h-screen">
@@ -35,7 +35,7 @@ const SpringCleaningGuide = () => {
                 Seasonal
               </span>
               <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">
-                Spring Cleaning Guide for South Florida Homes
+                Spring Cleaning Guide for Jacksonville, FL Homes
               </h1>
               <div className="flex items-center gap-4 text-muted-foreground text-sm">
                 <span className="flex items-center gap-1">
@@ -49,7 +49,7 @@ const SpringCleaningGuide = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground mb-6">
-                Spring in South Florida brings warm breezes, blooming flowers—and a whole lot of pollen. 
+                Spring in Jacksonville, FL brings warm breezes, blooming flowers—and a whole lot of pollen. 
                 It's the perfect time to give your home a thorough refresh and prepare for the humid months ahead.
               </p>
 
@@ -58,7 +58,7 @@ const SpringCleaningGuide = () => {
               </h2>
               <p className="text-muted-foreground mb-4">
                 Unlike northern states where spring cleaning signals the end of being cooped up indoors, 
-                South Florida's spring cleaning focuses on:
+                Jacksonville, FL's spring cleaning focuses on:
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 mb-6">
                 <li>Removing pollen and allergen buildup</li>
@@ -108,10 +108,10 @@ const SpringCleaningGuide = () => {
 
               <div className="bg-primary/10 rounded-xl p-6 mt-8">
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                  Let TIDYWISE Handle Your Spring Cleaning
+                  Let Point Polish Cleaners Handle Your Spring Cleaning
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Our deep cleaning service covers all these tasks and more. We know South Florida homes 
+                  Our deep cleaning service covers all these tasks and more. We know Jacksonville, FL homes 
                   and use cleaning methods designed for our unique climate.
                 </p>
                 <Link 

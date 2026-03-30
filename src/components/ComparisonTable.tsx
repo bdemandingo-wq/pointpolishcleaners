@@ -1,24 +1,24 @@
 import { Check, X, AlertTriangle } from "lucide-react";
 
 const comparisons = [
-  { feature: "Instant online pricing", tidywise: true, others: false },
-  { feature: "Background-checked cleaners", tidywise: true, others: "warn" },
-  { feature: "Satisfaction guarantee", tidywise: true, others: false },
-  { feature: "Eco-friendly products", tidywise: true, others: false },
-  { feature: "Online booking & reminders", tidywise: true, others: false },
+  { feature: "Instant online pricing", pointpolish: true, others: false },
+  { feature: "Background-checked cleaners", pointpolish: true, others: "warn" },
+  { feature: "Satisfaction guarantee", pointpolish: true, others: false },
+  { feature: "Eco-friendly products", pointpolish: true, others: false },
+  { feature: "Online booking & reminders", pointpolish: true, others: false },
 ];
 
 const ComparisonTable = () => {
   return (
     <div className="max-w-xl mx-auto mt-10">
       <h3 className="font-display text-xl font-semibold text-foreground text-center mb-6">
-        TIDYWISE vs. Other Services
+        Point Polish Cleaners vs. Other Services
       </h3>
       <div className="bg-card rounded-xl border border-border overflow-hidden shadow-soft">
         {/* Header */}
         <div className="grid grid-cols-3 bg-muted px-4 py-3 text-sm font-semibold">
           <span className="text-muted-foreground">Feature</span>
-          <span className="text-center text-primary">TIDYWISE</span>
+          <span className="text-center text-primary">Point Polish Cleaners</span>
           <span className="text-center text-muted-foreground">Others</span>
         </div>
         {/* Rows */}

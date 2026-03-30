@@ -11,11 +11,11 @@ const AirbnbTurnoverCleaningTips = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Airbnb & Vacation Rental Turnover Cleaning Tips | TIDYWISE"
-        pageDescription="Maximize your rental reviews with quick and thorough turnover cleaning. Essential tips for South Florida property hosts."
-        canonicalUrl="https://tidywisecleaning.com/blog/airbnb-turnover-cleaning-tips"
+        pageTitle="Airbnb & Vacation Rental Turnover Cleaning Tips | Point Polish Cleaners"
+        pageDescription="Maximize your rental reviews with quick and thorough turnover cleaning. Essential tips for Jacksonville, FL property hosts."
+        canonicalUrl="https://pointpolishcleaners.com/blog/airbnb-turnover-cleaning-tips"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
         blogMeta={{ datePublished: "2025-03-20", readTime: "7 min", category: "Tips" }}
       />
       <main className="min-h-screen">
@@ -49,7 +49,7 @@ const AirbnbTurnoverCleaningTips = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground mb-6">
-                South Florida is a vacation hotspot, and your rental's cleanliness directly impacts your 
+                Jacksonville, FL is a vacation hotspot, and your rental's cleanliness directly impacts your 
                 reviews and bookings. Master the turnover clean with these professional tips.
               </p>
 
@@ -129,7 +129,7 @@ const AirbnbTurnoverCleaningTips = () => {
                   Professional Turnover Cleaning
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  TIDYWISE specializes in vacation rental turnovers across South Florida. We understand 
+                  Point Polish Cleaners specializes in vacation rental turnovers across Jacksonville, FL. We understand 
                   tight timelines and 5-star expectations. Book same-day service available!
                 </p>
                 <Link 

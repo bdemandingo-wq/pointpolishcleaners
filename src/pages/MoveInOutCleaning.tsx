@@ -40,14 +40,14 @@ const MoveInOutCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Move In Move Out Cleaning South Florida | TIDYWISE"
-        pageDescription="Move-out cleaning to get your full deposit back. Move-in cleaning for a fresh start. Serving Fort Lauderdale, Miami & 40+ South Florida cities. Book TIDYWISE today."
-        canonicalUrl="https://tidywisecleaning.com/move-in-out-cleaning"
+        pageTitle="Move In Move Out Cleaning Jacksonville, FL | Point Polish Cleaners"
+        pageDescription="Move-out cleaning to get your full deposit back. Move-in cleaning for a fresh start. Serving Jacksonville, Miami & 12+ Jacksonville, FL cities. Book Point Polish Cleaners today."
+        canonicalUrl="https://pointpolishcleaners.com/move-in-out-cleaning"
         pageType="service"
-        county="South Florida"
+        county="Jacksonville, FL"
         breadcrumbs={[
-          { name: "Home", url: "https://tidywisecleaning.com" },
-          { name: "Move In/Out Cleaning", url: "https://tidywisecleaning.com/move-in-out-cleaning" }
+          { name: "Home", url: "https://pointpolishcleaners.com" },
+          { name: "Move In/Out Cleaning", url: "https://pointpolishcleaners.com/move-in-out-cleaning" }
         ]}
       />
       <main className="min-h-screen">
@@ -72,9 +72,9 @@ const MoveInOutCleaning = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90" asChild>
-                <a href="tel:+15615718725" className="flex items-center gap-2">
+                <a href="tel:+19045139002" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call (561) 571-8725
+                  Call (904) 513-9002
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
@@ -227,7 +227,7 @@ const MoveInOutCleaning = () => {
               Moving Soon? Book Your Cleaning Today
             </h2>
             <p className="text-secondary-foreground/80 mb-8 max-w-xl mx-auto">
-              Serving Broward, Palm Beach, and Miami-Dade counties. Response in 15 minutes or less!
+              Serving Broward, Palm Beach, and Jacksonville counties. Response in 15 minutes or less!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-background text-foreground hover:bg-background/90" asChild>

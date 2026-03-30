@@ -21,8 +21,8 @@ interface BlogPost {
 const staticBlogPosts: BlogPost[] = [
   {
     slug: "move-in-out-cleaning-checklist",
-    title: "The Ultimate Move In/Out Cleaning Checklist for South Florida",
-    excerpt: "Moving in or out of a South Florida property? This comprehensive checklist ensures you get your security deposit back and start fresh in your new home.",
+    title: "The Ultimate Move In/Out Cleaning Checklist for Jacksonville, FL",
+    excerpt: "Moving in or out of a Jacksonville, FL property? This comprehensive checklist ensures you get your security deposit back and start fresh in your new home.",
     date: "January 2025",
     readTime: "7 min read",
     category: "Guides"
@@ -30,7 +30,7 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "deep-cleaning-vs-standard-cleaning",
     title: "Deep Cleaning vs Standard Cleaning: Which Do You Need?",
-    excerpt: "Not sure whether to book a standard or deep cleaning? Here's everything you need to know to make the right choice for your South Florida home.",
+    excerpt: "Not sure whether to book a standard or deep cleaning? Here's everything you need to know to make the right choice for your Jacksonville, FL home.",
     date: "January 2025",
     readTime: "6 min read",
     category: "Guides"
@@ -38,14 +38,14 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "pet-friendly-cleaning-tips",
     title: "Pet-Friendly Home Cleaning Tips for Florida Pet Owners",
-    excerpt: "Love your furry friends but struggling with pet hair and odors? Here are expert tips to keep your South Florida home fresh and clean—safely for your pets.",
+    excerpt: "Love your furry friends but struggling with pet hair and odors? Here are expert tips to keep your Jacksonville, FL home fresh and clean—safely for your pets.",
     date: "January 2025",
     readTime: "6 min read",
     category: "Tips"
   },
   {
     slug: "hurricane-season-cleaning-prep",
-    title: "Hurricane Season Home Cleaning & Prep Guide for South Florida",
+    title: "Hurricane Season Home Cleaning & Prep Guide for Jacksonville, FL",
     excerpt: "Hurricane season runs June 1 - November 30. Here's your complete guide to preparing your home before the storm and cleaning up after.",
     date: "January 2025",
     readTime: "8 min read",
@@ -61,32 +61,32 @@ const staticBlogPosts: BlogPost[] = [
   },
   {
     slug: "broward-cost-guide",
-    title: "2025 Cost Guide for Cleaning Services in Broward County",
-    excerpt: "Planning your cleaning budget for 2025? Here's everything you need to know about Broward County cleaning service costs.",
+    title: "2025 Cost Guide for Cleaning Services in Duval County",
+    excerpt: "Planning your cleaning budget for 2025? Here's everything you need to know about Duval County cleaning service costs.",
     date: "January 2025",
     readTime: "5 min read",
     category: "Pricing"
   },
   {
     slug: "miami-permit-rules",
-    title: "Miami-Dade Cleaning Service Regulations & Tips",
-    excerpt: "Understanding local regulations and best practices for professional cleaning services in Miami-Dade County.",
+    title: "Jacksonville Cleaning Service Regulations & Tips",
+    excerpt: "Understanding local regulations and best practices for professional cleaning services in Duval County.",
     date: "January 2025",
     readTime: "5 min read",
     category: "Local"
   },
   {
     slug: "palm-beach-seasonal-discounts",
-    title: "Palm Beach County Seasonal Cleaning Discounts & Tips",
-    excerpt: "Take advantage of seasonal offers and learn the best times to book cleaning services in Palm Beach County.",
+    title: "St. Johns County Seasonal Cleaning Discounts & Tips",
+    excerpt: "Take advantage of seasonal offers and learn the best times to book cleaning services in St. Johns County.",
     date: "January 2025",
     readTime: "4 min read",
     category: "Deals"
   },
   {
     slug: "spring-cleaning-guide-south-florida",
-    title: "Spring Cleaning Guide for South Florida Homes",
-    excerpt: "Spring in South Florida means pollen, humidity, and the perfect time for a deep clean. Get your home ready for the season with our comprehensive guide.",
+    title: "Spring Cleaning Guide for Jacksonville, FL Homes",
+    excerpt: "Spring in Jacksonville, FL means pollen, humidity, and the perfect time for a deep clean. Get your home ready for the season with our comprehensive guide.",
     date: "December 2024",
     readTime: "6 min read",
     category: "Seasonal"
@@ -94,7 +94,7 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "eco-friendly-cleaning-products",
     title: "Best Eco-Friendly Cleaning Products for Florida Homes",
-    excerpt: "Protect your family and the environment with these sustainable cleaning solutions perfect for South Florida's unique climate.",
+    excerpt: "Protect your family and the environment with these sustainable cleaning solutions perfect for Jacksonville, FL's unique climate.",
     date: "December 2024",
     readTime: "5 min read",
     category: "Tips"
@@ -110,7 +110,7 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "holiday-cleaning-checklist",
     title: "Holiday Cleaning Checklist: Prepare Your Home for Guests",
-    excerpt: "Expecting holiday visitors? Here's your complete checklist to get your South Florida home guest-ready in no time.",
+    excerpt: "Expecting holiday visitors? Here's your complete checklist to get your Jacksonville, FL home guest-ready in no time.",
     date: "December 2024",
     readTime: "5 min read",
     category: "Seasonal"
@@ -126,7 +126,7 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "kitchen-cleaning-hacks",
     title: "10 Kitchen Cleaning Hacks That Save Time",
-    excerpt: "Make kitchen cleaning faster and easier with these pro tips from South Florida's cleaning experts.",
+    excerpt: "Make kitchen cleaning faster and easier with these pro tips from Jacksonville, FL's cleaning experts.",
     date: "December 2024",
     readTime: "4 min read",
     category: "Tips"
@@ -134,7 +134,7 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "airbnb-turnover-cleaning-tips",
     title: "Airbnb & Vacation Rental Turnover Cleaning Tips",
-    excerpt: "Maximize your rental reviews with quick and thorough turnover cleaning. Essential tips for South Florida property hosts.",
+    excerpt: "Maximize your rental reviews with quick and thorough turnover cleaning. Essential tips for Jacksonville, FL property hosts.",
     date: "December 2024",
     readTime: "6 min read",
     category: "Guides"
@@ -149,8 +149,8 @@ const staticBlogPosts: BlogPost[] = [
   },
   {
     slug: "condo-cleaning-rules-south-florida",
-    title: "Condo Cleaning Rules & Tips for South Florida",
-    excerpt: "Navigate HOA rules and building regulations while keeping your South Florida condo spotless.",
+    title: "Condo Cleaning Rules & Tips for Jacksonville, FL",
+    excerpt: "Navigate HOA rules and building regulations while keeping your Jacksonville, FL condo spotless.",
     date: "December 2024",
     readTime: "5 min read",
     category: "Local"
@@ -158,7 +158,7 @@ const staticBlogPosts: BlogPost[] = [
   {
     slug: "post-construction-cleaning-guide",
     title: "Post-Construction Cleaning: What to Expect",
-    excerpt: "Just finished a renovation? Here's everything you need to know about post-construction cleaning in South Florida.",
+    excerpt: "Just finished a renovation? Here's everything you need to know about post-construction cleaning in Jacksonville, FL.",
     date: "December 2024",
     readTime: "6 min read",
     category: "Guides"
@@ -210,11 +210,11 @@ const Blog = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Cleaning Tips & Guides Blog | TIDYWISE South Florida"
-        pageDescription="Expert cleaning tips, guides, and advice for South Florida homeowners. Learn about deep cleaning, pet-friendly cleaning, hurricane prep, and more from TIDYWISE."
-        canonicalUrl="https://tidywisecleaning.com/blog"
+        pageTitle="Cleaning Tips & Guides Blog | Point Polish Cleaners Jacksonville, FL"
+        pageDescription="Expert cleaning tips, guides, and advice for Jacksonville, FL homeowners. Learn about deep cleaning, pet-friendly cleaning, hurricane prep, and more from Point Polish Cleaners."
+        canonicalUrl="https://pointpolishcleaners.com/blog"
         pageType="blog"
-        county="South Florida"
+        county="Jacksonville, FL"
       />
       <main className="min-h-screen">
         <Navbar />
@@ -225,7 +225,7 @@ const Blog = () => {
               Cleaning Tips & Guides
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Expert advice for keeping your South Florida home sparkling clean. 
+              Expert advice for keeping your Jacksonville, FL home sparkling clean. 
               From seasonal tips to service guides, we've got you covered.
             </p>
           </div>
@@ -310,8 +310,8 @@ const Blog = () => {
               Ready for a Sparkling Clean Home?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Let TIDYWISE handle the cleaning while you enjoy your free time. 
-              Serving Broward, Palm Beach, and Miami-Dade counties.
+              Let Point Polish Cleaners handle the cleaning while you enjoy your free time. 
+              Serving Broward, Palm Beach, and Jacksonville counties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
@@ -321,10 +321,10 @@ const Blog = () => {
                 Get Free Quote
               </Link>
               <a 
-                href="tel:+15615718725"
+                href="tel:+19045139002"
                 className="inline-flex items-center justify-center px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-muted transition-colors"
               >
-                Call (561) 571-8725
+                Call (904) 513-9002
               </a>
             </div>
           </div>

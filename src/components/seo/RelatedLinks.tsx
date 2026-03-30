@@ -16,19 +16,19 @@ const services = [
 ];
 
 const topCities = [
-  { name: "Fort Lauderdale", link: "/fort-lauderdale-cleaning" },
-  { name: "Boca Raton", link: "/boca-raton-cleaning" },
-  { name: "West Palm Beach", link: "/west-palm-beach-cleaning" },
+  { name: "Jacksonville", link: "/fort-lauderdale-cleaning" },
+  { name: "Jacksonville Beach", link: "/boca-raton-cleaning" },
+  { name: "Ponte Vedra", link: "/west-palm-beach-cleaning" },
   { name: "Miami", link: "/miami-cleaning" },
   { name: "Hollywood", link: "/hollywood-cleaning" },
-  { name: "Coral Springs", link: "/coral-springs-cleaning" },
-  { name: "Pompano Beach", link: "/pompano-beach-cleaning" },
+  { name: "Mandarin", link: "/coral-springs-cleaning" },
+  { name: "Ponte Vedra Beach", link: "/pompano-beach-cleaning" },
 ];
 
 const counties = [
-  { name: "Broward County", link: "/broward-county-cleaning" },
-  { name: "Palm Beach County", link: "/palm-beach-county-cleaning" },
-  { name: "Miami-Dade County", link: "/miami-dade-cleaning" },
+  { name: "Duval County", link: "/broward-county-cleaning" },
+  { name: "St. Johns County", link: "/palm-beach-county-cleaning" },
+  { name: "Duval County", link: "/miami-dade-cleaning" },
 ];
 
 const blogPosts = [
@@ -50,7 +50,7 @@ const RelatedLinks = ({ currentPage, pageType, county, cityName }: RelatedLinksP
     <section className="py-12 bg-muted/50">
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="font-display text-2xl font-bold text-foreground mb-6">
-          Explore More TIDYWISE Services
+          Explore More Point Polish Cleaners Services
         </h2>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -92,7 +92,7 @@ const RelatedLinks = ({ currentPage, pageType, county, cityName }: RelatedLinksP
               ))}
               <li>
                 <Link to="/service-areas" className="text-primary hover:underline text-sm font-medium">
-                  View all 40+ cities →
+                  View all 5+ areas →
                 </Link>
               </li>
             </ul>
