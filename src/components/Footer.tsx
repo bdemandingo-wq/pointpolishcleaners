@@ -51,11 +51,11 @@ const Footer = () => {
           <div>
             <h3 className="font-display font-semibold mb-4">Service Areas</h3>
             <ul className="space-y-2 text-sm">
-              <li><span className="text-background/70">Jacksonville, FL</span></li>
-              <li><span className="text-background/70">Jacksonville Beach</span></li>
-              <li><span className="text-background/70">Atlantic Beach</span></li>
-              <li><span className="text-background/70">Neptune Beach</span></li>
-              <li><span className="text-background/70">Ponte Vedra Beach</span></li>
+              <li><Link to="/jacksonville-cleaning" className="text-background/70 hover:text-background transition-colors">Jacksonville</Link></li>
+              <li><Link to="/jacksonville-beach-cleaning" className="text-background/70 hover:text-background transition-colors">Jacksonville Beach</Link></li>
+              <li><Link to="/ponte-vedra-beach-cleaning" className="text-background/70 hover:text-background transition-colors">Ponte Vedra Beach</Link></li>
+              <li><Link to="/mandarin-cleaning" className="text-background/70 hover:text-background transition-colors">Mandarin</Link></li>
+              <li><Link to="/riverside-cleaning" className="text-background/70 hover:text-background transition-colors">Riverside / Avondale</Link></li>
               <li><Link to="/service-areas" className="text-background/70 hover:text-background transition-colors">View All Areas →</Link></li>
             </ul>
           </div>
@@ -67,7 +67,6 @@ const Footer = () => {
               <li><Link to="/service-areas" className="text-background/70 hover:text-background transition-colors">Service Areas</Link></li>
               <li><Link to="/faq" className="text-background/70 hover:text-background transition-colors">FAQ</Link></li>
               <li><Link to="/blog" className="text-background/70 hover:text-background transition-colors">Blog & Tips</Link></li>
-              
               <li><Link to="/apply" className="text-background/70 hover:text-background transition-colors">Join Our Team</Link></li>
               <li><Link to="/sitemap" className="text-background/70 hover:text-background transition-colors">Sitemap</Link></li>
             </ul>
