@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, User, ChevronDown, Phone } from "lucide-react";
 
 import { useAuth } from "@/contexts/AuthContext";
+import logo from "@/assets/logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -72,7 +73,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-display text-xl font-bold text-foreground">Point Polish <span className="text-primary">Cleaners</span></span>
+            <img src={logo} alt="Point Polish Cleaners" className="h-10 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center gap-5">
