@@ -16,19 +16,12 @@ const services = [
 ];
 
 const topCities = [
-  { name: "Jacksonville", link: "/fort-lauderdale-cleaning" },
-  { name: "Jacksonville Beach", link: "/boca-raton-cleaning" },
-  { name: "Ponte Vedra", link: "/west-palm-beach-cleaning" },
-  { name: "Miami", link: "/miami-cleaning" },
-  { name: "Jacksonville Beach", link: "/hollywood-cleaning" },
-  { name: "Mandarin", link: "/coral-springs-cleaning" },
-  { name: "Ponte Vedra Beach", link: "/pompano-beach-cleaning" },
-];
-
-const counties = [
-  { name: "Duval County", link: "/service-areas" },
-  { name: "St. Johns County", link: "/service-areas" },
-  { name: "Duval County", link: "/service-areas" },
+  { name: "Jacksonville", link: "/jacksonville-cleaning" },
+  { name: "Jacksonville Beach", link: "/jacksonville-beach-cleaning" },
+  { name: "Ponte Vedra Beach", link: "/ponte-vedra-beach-cleaning" },
+  { name: "Mandarin", link: "/mandarin-cleaning" },
+  { name: "Riverside", link: "/riverside-cleaning" },
+  { name: "Southside", link: "/southside-cleaning" },
 ];
 
 const blogPosts = [
@@ -40,11 +33,10 @@ const blogPosts = [
   { name: "Bathroom Deep Cleaning Guide", link: "/blog/bathroom-deep-cleaning-guide" },
 ];
 
-const RelatedLinks = ({ currentPage, pageType, county, cityName }: RelatedLinksProps) => {
+const RelatedLinks = ({ currentPage, pageType, cityName }: RelatedLinksProps) => {
   const filteredServices = services.filter(s => s.link !== currentPage);
   const filteredCities = topCities.filter(c => c.link !== currentPage);
   const filteredBlogs = blogPosts.filter(b => b.link !== currentPage).slice(0, 3);
-  const filteredCounties = counties.filter(c => c.link !== currentPage);
 
   return (
     <section className="py-12 bg-muted/50">
@@ -54,7 +46,6 @@ const RelatedLinks = ({ currentPage, pageType, county, cityName }: RelatedLinksP
         </h2>
         
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Services Column */}
           <div>
             <h3 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wider">
               {pageType === 'city' && cityName ? `Cleaning Services in ${cityName}` : 'Our Services'}
@@ -70,20 +61,12 @@ const RelatedLinks = ({ currentPage, pageType, county, cityName }: RelatedLinksP
             </ul>
           </div>
 
-          {/* Cities/Areas Column */}
           <div>
             <h3 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wider">
               Service Areas
             </h3>
             <ul className="space-y-2">
-              {filteredCounties.map(c => (
-                <li key={c.link}>
-                  <Link to={c.link} className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-              {filteredCities.slice(0, 4).map(city => (
+              {filteredCities.slice(0, 5).map(city => (
                 <li key={city.link}>
                   <Link to={city.link} className="text-muted-foreground hover:text-primary transition-colors text-sm">
                     {city.name} cleaning service
@@ -92,13 +75,12 @@ const RelatedLinks = ({ currentPage, pageType, county, cityName }: RelatedLinksP
               ))}
               <li>
                 <Link to="/service-areas" className="text-primary hover:underline text-sm font-medium">
-                  View all 5+ areas →
+                  View all service areas →
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Blog Column */}
           <div>
             <h3 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wider">
               From Our Blog

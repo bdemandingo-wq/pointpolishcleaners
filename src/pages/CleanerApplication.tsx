@@ -28,9 +28,11 @@ const applicationSchema = z.object({
 type ApplicationFormData = z.infer<typeof applicationSchema>;
 
 const workAreaOptions = [
-  { id: "broward", label: "Duval County" },
-  { id: "palm-beach", label: "St. Johns County" },
-  { id: "miami-dade", label: "Miami Dade County" },
+  { id: "jacksonville", label: "Jacksonville" },
+  { id: "jax-beach", label: "Jacksonville Beach / Beaches" },
+  { id: "ponte-vedra", label: "Ponte Vedra / St. Johns County" },
+  { id: "mandarin", label: "Mandarin / Southside" },
+  { id: "riverside", label: "Riverside / Avondale" },
 ];
 
 const CleanerApplication = () => {

@@ -3,19 +3,19 @@ import { MapPin } from "lucide-react";
 
 const serviceAreas = [
   {
-    county: "Duval County",
+    county: "Jacksonville Metro",
     slug: "/service-areas",
-    cities: ["Jacksonville", "Mandarin", "Jacksonville Beach", "Ponte Vedra Beach", "Riverside"],
+    cities: ["Jacksonville", "Mandarin", "Southside", "Arlington", "Riverside"],
   },
   {
-    county: "Duval County",
+    county: "The Beaches",
     slug: "/service-areas",
-    cities: ["Miami", "Jacksonville Beach", "Hialeah", "Coral Gables", "Aventura"],
+    cities: ["Jacksonville Beach", "Atlantic Beach", "Neptune Beach", "Ponte Vedra Beach"],
   },
   {
-    county: "St. Johns County",
+    county: "Greater Jacksonville",
     slug: "/service-areas",
-    cities: ["Ponte Vedra", "Jacksonville Beach", "Delray Beach", "Boynton Beach", "Jupiter"],
+    cities: ["Orange Park", "Fleming Island", "San Marco"],
   },
 ];
 
@@ -28,9 +28,8 @@ const ServiceAreaLinks = () => {
             Professional Cleaning Services Near You
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Point Polish Cleaners provides <Link to="/service-areas" className="text-primary hover:underline">Duval County cleaning services</Link>, 
-            <Link to="/service-areas" className="text-primary hover:underline ml-1">Jacksonville cleaning services</Link>, and 
-            <Link to="/service-areas" className="text-primary hover:underline ml-1">St. Johns County cleaning services</Link>. 
+            Point Polish Cleaners provides professional cleaning services throughout 
+            <Link to="/service-areas" className="text-primary hover:underline ml-1">Jacksonville and surrounding areas</Link>. 
             Licensed, insured, and ready to transform your space.
           </p>
         </div>
@@ -55,7 +54,7 @@ const ServiceAreaLinks = () => {
                 Top-rated cleaning services in {area.cities.slice(0, 3).join(", ")}, and more.
               </p>
               <span className="text-primary font-medium text-sm group-hover:underline">
-                View {area.county} Services →
+                View Services →
               </span>
             </Link>
           ))}
