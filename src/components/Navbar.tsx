@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User, ChevronDown, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   DropdownMenu,
@@ -70,8 +71,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="font-display text-xl font-bold text-foreground">POINT POLISH</span>
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logo} alt="Point Polish Cleaners" className="h-10 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center gap-5">
