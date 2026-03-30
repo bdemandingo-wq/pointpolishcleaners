@@ -91,7 +91,7 @@ const JacksonvillePermitRules = () => {
                 <li>• Workers' compensation (for employees)</li>
               </ul>
               <p className="text-muted-foreground mb-6">
-                Point Polish Cleaners meets all <a href="https://www.miamidade.gov" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Duval County</a> requirements 
+                Point Polish Cleaners meets all <a href="https://www.coj.net" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Duval County</a> requirements 
                 and is fully licensed, bonded, and insured.
               </p>
 
