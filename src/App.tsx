@@ -19,56 +19,19 @@ const CustomerPortal = lazy(() => import("./pages/CustomerPortal"));
 const CleanerApplication = lazy(() => import("./pages/CleanerApplication"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// County landing pages
-const BrowardCountyCleaning = lazy(() => import("./pages/BrowardCountyCleaning"));
-const MiamiDadeCleaning = lazy(() => import("./pages/MiamiDadeCleaning"));
-const PalmBeachCountyCleaning = lazy(() => import("./pages/PalmBeachCountyCleaning"));
-
-// City landing pages - Broward
-const FortLauderdaleCleaning = lazy(() => import("./pages/cities/FortLauderdaleCleaning"));
-const HollywoodCleaning = lazy(() => import("./pages/cities/HollywoodCleaning"));
-const PompanoBeachCleaning = lazy(() => import("./pages/cities/PompanoBeachCleaning"));
-const PlantationCleaning = lazy(() => import("./pages/cities/PlantationCleaning"));
-const SunriseCleaning = lazy(() => import("./pages/cities/SunriseCleaning"));
-const DavieCleaning = lazy(() => import("./pages/cities/DavieCleaning"));
-const PembrokePinesCleaning = lazy(() => import("./pages/cities/PembrokePinesCleaning"));
-const WestonCleaning = lazy(() => import("./pages/cities/WestonCleaning"));
-const DeerfieldBeachCleaning = lazy(() => import("./pages/cities/DeerfieldBeachCleaning"));
-const MiramarCleaning = lazy(() => import("./pages/cities/MiramarCleaning"));
-const LauderhillCleaning = lazy(() => import("./pages/cities/LauderhillCleaning"));
-const TamaracCleaning = lazy(() => import("./pages/cities/TamaracCleaning"));
-const CoralSpringsCleaning = lazy(() => import("./pages/cities/CoralSpringsCleaning"));
-const CoconutCreekCleaning = lazy(() => import("./pages/cities/CoconutCreekCleaning"));
-const MargateCleaning = lazy(() => import("./pages/cities/MargateCleaning"));
-const HallandaleBeachCleaning = lazy(() => import("./pages/cities/HallandaleBeachCleaning"));
-const ParklandCleaning = lazy(() => import("./pages/cities/ParklandCleaning"));
-const CooperCityCleaning = lazy(() => import("./pages/cities/CooperCityCleaning"));
-const OaklandParkCleaning = lazy(() => import("./pages/cities/OaklandParkCleaning"));
-const WiltonManorsCleaning = lazy(() => import("./pages/cities/WiltonManorsCleaning"));
-
-// City landing pages - Palm Beach
-const BocaRatonCleaning = lazy(() => import("./pages/cities/BocaRatonCleaning"));
-const WestPalmBeachCleaning = lazy(() => import("./pages/cities/WestPalmBeachCleaning"));
-const DelrayBeachCleaning = lazy(() => import("./pages/cities/DelrayBeachCleaning"));
-const BoyntonBeachCleaning = lazy(() => import("./pages/cities/BoyntonBeachCleaning"));
-const LakeWorthCleaning = lazy(() => import("./pages/cities/LakeWorthCleaning"));
-const JupiterCleaning = lazy(() => import("./pages/cities/JupiterCleaning"));
-const PalmBeachGardensCleaning = lazy(() => import("./pages/cities/PalmBeachGardensCleaning"));
-const WellingtonCleaning = lazy(() => import("./pages/cities/WellingtonCleaning"));
-const RoyalPalmBeachCleaning = lazy(() => import("./pages/cities/RoyalPalmBeachCleaning"));
-
-// City landing pages - Miami-Dade
-const MiamiBeachCleaning = lazy(() => import("./pages/cities/MiamiBeachCleaning"));
-const MiamiCleaning = lazy(() => import("./pages/cities/MiamiCleaning"));
-const HialeahCleaning = lazy(() => import("./pages/cities/HialeahCleaning"));
-const CoralGablesCleaning = lazy(() => import("./pages/cities/CoralGablesCleaning"));
-const NorthMiamiCleaning = lazy(() => import("./pages/cities/NorthMiamiCleaning"));
-const NorthMiamiBeachCleaning = lazy(() => import("./pages/cities/NorthMiamiBeachCleaning"));
-const AventuraCleaning = lazy(() => import("./pages/cities/AventuraCleaning"));
-const SunnyIslesBeachCleaning = lazy(() => import("./pages/cities/SunnyIslesBeachCleaning"));
-const DoralCleaning = lazy(() => import("./pages/cities/DoralCleaning"));
-const HomesteadCleaning = lazy(() => import("./pages/cities/HomesteadCleaning"));
-const MiamiGardensCleaning = lazy(() => import("./pages/cities/MiamiGardensCleaning"));
+// Jacksonville-area city landing pages
+const JacksonvilleCleaning = lazy(() => import("./pages/cities/JacksonvilleCleaning"));
+const JacksonvilleBeachCleaning = lazy(() => import("./pages/cities/JacksonvilleBeachCleaning"));
+const AtlanticBeachCleaning = lazy(() => import("./pages/cities/AtlanticBeachCleaning"));
+const NeptuneBeachCleaning = lazy(() => import("./pages/cities/NeptuneBeachCleaning"));
+const PonteVedraBeachCleaning = lazy(() => import("./pages/cities/PonteVedraBeachCleaning"));
+const OrangeParkCleaning = lazy(() => import("./pages/cities/OrangeParkCleaning"));
+const FlemingIslandCleaning = lazy(() => import("./pages/cities/FlemingIslandCleaning"));
+const MandarinCleaning = lazy(() => import("./pages/cities/MandarinCleaning"));
+const SanMarcoCleaning = lazy(() => import("./pages/cities/SanMarcoCleaning"));
+const RiversideCleaning = lazy(() => import("./pages/cities/RiversideCleaning"));
+const ArlingtonCleaning = lazy(() => import("./pages/cities/ArlingtonCleaning"));
+const SouthsideCleaning = lazy(() => import("./pages/cities/SouthsideCleaning"));
 
 // Blog posts
 const BrowardCostGuide = lazy(() => import("./pages/blog/BrowardCostGuide"));
@@ -100,7 +63,6 @@ const StandardCleaning = lazy(() => import("./pages/StandardCleaning"));
 const MoveInOutCleaning = lazy(() => import("./pages/MoveInOutCleaning"));
 const CarpetCleaning = lazy(() => import("./pages/CarpetCleaning"));
 const UpholsteryCleaning = lazy(() => import("./pages/UpholsteryCleaning"));
-
 const ContractorRateSheet = lazy(() => import("./pages/ContractorRateSheet"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 
@@ -114,7 +76,6 @@ const AppRoutes = () => {
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
       <Routes>
         <Route path="/" element={<Index />} />
-        {/* Legacy route commonly used by old links */}
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/booking" element={<BookingForm />} />
         <Route path="/confirmation" element={<Confirmation />} />
@@ -123,7 +84,7 @@ const AppRoutes = () => {
         <Route path="/my-bookings" element={<CustomerPortal />} />
         <Route path="/apply" element={<CleanerApplication />} />
         
-        {/* New Pages */}
+        {/* Pages */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/service-areas" element={<ServiceAreas />} />
         <Route path="/faq" element={<FAQ />} />
@@ -132,62 +93,22 @@ const AppRoutes = () => {
         <Route path="/move-in-out-cleaning" element={<MoveInOutCleaning />} />
         <Route path="/carpet-cleaning" element={<CarpetCleaning />} />
         <Route path="/upholstery-cleaning" element={<UpholsteryCleaning />} />
-        
         <Route path="/contractor-rate-sheet" element={<ContractorRateSheet />} />
         <Route path="/sitemap" element={<Sitemap />} />
         
-        {/* County Landing Pages */}
-        <Route path="/broward-county-cleaning" element={<BrowardCountyCleaning />} />
-        <Route path="/miami-dade-cleaning" element={<MiamiDadeCleaning />} />
-        <Route path="/palm-beach-county-cleaning" element={<PalmBeachCountyCleaning />} />
-        
-        {/* City Landing Pages - Broward */}
-        <Route path="/fort-lauderdale-cleaning" element={<FortLauderdaleCleaning />} />
-        <Route path="/hollywood-cleaning" element={<HollywoodCleaning />} />
-        <Route path="/pompano-beach-cleaning" element={<PompanoBeachCleaning />} />
-        <Route path="/plantation-cleaning" element={<PlantationCleaning />} />
-        <Route path="/sunrise-cleaning" element={<SunriseCleaning />} />
-        <Route path="/davie-cleaning" element={<DavieCleaning />} />
-        <Route path="/pembroke-pines-cleaning" element={<PembrokePinesCleaning />} />
-        <Route path="/weston-cleaning" element={<WestonCleaning />} />
-        <Route path="/deerfield-beach-cleaning" element={<DeerfieldBeachCleaning />} />
-        <Route path="/miramar-cleaning" element={<MiramarCleaning />} />
-        <Route path="/lauderhill-cleaning" element={<LauderhillCleaning />} />
-        <Route path="/tamarac-cleaning" element={<TamaracCleaning />} />
-        <Route path="/coral-springs-cleaning" element={<CoralSpringsCleaning />} />
-        
-        {/* City Landing Pages - Palm Beach */}
-        <Route path="/boca-raton-cleaning" element={<BocaRatonCleaning />} />
-        <Route path="/west-palm-beach-cleaning" element={<WestPalmBeachCleaning />} />
-        <Route path="/delray-beach-cleaning" element={<DelrayBeachCleaning />} />
-        <Route path="/boynton-beach-cleaning" element={<BoyntonBeachCleaning />} />
-        <Route path="/lake-worth-cleaning" element={<LakeWorthCleaning />} />
-        <Route path="/jupiter-cleaning" element={<JupiterCleaning />} />
-        <Route path="/palm-beach-gardens-cleaning" element={<PalmBeachGardensCleaning />} />
-        <Route path="/wellington-cleaning" element={<WellingtonCleaning />} />
-        <Route path="/royal-palm-beach-cleaning" element={<RoyalPalmBeachCleaning />} />
-        
-        {/* City Landing Pages - Miami-Dade */}
-        <Route path="/miami-beach-cleaning" element={<MiamiBeachCleaning />} />
-        <Route path="/miami-cleaning" element={<MiamiCleaning />} />
-        <Route path="/hialeah-cleaning" element={<HialeahCleaning />} />
-        <Route path="/coral-gables-cleaning" element={<CoralGablesCleaning />} />
-        <Route path="/north-miami-cleaning" element={<NorthMiamiCleaning />} />
-        <Route path="/north-miami-beach-cleaning" element={<NorthMiamiBeachCleaning />} />
-        <Route path="/aventura-cleaning" element={<AventuraCleaning />} />
-        <Route path="/sunny-isles-beach-cleaning" element={<SunnyIslesBeachCleaning />} />
-        <Route path="/doral-cleaning" element={<DoralCleaning />} />
-        <Route path="/homestead-cleaning" element={<HomesteadCleaning />} />
-        <Route path="/miami-gardens-cleaning" element={<MiamiGardensCleaning />} />
-        
-        {/* City Landing Pages - Broward (additional) */}
-        <Route path="/coconut-creek-cleaning" element={<CoconutCreekCleaning />} />
-        <Route path="/margate-cleaning" element={<MargateCleaning />} />
-        <Route path="/hallandale-beach-cleaning" element={<HallandaleBeachCleaning />} />
-        <Route path="/parkland-cleaning" element={<ParklandCleaning />} />
-        <Route path="/cooper-city-cleaning" element={<CooperCityCleaning />} />
-        <Route path="/oakland-park-cleaning" element={<OaklandParkCleaning />} />
-        <Route path="/wilton-manors-cleaning" element={<WiltonManorsCleaning />} />
+        {/* Jacksonville-Area City Landing Pages */}
+        <Route path="/jacksonville-cleaning" element={<JacksonvilleCleaning />} />
+        <Route path="/jacksonville-beach-cleaning" element={<JacksonvilleBeachCleaning />} />
+        <Route path="/atlantic-beach-cleaning" element={<AtlanticBeachCleaning />} />
+        <Route path="/neptune-beach-cleaning" element={<NeptuneBeachCleaning />} />
+        <Route path="/ponte-vedra-beach-cleaning" element={<PonteVedraBeachCleaning />} />
+        <Route path="/orange-park-cleaning" element={<OrangeParkCleaning />} />
+        <Route path="/fleming-island-cleaning" element={<FlemingIslandCleaning />} />
+        <Route path="/mandarin-cleaning" element={<MandarinCleaning />} />
+        <Route path="/san-marco-cleaning" element={<SanMarcoCleaning />} />
+        <Route path="/riverside-cleaning" element={<RiversideCleaning />} />
+        <Route path="/arlington-cleaning" element={<ArlingtonCleaning />} />
+        <Route path="/southside-cleaning" element={<SouthsideCleaning />} />
         
         {/* Blog Posts */}
         <Route path="/blog/broward-cost-guide" element={<BrowardCostGuide />} />

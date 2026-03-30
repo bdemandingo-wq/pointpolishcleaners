@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://tidywisecleaning.com/sitemap-main.xml</loc>
-    <lastmod>2025-03-08</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://tidywisecleaning.com/sitemap-services.xml</loc>
-    <lastmod>2025-03-08</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://tidywisecleaning.com/sitemap-cities.xml</loc>
-    <lastmod>2025-03-08</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://tidywisecleaning.com/sitemap-blog.xml</loc>
-    <lastmod>2025-03-08</lastmod>
-  </sitemap>
+  <sitemap><loc>https://pointpolishcleaners.com/sitemap-main.xml</loc></sitemap>
+  <sitemap><loc>https://pointpolishcleaners.com/sitemap-services.xml</loc></sitemap>
+  <sitemap><loc>https://pointpolishcleaners.com/sitemap-cities.xml</loc></sitemap>
+  <sitemap><loc>https://pointpolishcleaners.com/sitemap-blog.xml</loc></sitemap>
 </sitemapindex>

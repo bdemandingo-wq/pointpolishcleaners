@@ -7,15 +7,15 @@ import SEOSchema from "@/components/seo/SEOSchema";
 import CityPageNavigation from "@/components/seo/CityPageNavigation";
 import RelatedLinks from "@/components/seo/RelatedLinks";
 
-const FortLauderdaleCleaning = () => {
+const NeptuneBeachCleaning = () => {
   return (
     <>
       <SEOSchema
-        pageTitle="Fort Lauderdale House Cleaning | Licensed & Insured | TIDYWISE"
-        pageDescription="Best cleaning in Fort Lauderdale. Licensed & insured house cleaning. Same-day quotes. Serving Las Olas, Victoria Park, Rio Vista. Call (561) 571-8725!"
-        canonicalUrl="https://tidywisecleaning.com/fort-lauderdale-cleaning"
+        pageTitle="Neptune Beach House Cleaning | Licensed & Insured | Point Polish"
+        pageDescription="Premium house cleaning in Neptune Beach, FL. Point Polish Cleaners delivers luxury-level cleaning with precision and care. 10% off first clean — code POLISH. Call (904) 513-9002."
+        canonicalUrl="https://pointpolishcleaners.com/neptune-beach-cleaning"
         pageType="county"
-        county="Fort Lauderdale"
+        county="Neptune Beach"
       />
       <main className="min-h-screen">
         <Navbar />
@@ -24,24 +24,22 @@ const FortLauderdaleCleaning = () => {
           <div className="container mx-auto px-4 text-center">
             <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary-foreground px-4 py-2 rounded-full mb-6">
               <Star className="w-4 h-4 fill-secondary text-secondary" />
-              <span className="text-sm font-medium">Top-Rated in Fort Lauderdale</span>
+              <span className="text-sm font-medium">Top-Rated in Neptune Beach</span>
             </div>
             
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              Best Cleaning Service in Fort Lauderdale
+              House Cleaning in Neptune Beach
             </h1>
             
             <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto mb-8">
-              Professional house cleaning in Fort Lauderdale, FL. Serving Las Olas, Victoria Park, 
-              Rio Vista, Coral Ridge, and all Fort Lauderdale neighborhoods. Part of our 
-              <Link to="/broward-county-cleaning" className="text-primary hover:underline ml-1">Broward County cleaning services</Link>.
+              Professional house cleaning in Neptune Beach, FL. Point Polish Cleaners brings luxury-level attention to detail to every home. Serving Jarboe Park, Sea Turtle Inn Area, Florida Boulevard, and Central Neptune Beach and surrounding neighborhoods. Use code <strong>POLISH</strong> for 10% off your first cleaning.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90" asChild>
-                <a href="tel:+15615718725" className="flex items-center gap-2">
+                <a href="tel:+19045139002" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call (561) 571-8725
+                  Call (904) 513-9002
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
@@ -52,7 +50,7 @@ const FortLauderdaleCleaning = () => {
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Licensed & Insured</span>
               <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Eco-Friendly Products</span>
-              <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Same-Day Quotes</span>
+              <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> 10% Off First Clean</span>
             </div>
           </div>
         </section>
@@ -60,30 +58,25 @@ const FortLauderdaleCleaning = () => {
         <section className="py-16 bg-muted">
           <div className="container mx-auto px-4">
             <h2 className="font-display text-3xl font-bold text-foreground text-center mb-8">
-              Fort Lauderdale Neighborhoods We Serve
+              Neptune Beach Neighborhoods We Serve
             </h2>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {["Las Olas", "Victoria Park", "Rio Vista", "Coral Ridge", "Harbor Beach", 
-                "Lauderdale Beach", "Riviera Isles", "Tarpon River", "Sailboat Bend", 
-                "Flagler Village", "Colee Hammock", "Sunrise Key"].map((area) => (
+              {["Jarboe Park", "Sea Turtle Inn Area", "Florida Boulevard", "Central Neptune Beach"].map((area) => (
                 <span key={area} className="bg-card px-4 py-2 rounded-full text-sm text-foreground border border-border">
                   {area}
                 </span>
               ))}
             </div>
             <p className="text-center mt-8 text-muted-foreground">
-              Also serving <Link to="/hollywood-cleaning" className="text-primary hover:underline">Hollywood</Link>, 
-              <Link to="/coral-springs-cleaning" className="text-primary hover:underline ml-1">Coral Springs</Link>, and 
-              <Link to="/broward-county-cleaning" className="text-primary hover:underline ml-1">all of Broward County</Link>.
+              Also serving all of <Link to="/service-areas" className="text-primary hover:underline">Jacksonville and surrounding areas</Link>.
             </p>
           </div>
         </section>
 
-        {/* Why Choose TIDYWISE in Fort Lauderdale */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="font-display text-3xl font-bold text-foreground text-center mb-8">
-              Why Fort Lauderdale Residents Choose TIDYWISE
+              Why Neptune Beach Residents Choose Point Polish
             </h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="text-center p-6">
@@ -92,7 +85,7 @@ const FortLauderdaleCleaning = () => {
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Local Expertise</h3>
                 <p className="text-muted-foreground text-sm">
-                  We understand Fort Lauderdale homes, from beachfront condos to historic Victoria Park properties. Our cleaners know the unique challenges of South Florida living.
+                  We know Neptune Beach homes inside and out. From coastal properties to family neighborhoods, our cleaners understand the unique needs of Northeast Florida living.
                 </p>
               </div>
               <div className="text-center p-6">
@@ -101,7 +94,7 @@ const FortLauderdaleCleaning = () => {
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Flexible Scheduling</h3>
                 <p className="text-muted-foreground text-sm">
-                  Book weekly, bi-weekly, or one-time cleanings that fit your schedule. Same-day availability for urgent cleaning needs throughout Fort Lauderdale.
+                  Book weekly, bi-weekly, or one-time cleanings that fit your schedule. Same-day availability for urgent cleaning needs throughout Neptune Beach.
                 </p>
               </div>
               <div className="text-center p-6">
@@ -110,18 +103,19 @@ const FortLauderdaleCleaning = () => {
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Satisfaction Guaranteed</h3>
                 <p className="text-muted-foreground text-sm">
-                  Not happy? We will re-clean for free. Our Fort Lauderdale customers consistently rate us 5 stars for quality and reliability.
+                  Not happy? We'll re-clean for free. Our Neptune Beach customers consistently rate us 5 stars for quality, reliability, and attention to detail.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <RelatedLinks currentPage="/fort-lauderdale-cleaning" pageType="city" cityName="Fort Lauderdale" />
+        <CityPageNavigation currentCity="Neptune Beach" />
+        <RelatedLinks currentPage="/neptune-beach-cleaning" pageType="city" cityName="Neptune Beach" />
         <Footer />
       </main>
     </>
   );
 };
 
-export default FortLauderdaleCleaning;
+export default NeptuneBeachCleaning;

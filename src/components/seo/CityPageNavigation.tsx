@@ -3,35 +3,22 @@ import { ArrowRight } from "lucide-react";
 
 interface CityPageNavigationProps {
   currentCity: string;
-  county: "broward" | "palm-beach" | "miami-dade";
 }
 
-const cityLinks = {
-  broward: [
-    { name: "Fort Lauderdale", path: "/fort-lauderdale-cleaning" },
-    { name: "Hollywood", path: "/hollywood-cleaning" },
-    { name: "Coral Springs", path: "/coral-springs-cleaning" },
-    { name: "Pembroke Pines", path: "/pembroke-pines-cleaning" },
-    { name: "Weston", path: "/weston-cleaning" },
-    { name: "Plantation", path: "/plantation-cleaning" },
-  ],
-  "palm-beach": [
-    { name: "West Palm Beach", path: "/west-palm-beach-cleaning" },
-    { name: "Boca Raton", path: "/boca-raton-cleaning" },
-    { name: "Delray Beach", path: "/delray-beach-cleaning" },
-    { name: "Jupiter", path: "/jupiter-cleaning" },
-    { name: "Palm Beach Gardens", path: "/palm-beach-gardens-cleaning" },
-    { name: "Wellington", path: "/wellington-cleaning" },
-  ],
-  "miami-dade": [
-    { name: "Miami", path: "/miami-cleaning" },
-    { name: "Miami Beach", path: "/miami-beach-cleaning" },
-    { name: "Coral Gables", path: "/coral-gables-cleaning" },
-    { name: "Aventura", path: "/aventura-cleaning" },
-    { name: "Doral", path: "/doral-cleaning" },
-    { name: "Hialeah", path: "/hialeah-cleaning" },
-  ],
-};
+const cityLinks = [
+  { name: "Jacksonville", path: "/jacksonville-cleaning" },
+  { name: "Jacksonville Beach", path: "/jacksonville-beach-cleaning" },
+  { name: "Atlantic Beach", path: "/atlantic-beach-cleaning" },
+  { name: "Neptune Beach", path: "/neptune-beach-cleaning" },
+  { name: "Ponte Vedra Beach", path: "/ponte-vedra-beach-cleaning" },
+  { name: "Orange Park", path: "/orange-park-cleaning" },
+  { name: "Fleming Island", path: "/fleming-island-cleaning" },
+  { name: "Mandarin", path: "/mandarin-cleaning" },
+  { name: "San Marco", path: "/san-marco-cleaning" },
+  { name: "Riverside", path: "/riverside-cleaning" },
+  { name: "Arlington", path: "/arlington-cleaning" },
+  { name: "Southside", path: "/southside-cleaning" },
+];
 
 const serviceLinks = [
   { name: "Standard Cleaning", path: "/standard-cleaning" },
@@ -40,17 +27,16 @@ const serviceLinks = [
   { name: "Carpet Cleaning", path: "/carpet-cleaning" },
 ];
 
-const CityPageNavigation = ({ currentCity, county }: CityPageNavigationProps) => {
-  const nearbyCities = cityLinks[county].filter(city => city.name !== currentCity).slice(0, 5);
+const CityPageNavigation = ({ currentCity }: CityPageNavigationProps) => {
+  const nearbyCities = cityLinks.filter(city => city.name !== currentCity).slice(0, 6);
   
   return (
     <section className="py-12 bg-card border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Nearby Cities */}
           <div>
             <h3 className="font-display text-lg font-semibold text-foreground mb-4">
-              Nearby Cities We Serve
+              Nearby Areas We Serve
             </h3>
             <ul className="space-y-2">
               {nearbyCities.map((city) => (
@@ -69,13 +55,12 @@ const CityPageNavigation = ({ currentCity, county }: CityPageNavigationProps) =>
                   to="/service-areas" 
                   className="text-primary font-medium hover:underline flex items-center gap-2"
                 >
-                  View All 40+ Cities →
+                  View All Service Areas →
                 </Link>
               </li>
             </ul>
           </div>
           
-          {/* Our Services */}
           <div>
             <h3 className="font-display text-lg font-semibold text-foreground mb-4">
               Our Cleaning Services
@@ -104,14 +89,11 @@ const CityPageNavigation = ({ currentCity, county }: CityPageNavigationProps) =>
           </div>
         </div>
         
-        {/* Quick Links */}
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
             <Link to="/" className="hover:text-primary">Home</Link>
             {" · "}
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
-            {" · "}
-            <Link to="/referral-program" className="hover:text-primary">Referral Program</Link>
             {" · "}
             <Link to="/apply" className="hover:text-primary">Join Our Team</Link>
           </p>
