@@ -102,6 +102,22 @@ const services = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBookClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (location.pathname === '/') {
+      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    }
+  };
+
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -117,27 +133,25 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Link 
-              key={service.title}
-              to={service.link}
-              className="block group"
-            >
+            <div key={service.title} className="block group">
               <Card
                 className="h-full border-t-4 border-t-primary/20 border-border/50 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:border-t-primary opacity-0 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="relative">
-                  {service.badge && (
-                    <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded-full ${service.badgeColor}`}>
-                      {service.badge}
-                    </span>
-                  )}
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle className="font-display text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
-                </CardHeader>
+                <Link to={service.link}>
+                  <CardHeader className="relative">
+                    {service.badge && (
+                      <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded-full ${service.badgeColor}`}>
+                        {service.badge}
+                      </span>
+                    )}
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="font-display text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                    <p className="text-muted-foreground text-sm">{service.description}</p>
+                  </CardHeader>
+                </Link>
                 <CardContent>
                   <p className="text-2xl font-bold text-primary mb-4">{service.price}</p>
                   <ul className="space-y-2 mb-6">
@@ -148,13 +162,17 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <Button 
+                    variant="outline" 
+                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                    onClick={handleBookClick}
+                  >
                     Book This Service
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
               </Card>
-            </Link>
+            </div>
           ))}
         </div>
 
