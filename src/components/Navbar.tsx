@@ -56,8 +56,10 @@ const Navbar = () => {
     { href: "/standard-cleaning", label: "Standard Cleaning" },
     { href: "/deep-cleaning", label: "Deep Cleaning" },
     { href: "/move-in-out-cleaning", label: "Move In/Out Cleaning" },
-    { href: "/carpet-cleaning", label: "Carpet Cleaning" },
+    { href: "/airbnb-cleaning", label: "Airbnb / Vacation Rental" },
     { href: "/upholstery-cleaning", label: "Upholstery Cleaning" },
+    { href: "/office-cleaning", label: "Office Cleaning" },
+    { href: "/post-construction-cleaning", label: "Post-Construction" },
   ];
 
   return (
