@@ -65,6 +65,9 @@ const StandardCleaning = lazy(() => import("./pages/StandardCleaning"));
 const MoveInOutCleaning = lazy(() => import("./pages/MoveInOutCleaning"));
 const CarpetCleaning = lazy(() => import("./pages/CarpetCleaning"));
 const UpholsteryCleaning = lazy(() => import("./pages/UpholsteryCleaning"));
+const AirbnbCleaning = lazy(() => import("./pages/AirbnbCleaning"));
+const OfficeCleaning = lazy(() => import("./pages/OfficeCleaning"));
+const PostConstructionCleaning = lazy(() => import("./pages/PostConstructionCleaning"));
 const ContractorRateSheet = lazy(() => import("./pages/ContractorRateSheet"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 
