@@ -7,8 +7,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { LogOut, Calendar, DollarSign, Users, Clock, RefreshCw, Trash2, UserCheck, Briefcase, Phone, Mail, MapPin, Car, Shield, Star } from "lucide-react";
+import { LogOut, Calendar, DollarSign, Users, Clock, RefreshCw, Trash2, UserCheck, Briefcase, Phone, Mail, MapPin, Car, Shield, Star, MessageSquare, Tag, Building2, Bot, CalendarX, Image } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ServicePricingManager from "@/components/admin/ServicePricingManager";
+import ServiceAreasManager from "@/components/admin/ServiceAreasManager";
+import QuoteRequestsManager from "@/components/admin/QuoteRequestsManager";
+import CommercialRequestsManager from "@/components/admin/CommercialRequestsManager";
+import ChatbotLeadsManager from "@/components/admin/ChatbotLeadsManager";
+import OurWorkManager from "@/components/admin/OurWorkManager";
+import ReviewsManager from "@/components/admin/ReviewsManager";
+import BlockedDatesManager from "@/components/admin/BlockedDatesManager";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -303,8 +311,8 @@ const Admin = () => {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <div className="flex items-center justify-between mb-4">
-            <TabsList>
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <TabsList className="flex-wrap h-auto">
               <TabsTrigger value="bookings" className="gap-2">
                 <Calendar className="w-4 h-4" />
                 Bookings ({bookings.length})
@@ -312,6 +320,38 @@ const Admin = () => {
               <TabsTrigger value="applications" className="gap-2">
                 <Briefcase className="w-4 h-4" />
                 Applicants ({applications.length})
+              </TabsTrigger>
+              <TabsTrigger value="quotes" className="gap-2">
+                <MessageSquare className="w-4 h-4" />
+                Quote Requests
+              </TabsTrigger>
+              <TabsTrigger value="commercial" className="gap-2">
+                <Building2 className="w-4 h-4" />
+                Commercial
+              </TabsTrigger>
+              <TabsTrigger value="chatbot" className="gap-2">
+                <Bot className="w-4 h-4" />
+                Chatbot
+              </TabsTrigger>
+              <TabsTrigger value="pricing" className="gap-2">
+                <Tag className="w-4 h-4" />
+                Pricing
+              </TabsTrigger>
+              <TabsTrigger value="areas" className="gap-2">
+                <MapPin className="w-4 h-4" />
+                Service Areas
+              </TabsTrigger>
+              <TabsTrigger value="ourwork" className="gap-2">
+                <Image className="w-4 h-4" />
+                Our Work
+              </TabsTrigger>
+              <TabsTrigger value="reviews" className="gap-2">
+                <Star className="w-4 h-4" />
+                Reviews
+              </TabsTrigger>
+              <TabsTrigger value="calendar" className="gap-2">
+                <CalendarX className="w-4 h-4" />
+                Calendar
               </TabsTrigger>
             </TabsList>
             <Button variant="outline" size="sm" onClick={handleRefresh} disabled={refreshing}>
@@ -486,6 +526,38 @@ const Admin = () => {
                 )}
               </CardContent>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="quotes">
+            <QuoteRequestsManager />
+          </TabsContent>
+
+          <TabsContent value="commercial">
+            <CommercialRequestsManager />
+          </TabsContent>
+
+          <TabsContent value="chatbot">
+            <ChatbotLeadsManager />
+          </TabsContent>
+
+          <TabsContent value="pricing">
+            <ServicePricingManager />
+          </TabsContent>
+
+          <TabsContent value="areas">
+            <ServiceAreasManager />
+          </TabsContent>
+
+          <TabsContent value="ourwork">
+            <OurWorkManager />
+          </TabsContent>
+
+          <TabsContent value="reviews">
+            <ReviewsManager />
+          </TabsContent>
+
+          <TabsContent value="calendar">
+            <BlockedDatesManager />
           </TabsContent>
         </Tabs>
       </main>

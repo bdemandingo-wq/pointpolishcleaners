@@ -6,63 +6,12 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { useServicePricing, getPriceForSqft } from "@/hooks/useServicePricing";
 
-// Pricing tiers based on square footage
-const pricingTiers = [
-  { maxSqft: 750, label: "Up to 750 sf" },
-  { maxSqft: 1000, label: "Up to 1000 sf" },
-  { maxSqft: 1250, label: "Up to 1250 sf" },
-  { maxSqft: 1500, label: "Up to 1500 sf" },
-  { maxSqft: 1800, label: "Up to 1800 sf" },
-  { maxSqft: 2100, label: "Up to 2100 sf" },
-  { maxSqft: 2400, label: "Up to 2400 sf" },
-  { maxSqft: 2700, label: "Up to 2700 sf" },
-  { maxSqft: 3000, label: "Up to 3000 sf" },
-  { maxSqft: 3300, label: "Up to 3300 sf" },
-  { maxSqft: 3600, label: "Up to 3600 sf" },
-  { maxSqft: 4000, label: "Up to 4000 sf" },
-  { maxSqft: 4400, label: "Up to 4400 sf" },
-];
-
-// Service types with pricing per tier (matching the reference table)
-const serviceTypes = [
-  { 
-    value: "deep", 
-    label: "Deep Clean (First Cleaning)", 
-    prices: [208, 243, 278, 313, 348, 383, 438, 493, 548, 603, 658, 713, 768]
-  },
-  { 
-    value: "standard", 
-    label: "Standard Clean", 
-    prices: [108, 143, 178, 213, 248, 283, 313, 368, 423, 478, 533, 588, 643]
-  },
-  { 
-    value: "moveinout", 
-    label: "Move In/Move Out Clean", 
-    prices: [283, 318, 353, 388, 423, 458, 513, 568, 623, 678, 733, 788, 843]
-  },
-  { 
-    value: "construction", 
-    label: "Construction Clean Up", 
-    prices: [450, 502, 555, 607, 660, 712, 795, 877, 960, 1042, 1125, 1207, 1290]
-  },
-  { 
-    value: "airbnb", 
-    label: "Airbnb/Short-Term Rental", 
-    prices: [140, 160, 180, 200, 220, 240, 265, 295, 330, 365, 400, 435, 470]
-  },
-  { 
-    value: "carpets", 
-    label: "Carpets (Custom)", 
-    prices: null,
-    isCustom: true
-  },
-  { 
-    value: "upholstery", 
-    label: "Upholstery (Custom)", 
-    prices: null,
-    isCustom: true
-  },
+// Custom-quote services (not priced via DB tiers)
+const customServices = [
+  { value: "carpets", label: "Carpets (Custom)" },
+  { value: "upholstery", label: "Upholstery (Custom)" },
 ];
 
 const frequencies = [
@@ -82,50 +31,36 @@ const addOns = [
   { id: "dishes", label: "Dishes", price: 15 },
 ];
 
-// Helper function to get price based on sqft tier
-const getPriceForSqft = (sqft: number, prices: number[]): number => {
-  for (let i = 0; i < pricingTiers.length; i++) {
-    if (sqft <= pricingTiers[i].maxSqft) {
-      return prices[i];
-    }
-  }
-  // If over max tier, use highest price
-  return prices[prices.length - 1];
-};
-
 const PricingCalculator = () => {
   const navigate = useNavigate();
+  const { services, loading } = useServicePricing();
   const [sqft, setSqft] = useState([1500]);
   const [serviceType, setServiceType] = useState("standard");
   const [frequency, setFrequency] = useState("onetime");
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
 
-  const selectedService = serviceTypes.find((s) => s.value === serviceType)!;
+  const isCustomService = customServices.some((s) => s.value === serviceType);
+  const selectedPriced = services.find((s) => s.value === serviceType);
   const selectedFrequency = frequencies.find((f) => f.value === frequency)!;
-  const isCustomService = 'isCustom' in selectedService && selectedService.isCustom;
+  const selectedLabel =
+    customServices.find((s) => s.value === serviceType)?.label ||
+    selectedPriced?.label ||
+    "Standard Clean";
 
   const totalPrice = useMemo(() => {
-    // Custom services don't have a calculated price
-    if (isCustomService || !selectedService.prices) {
-      return null;
-    }
-    
-    // Get base price from tier
-    let price = getPriceForSqft(sqft[0], selectedService.prices);
+    if (isCustomService || !selectedPriced) return null;
+    let price = getPriceForSqft(sqft[0], selectedPriced.tiers);
 
-    // Add add-ons
     const addOnTotal = selectedAddOns.reduce((sum, id) => {
       const addOn = addOns.find((a) => a.id === id);
-      return sum + (addOn?.price || 0);
+      if (!addOn || addOn.isCustom) return sum;
+      return sum + (addOn.price || 0);
     }, 0);
 
     price += addOnTotal;
-
-    // Apply frequency discount
     price = price * (1 - selectedFrequency.discount);
-
     return price;
-  }, [sqft, selectedService, selectedFrequency, selectedAddOns, isCustomService]);
+  }, [sqft, selectedPriced, selectedFrequency, selectedAddOns, isCustomService]);
 
   const toggleAddOn = (id: string) => {
     setSelectedAddOns((prev) =>
@@ -135,9 +70,9 @@ const PricingCalculator = () => {
 
   const handleBooking = () => {
     // GA4 conversion tracking
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "view_item", {
-        item_name: selectedService.label,
+    if (typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "view_item", {
+        item_name: selectedLabel,
         currency: "USD",
         value: totalPrice || 0,
         event_category: "pricing_calculator",
@@ -147,9 +82,9 @@ const PricingCalculator = () => {
     navigate("/booking", {
       state: {
         sqft: sqft[0],
-        serviceType: selectedService.label,
+        serviceType: selectedLabel,
         frequency: selectedFrequency.label,
-        addOns: selectedAddOns.map(id => addOns.find(a => a.id === id)?.label).filter(Boolean),
+        addOns: selectedAddOns.map((id) => addOns.find((a) => a.id === id)?.label).filter(Boolean),
         totalPrice: isCustomService ? "Custom Quote" : totalPrice?.toFixed(2),
       },
     });
@@ -201,12 +136,17 @@ const PricingCalculator = () => {
             {/* Service Type */}
             <div className="space-y-2">
               <Label htmlFor="service-type-select" className="text-base font-medium">Service Type</Label>
-              <Select value={serviceType} onValueChange={setServiceType}>
+              <Select value={serviceType} onValueChange={setServiceType} disabled={loading}>
                 <SelectTrigger id="service-type-select" aria-label="Select service type">
-                  <SelectValue />
+                  <SelectValue placeholder={loading ? "Loading..." : "Select service"} />
                 </SelectTrigger>
                 <SelectContent>
-                  {serviceTypes.map((service) => (
+                  {services.map((service) => (
+                    <SelectItem key={service.value} value={service.value}>
+                      {service.label}
+                    </SelectItem>
+                  ))}
+                  {customServices.map((service) => (
                     <SelectItem key={service.value} value={service.value}>
                       {service.label}
                     </SelectItem>
@@ -241,14 +181,16 @@ const PricingCalculator = () => {
                 <p className="text-3xl font-bold text-primary">Get Quote</p>
               ) : (
                 <>
-                  <p className="text-4xl font-bold text-primary">${totalPrice?.toFixed(2)}</p>
+                  <p className="text-4xl font-bold text-primary">
+                    {loading ? "—" : `$${totalPrice?.toFixed(2)}`}
+                  </p>
                   <p className="text-sm text-muted-foreground mt-1">+ add-ons</p>
                 </>
               )}
             </div>
 
-            {/* Add-ons - Hidden for Deep Clean since all add-ons are included */}
-            {serviceType !== "deep" && (
+            {/* Add-ons - Hidden for Deep Clean (all add-ons included) */}
+            {serviceType !== "deep" && !isCustomService && (
               <div className="space-y-4">
                 <Label className="text-base font-medium">Add-On Services:</Label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -281,6 +223,7 @@ const PricingCalculator = () => {
               size="lg"
               className="w-full text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={handleBooking}
+              disabled={loading && !isCustomService}
             >
               {isCustomService ? "Request Quote" : "Book This Service"}
             </Button>
