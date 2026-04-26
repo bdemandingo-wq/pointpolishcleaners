@@ -184,11 +184,26 @@ const ServicePricingManager = () => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Service Pricing</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Edit base prices for each square-footage tier per service type. Changes are immediately reflected on the booking calculator.
-        </p>
+      <CardHeader className="flex flex-row items-start justify-between gap-4 space-y-0">
+        <div>
+          <CardTitle>Service Pricing</CardTitle>
+          <p className="text-sm text-muted-foreground mt-1">
+            Edit base prices for each square-footage tier per service type. Changes are immediately reflected on the booking calculator.
+          </p>
+          {dirtyRows.length > 0 && (
+            <p className="text-sm text-amber-600 dark:text-amber-500 mt-2 font-medium">
+              {dirtyRows.length} unsaved change{dirtyRows.length === 1 ? "" : "s"}
+            </p>
+          )}
+        </div>
+        <Button
+          onClick={saveAll}
+          disabled={savingAll || dirtyRows.length === 0}
+          className="shrink-0"
+        >
+          <Save className="w-4 h-4 mr-2" />
+          {savingAll ? "Saving..." : `Save All${dirtyRows.length > 0 ? ` (${dirtyRows.length})` : ""}`}
+        </Button>
       </CardHeader>
       <CardContent>
         <Tabs value={activeTab} onValueChange={setActiveTab}>
