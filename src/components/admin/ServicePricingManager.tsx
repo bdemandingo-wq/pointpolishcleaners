@@ -150,6 +150,7 @@ const ServicePricingManager = () => {
       toast({ title: "Delete failed", description: error.message, variant: "destructive" });
     } else {
       setRows((prev) => prev.filter((r) => r.id !== id));
+      setOriginalRows((prev) => prev.filter((r) => r.id !== id));
       toast({ title: "Deleted", description: "Pricing tier removed." });
     }
   };
