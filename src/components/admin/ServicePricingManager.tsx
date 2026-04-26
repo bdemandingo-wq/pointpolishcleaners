@@ -32,8 +32,10 @@ const SERVICE_TYPES = [
 
 const ServicePricingManager = () => {
   const [rows, setRows] = useState<PricingRow[]>([]);
+  const [originalRows, setOriginalRows] = useState<PricingRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
+  const [savingAll, setSavingAll] = useState(false);
   const [activeTab, setActiveTab] = useState("standard");
   const { toast } = useToast();
 
@@ -46,10 +48,73 @@ const ServicePricingManager = () => {
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
     } else {
-      setRows((data as PricingRow[]) || []);
+      const fetched = (data as PricingRow[]) || [];
+      setRows(fetched);
+      setOriginalRows(JSON.parse(JSON.stringify(fetched)));
     }
     setLoading(false);
   };
+
+  const isRowDirty = (row: PricingRow) => {
+    const orig = originalRows.find((r) => r.id === row.id);
+    if (!orig) return false;
+    return (
+      orig.max_sqft !== row.max_sqft ||
+      orig.label !== row.label ||
+      Number(orig.base_price) !== Number(row.base_price) ||
+      orig.is_active !== row.is_active ||
+      orig.tier_index !== row.tier_index
+    );
+  };
+
+  const dirtyRows = rows.filter(isRowDirty);
+
+  const saveAll = async () => {
+    if (!dirtyRows.length) {
+      toast({ title: "No changes", description: "Nothing to save." });
+      return;
+    }
+    setSavingAll(true);
+    let okCount = 0;
+    let failCount = 0;
+    for (const row of dirtyRows) {
+      const { error } = await (supabase.from("service_pricing") as any)
+        .update({
+          max_sqft: row.max_sqft,
+          label: row.label,
+          base_price: row.base_price,
+          is_active: row.is_active,
+          tier_index: row.tier_index,
+        })
+        .eq("id", row.id);
+      if (error) failCount++;
+      else okCount++;
+    }
+    setSavingAll(false);
+    if (failCount === 0) {
+      toast({ title: "Saved", description: `${okCount} tier(s) updated.` });
+      setOriginalRows(JSON.parse(JSON.stringify(rows)));
+    } else {
+      toast({
+        title: "Partial save",
+        description: `${okCount} saved, ${failCount} failed.`,
+        variant: "destructive",
+      });
+      fetchRows();
+    }
+  };
+
+  // Warn before leaving with unsaved changes
+  useEffect(() => {
+    const handler = (e: BeforeUnloadEvent) => {
+      if (dirtyRows.length > 0) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [dirtyRows.length]);
 
   useEffect(() => {
     fetchRows();
