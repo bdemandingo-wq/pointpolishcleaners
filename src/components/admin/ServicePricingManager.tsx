@@ -238,7 +238,7 @@ const ServicePricingManager = () => {
                     </thead>
                     <tbody>
                       {serviceRows.map((row) => (
-                        <tr key={row.id} className="border-b">
+                        <tr key={row.id} className={`border-b ${isRowDirty(row) ? "bg-amber-50 dark:bg-amber-950/20" : ""}`}>
                           <td className="p-2">
                             <Input type="number" value={row.tier_index}
                               onChange={(e) => updateRow(row.id, { tier_index: Number(e.target.value) })}
