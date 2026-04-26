@@ -32,8 +32,10 @@ const SERVICE_TYPES = [
 
 const ServicePricingManager = () => {
   const [rows, setRows] = useState<PricingRow[]>([]);
+  const [originalRows, setOriginalRows] = useState<PricingRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
+  const [savingAll, setSavingAll] = useState(false);
   const [activeTab, setActiveTab] = useState("standard");
   const { toast } = useToast();
 
@@ -46,10 +48,73 @@ const ServicePricingManager = () => {
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
     } else {
-      setRows((data as PricingRow[]) || []);
+      const fetched = (data as PricingRow[]) || [];
+      setRows(fetched);
+      setOriginalRows(JSON.parse(JSON.stringify(fetched)));
     }
     setLoading(false);
   };
+
+  const isRowDirty = (row: PricingRow) => {
+    const orig = originalRows.find((r) => r.id === row.id);
+    if (!orig) return false;
+    return (
+      orig.max_sqft !== row.max_sqft ||
+      orig.label !== row.label ||
+      Number(orig.base_price) !== Number(row.base_price) ||
+      orig.is_active !== row.is_active ||
+      orig.tier_index !== row.tier_index
+    );
+  };
+
+  const dirtyRows = rows.filter(isRowDirty);
+
+  const saveAll = async () => {
+    if (!dirtyRows.length) {
+      toast({ title: "No changes", description: "Nothing to save." });
+      return;
+    }
+    setSavingAll(true);
+    let okCount = 0;
+    let failCount = 0;
+    for (const row of dirtyRows) {
+      const { error } = await (supabase.from("service_pricing") as any)
+        .update({
+          max_sqft: row.max_sqft,
+          label: row.label,
+          base_price: row.base_price,
+          is_active: row.is_active,
+          tier_index: row.tier_index,
+        })
+        .eq("id", row.id);
+      if (error) failCount++;
+      else okCount++;
+    }
+    setSavingAll(false);
+    if (failCount === 0) {
+      toast({ title: "Saved", description: `${okCount} tier(s) updated.` });
+      setOriginalRows(JSON.parse(JSON.stringify(rows)));
+    } else {
+      toast({
+        title: "Partial save",
+        description: `${okCount} saved, ${failCount} failed.`,
+        variant: "destructive",
+      });
+      fetchRows();
+    }
+  };
+
+  // Warn before leaving with unsaved changes
+  useEffect(() => {
+    const handler = (e: BeforeUnloadEvent) => {
+      if (dirtyRows.length > 0) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [dirtyRows.length]);
 
   useEffect(() => {
     fetchRows();
@@ -74,6 +139,7 @@ const ServicePricingManager = () => {
     if (error) {
       toast({ title: "Save failed", description: error.message, variant: "destructive" });
     } else {
+      setOriginalRows((prev) => prev.map((r) => (r.id === row.id ? { ...row } : r)));
       toast({ title: "Saved", description: "Pricing tier updated." });
     }
   };
@@ -84,6 +150,7 @@ const ServicePricingManager = () => {
       toast({ title: "Delete failed", description: error.message, variant: "destructive" });
     } else {
       setRows((prev) => prev.filter((r) => r.id !== id));
+      setOriginalRows((prev) => prev.filter((r) => r.id !== id));
       toast({ title: "Deleted", description: "Pricing tier removed." });
     }
   };
@@ -108,6 +175,7 @@ const ServicePricingManager = () => {
       toast({ title: "Add failed", description: error.message, variant: "destructive" });
     } else if (data) {
       setRows((prev) => [...prev, data as PricingRow]);
+      setOriginalRows((prev) => [...prev, data as PricingRow]);
       toast({ title: "Added", description: "New tier created." });
     }
   };
@@ -116,11 +184,26 @@ const ServicePricingManager = () => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Service Pricing</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Edit base prices for each square-footage tier per service type. Changes are immediately reflected on the booking calculator.
-        </p>
+      <CardHeader className="flex flex-row items-start justify-between gap-4 space-y-0">
+        <div>
+          <CardTitle>Service Pricing</CardTitle>
+          <p className="text-sm text-muted-foreground mt-1">
+            Edit base prices for each square-footage tier per service type. Changes are immediately reflected on the booking calculator.
+          </p>
+          {dirtyRows.length > 0 && (
+            <p className="text-sm text-amber-600 dark:text-amber-500 mt-2 font-medium">
+              {dirtyRows.length} unsaved change{dirtyRows.length === 1 ? "" : "s"}
+            </p>
+          )}
+        </div>
+        <Button
+          onClick={saveAll}
+          disabled={savingAll || dirtyRows.length === 0}
+          className="shrink-0"
+        >
+          <Save className="w-4 h-4 mr-2" />
+          {savingAll ? "Saving..." : `Save All${dirtyRows.length > 0 ? ` (${dirtyRows.length})` : ""}`}
+        </Button>
       </CardHeader>
       <CardContent>
         <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -155,7 +238,7 @@ const ServicePricingManager = () => {
                     </thead>
                     <tbody>
                       {serviceRows.map((row) => (
-                        <tr key={row.id} className="border-b">
+                        <tr key={row.id} className={`border-b ${isRowDirty(row) ? "bg-amber-50 dark:bg-amber-950/20" : ""}`}>
                           <td className="p-2">
                             <Input type="number" value={row.tier_index}
                               onChange={(e) => updateRow(row.id, { tier_index: Number(e.target.value) })}
