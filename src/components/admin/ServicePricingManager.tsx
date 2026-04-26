@@ -139,6 +139,7 @@ const ServicePricingManager = () => {
     if (error) {
       toast({ title: "Save failed", description: error.message, variant: "destructive" });
     } else {
+      setOriginalRows((prev) => prev.map((r) => (r.id === row.id ? { ...row } : r)));
       toast({ title: "Saved", description: "Pricing tier updated." });
     }
   };
