@@ -174,6 +174,7 @@ const ServicePricingManager = () => {
       toast({ title: "Add failed", description: error.message, variant: "destructive" });
     } else if (data) {
       setRows((prev) => [...prev, data as PricingRow]);
+      setOriginalRows((prev) => [...prev, data as PricingRow]);
       toast({ title: "Added", description: "New tier created." });
     }
   };
