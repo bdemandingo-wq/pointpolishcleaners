@@ -117,11 +117,13 @@ serve(async (req) => {
     // Send customer + admin emails (don't fail one if the other fails)
     const results = await Promise.allSettled([
       sendEmail(booking.customerEmail, "Your Point Polish Cleaners booking is confirmed ✨", customerHtml(booking)),
-      sendEmail(ADMIN_EMAIL, `New booking: ${booking.customerName} — ${booking.preferredDate}`, adminHtml(booking)),
+      ...ADMIN_EMAILS.map((adminEmail) =>
+        sendEmail(adminEmail, `New booking: ${booking.customerName} — ${booking.preferredDate}`, adminHtml(booking))
+      ),
     ]);
 
     const customerOk = results[0].status === "fulfilled";
-    const adminOk = results[1].status === "fulfilled";
+    const adminOk = results.slice(1).some((r) => r.status === "fulfilled");
 
     return new Response(
       JSON.stringify({ success: customerOk || adminOk, customerEmailSent: customerOk, adminEmailSent: adminOk }),
