@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const ADMIN_EMAIL = "support@pointpolishcleaners.com";
+const ADMIN_EMAILS = ["support@pointpolishcleaners.com", "quentinstepney4@gmail.com"];
 const FROM_EMAIL = "Point Polish Cleaners <support@pointpolishcleaners.com>";
 
 const corsHeaders = {
@@ -117,11 +117,13 @@ serve(async (req) => {
     // Send customer + admin emails (don't fail one if the other fails)
     const results = await Promise.allSettled([
       sendEmail(booking.customerEmail, "Your Point Polish Cleaners booking is confirmed ✨", customerHtml(booking)),
-      sendEmail(ADMIN_EMAIL, `New booking: ${booking.customerName} — ${booking.preferredDate}`, adminHtml(booking)),
+      ...ADMIN_EMAILS.map((adminEmail) =>
+        sendEmail(adminEmail, `New booking: ${booking.customerName} — ${booking.preferredDate}`, adminHtml(booking))
+      ),
     ]);
 
     const customerOk = results[0].status === "fulfilled";
-    const adminOk = results[1].status === "fulfilled";
+    const adminOk = results.slice(1).some((r) => r.status === "fulfilled");
 
     return new Response(
       JSON.stringify({ success: customerOk || adminOk, customerEmailSent: customerOk, adminEmailSent: adminOk }),
