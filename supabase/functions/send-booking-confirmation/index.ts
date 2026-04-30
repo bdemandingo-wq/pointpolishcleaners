@@ -1,10 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
-const OPENPHONE_API_KEY = Deno.env.get("OPENPHONE_API_KEY");
-const OPENPHONE_PHONE_NUMBER_ID = "PNr7XukuaV";
-const ADMIN_PHONE_NUMBER = "+19045139002";
-const PERSONAL_PHONE_NUMBER = "+18137356859";
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const ADMIN_EMAIL = "support@pointpolishcleaners.com";
+const FROM_EMAIL = "Point Polish Cleaners <onboarding@resend.dev>";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -29,80 +28,103 @@ const bookingSchema = z.object({
   petInfo: z.string().max(500).optional().nullable(),
 });
 
+async function sendEmail(to: string, subject: string, html: string) {
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({ from: FROM_EMAIL, to: [to], subject, html }),
+  });
+  const text = await res.text();
+  if (!res.ok) {
+    console.error(`Resend error [${res.status}] for ${to}:`, text);
+    throw new Error(`Resend ${res.status}: ${text}`);
+  }
+  console.log(`Email sent to ${to}`);
+  return text;
+}
+
+function customerHtml(b: z.infer<typeof bookingSchema>) {
+  const addOns = b.addOns.length > 0 ? b.addOns.join(", ") : "None";
+  return `
+  <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a;">
+    <div style="background:#0C8A9E;padding:24px;text-align:center;">
+      <h1 style="color:#fff;margin:0;font-family:Georgia,serif;">Booking Confirmed ✨</h1>
+    </div>
+    <div style="padding:24px;background:#FAFAF9;">
+      <p>Hi ${b.customerName},</p>
+      <p>Thank you for booking with <strong>Point Polish Cleaners</strong>! We've received your request and will contact you within <strong>15 minutes</strong> to confirm your appointment time.</p>
+      <h3 style="color:#0C8A9E;border-bottom:2px solid #0C8A9E;padding-bottom:6px;">Booking Details</h3>
+      <table style="width:100%;border-collapse:collapse;">
+        <tr><td style="padding:6px 0;"><strong>Date:</strong></td><td>${b.preferredDate}</td></tr>
+        <tr><td style="padding:6px 0;"><strong>Service:</strong></td><td>${b.serviceType}</td></tr>
+        <tr><td style="padding:6px 0;"><strong>Frequency:</strong></td><td>${b.frequency}</td></tr>
+        <tr><td style="padding:6px 0;"><strong>Address:</strong></td><td>${b.address}</td></tr>
+        <tr><td style="padding:6px 0;"><strong>Property:</strong></td><td>${b.beds} bed, ${b.baths} bath (${b.sqft.toLocaleString()} sq ft)</td></tr>
+        <tr><td style="padding:6px 0;"><strong>Add-ons:</strong></td><td>${addOns}</td></tr>
+        <tr><td style="padding:6px 0;font-size:18px;"><strong>Total:</strong></td><td style="font-size:18px;color:#0C8A9E;"><strong>$${b.totalPrice}</strong></td></tr>
+      </table>
+      <p style="margin-top:24px;">Questions? Call us at <a href="tel:+19045139002" style="color:#0C8A9E;">(904) 513-9002</a>.</p>
+      <p>— The Point Polish Cleaners Team</p>
+    </div>
+  </div>`;
+}
+
+function adminHtml(b: z.infer<typeof bookingSchema>) {
+  const addOns = b.addOns.length > 0 ? b.addOns.join(", ") : "None";
+  return `
+  <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a;">
+    <h2 style="color:#0C8A9E;">🧽 New Website Booking</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td><strong>Customer:</strong></td><td>${b.customerName}</td></tr>
+      <tr><td><strong>Phone:</strong></td><td>${b.customerPhone}</td></tr>
+      <tr><td><strong>Email:</strong></td><td>${b.customerEmail}</td></tr>
+      <tr><td><strong>Date:</strong></td><td>${b.preferredDate}</td></tr>
+      <tr><td><strong>Service:</strong></td><td>${b.serviceType}</td></tr>
+      <tr><td><strong>Frequency:</strong></td><td>${b.frequency}</td></tr>
+      <tr><td><strong>Address:</strong></td><td>${b.address}</td></tr>
+      <tr><td><strong>Property:</strong></td><td>${b.beds} bed, ${b.baths} bath (${b.sqft.toLocaleString()} sq ft)</td></tr>
+      <tr><td><strong>Add-ons:</strong></td><td>${addOns}</td></tr>
+      <tr><td><strong>Total:</strong></td><td><strong>$${b.totalPrice}</strong></td></tr>
+      ${b.specialInstructions ? `<tr><td><strong>Notes:</strong></td><td>${b.specialInstructions}</td></tr>` : ""}
+      ${b.petInfo ? `<tr><td><strong>Pets:</strong></td><td>${b.petInfo}</td></tr>` : ""}
+    </table>
+  </div>`;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
+
     const rawData = await req.json();
     const parseResult = bookingSchema.safeParse(rawData);
     if (!parseResult.success) {
       console.error("Validation error:", parseResult.error.errors);
       return new Response(
-        JSON.stringify({ error: "Invalid input data" }),
+        JSON.stringify({ error: "Invalid input data", details: parseResult.error.flatten().fieldErrors }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
     const booking = parseResult.data;
-    if (!OPENPHONE_API_KEY) throw new Error("OpenPhone API key not configured");
 
-    // Format customer phone number
-    let customerPhone = booking.customerPhone.replace(/\D/g, "");
-    if (customerPhone.length === 10) {
-      customerPhone = "+1" + customerPhone;
-    } else if (!customerPhone.startsWith("+")) {
-      customerPhone = "+" + customerPhone;
-    }
+    // Send customer + admin emails (don't fail one if the other fails)
+    const results = await Promise.allSettled([
+      sendEmail(booking.customerEmail, "Your Point Polish Cleaners booking is confirmed ✨", customerHtml(booking)),
+      sendEmail(ADMIN_EMAIL, `New booking: ${booking.customerName} — ${booking.preferredDate}`, adminHtml(booking)),
+    ]);
 
-    const addOnsList = booking.addOns.length > 0 ? booking.addOns.join(", ") : "None";
-
-    // SMS to admin
-    const adminSms = `New website booking!\n\nCustomer: ${booking.customerName}\nPhone: ${booking.customerPhone}\nEmail: ${booking.customerEmail}\nService: ${booking.serviceType}\nDate: ${booking.preferredDate}\nAddress: ${booking.address}\n${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)\nFrequency: ${booking.frequency}\nAdd-Ons: ${addOnsList}\nTotal: $${booking.totalPrice}\n${booking.specialInstructions ? `Notes: ${booking.specialInstructions}` : ""}${booking.petInfo ? `\nPets: ${booking.petInfo}` : ""}\n\nLog in to your dashboard to view details.`;
-
-    const adminRes = await fetch("https://api.openphone.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: OPENPHONE_API_KEY },
-      body: JSON.stringify({ content: adminSms, from: OPENPHONE_PHONE_NUMBER_ID, to: [ADMIN_PHONE_NUMBER] }),
-    });
-
-    if (!adminRes.ok) {
-      console.error("Admin SMS error:", await adminRes.text());
-    } else {
-      console.log("Admin SMS sent");
-    }
-
-    // Send to personal number
-    const personalRes = await fetch("https://api.openphone.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: OPENPHONE_API_KEY },
-      body: JSON.stringify({ content: adminSms, from: OPENPHONE_PHONE_NUMBER_ID, to: [PERSONAL_PHONE_NUMBER] }),
-    });
-
-    if (!personalRes.ok) {
-      console.error("Personal SMS error:", await personalRes.text());
-    } else {
-      console.log("Personal SMS sent");
-    }
-
-    // SMS to customer
-    const customerSms = `✅ Point Polish Cleaners Booking Confirmed!\n\n📅 Date: ${booking.preferredDate}\n🧽 Service: ${booking.serviceType}\n📍 Address: ${booking.address}\n🏠 ${booking.beds} bed, ${booking.baths} bath (${booking.sqft.toLocaleString()} sq ft)\n🔄 Frequency: ${booking.frequency}\n💰 Total: $${booking.totalPrice}\n\nPlease be home for the final walkthrough.\n\nThank you for choosing Point Polish Cleaners! 💙`;
-
-    const customerRes = await fetch("https://api.openphone.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: OPENPHONE_API_KEY },
-      body: JSON.stringify({ content: customerSms, from: OPENPHONE_PHONE_NUMBER_ID, to: [customerPhone] }),
-    });
-
-    if (!customerRes.ok) {
-      console.error("Customer SMS error:", await customerRes.text());
-    } else {
-      console.log("Customer SMS sent to:", customerPhone);
-    }
+    const customerOk = results[0].status === "fulfilled";
+    const adminOk = results[1].status === "fulfilled";
 
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ success: customerOk || adminOk, customerEmailSent: customerOk, adminEmailSent: adminOk }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
