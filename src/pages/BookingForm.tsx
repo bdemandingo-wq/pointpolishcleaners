@@ -131,6 +131,30 @@ const BookingForm = () => {
         console.error("SMS notification error:", smsError);
       }
 
+      // Send confirmation emails (customer + admin) via Resend
+      try {
+        await supabase.functions.invoke("send-booking-confirmation", {
+          body: {
+            customerName: formData.name,
+            customerEmail: formData.email,
+            customerPhone: formData.phone,
+            address: formData.address,
+            beds: formData.beds,
+            baths: formData.baths,
+            sqft: booking.sqft,
+            frequency: booking.frequency,
+            serviceType: booking.serviceType,
+            addOns: booking.addOns,
+            totalPrice: booking.totalPrice,
+            preferredDate: preferredDate ? format(preferredDate, "EEEE, MMMM d, yyyy") : "Not specified",
+            specialInstructions: `${formData.accessInstructions}\n\nFocus Areas: ${formData.focusAreas}`.trim() || null,
+            petInfo: formData.hasPets !== "no" ? `${formData.hasPets} - ${formData.petDetails}` : null,
+          },
+        });
+      } catch (emailError) {
+        console.error("Email notification error:", emailError);
+      }
+
       navigate("/confirmation", {
         state: {
           ...booking,
