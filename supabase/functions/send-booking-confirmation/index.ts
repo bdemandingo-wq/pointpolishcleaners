@@ -3,7 +3,7 @@ import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const ADMIN_EMAIL = "support@pointpolishcleaners.com";
-const FROM_EMAIL = "Point Polish Cleaners <onboarding@resend.dev>";
+const FROM_EMAIL = "Point Polish Cleaners <support@pointpolishcleaners.com>";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
